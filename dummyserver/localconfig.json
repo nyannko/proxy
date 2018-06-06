@@ -1,0 +1,6 @@
+{
+  "server":"xxx",
+  "server_port":50000,
+  "local_port":40000,
+  "password":"xxx"
+}
