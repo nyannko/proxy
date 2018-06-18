@@ -12,35 +12,29 @@ from pyipv8.ipv8.peer import Peer
 
 import socket
 import struct
-import select
-import time
 import threading
 import logging
 
+logging.basicConfig(level=logging.DEBUG, format='%(levelname)s %(thread)d %(funcName)s %(message)s')
+
 
 class MyMessage(Payload):
-    # When reading data, we unpack an unsigned integer from it.
     format_list = ['raw']
 
     def __init__(self, message):
         self.message = message
 
     def to_pack_list(self):
-        # We convert this object by writing 'self.clock' as
-        # an unsigned int. This conforms to the 'format_list'.
         return [('raw', self.message)]
 
     @classmethod
     def from_unpack_list(cls, message):
-        # We received arguments in the format of 'format_list'.
-        # We instantiate our class using the unsigned int we
-        # read from the raw input.
         return cls(message)
 
 
 key1 = ECCrypto().generate_key(u"medium")
 # master_peer_init = Peer(key1)
-print key1.pub().key_to_bin().encode('HEX')
+logging.info(key1.pub().key_to_bin().encode('HEX'))
 # master_peer_init = Peer(key1.pub().key_to_bin().encode('HEX').decode('HEX'))
 master_peer_init = Peer(
     "307e301006072a8648ce3d020106052b81040024036a00040046d529db97b697d56b33d7935cd9213df309a7c3eb96a15c494ee72697f1d192c649d0666e903977de4a412649a28c970af0940155bfe7d7e0abd13e0bf7673b65f087a976deac412464c4959da06cc36945eee5017ec2007cca71841c6cddce8a84e525e64c88".decode(
@@ -52,19 +46,14 @@ class MyServer(Community):
 
     def __init__(self, my_peer, endpoint, network):
         super(MyServer, self).__init__(my_peer, endpoint, network)
-        # Register the message handler for messages with the
-        # chr(1) identifier.
         self.decode_map[chr(1)] = self.on_message
-        self.remote = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.remote.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.addrset = set()
-        self.HOST = '127.0.0.1'
-        self.PORT = '50000'
+        self.addr_set = set()
+        self.conn_socks = {}
 
     def started(self):
         def start_communication():
             for p in self.get_peers():
-                self.addrset.add(p)
+                self.addr_set.add(p)
 
         self.register_task("start_communication", LoopingCall(start_communication)).start(1.0, True)
 
@@ -74,70 +63,84 @@ class MyServer(Community):
         payload = MyMessage(message).to_pack_list()
         return self._ez_pack(self._prefix, 1, [auth, dist, payload])
 
+    # Message API
     def on_message(self, source_address, data):
         auth, dist, payload = self._ez_unpack_auth(MyMessage, data)
         request_from_client = payload.message
-        print self.my_peer, "client requests:", request_from_client, source_address
+        logging.debug(self.my_peer, "client requests:", request_from_client, source_address)
         self.handle_con(request_from_client)
+
+    def create_socket(self):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        return sock
 
     def handle_con(self, request):
         stage = request[-6:]
-        print "stage is {}".format(stage)
         if stage == 'stage1':
-            print repr(request)
-            conn_type = struct.unpack(">B", request[0])[0]
+            logging.debug("stage 1, {}".format(request))
+            # '\x00\x00\x00\x01\x03\x0ewww.moe.edu.cn\x00Pstage1'
+            id, = struct.unpack("!i", request[0:4])
+
+            conn_type, = struct.unpack(">B", request[4])
             address, fqdn = "", ""
             if conn_type == 1:
-                # address = struct.unpack(">H",request[1:4])[0]
-                address = socket.inet_ntoa(request[1:4])
+                address = socket.inet_ntoa(request[6:9])
             if conn_type == 3:
-                length = struct.unpack(">B", request[1])[0]
-                print "request:{}, length:{}".format(request[1], length)
-                fqdn = request[2:2 + length]
+                length, = struct.unpack(">B", request[5])
+                logging.debug("request:{}, length:{}".format(request[5], length))
+                fqdn = request[6:6 + length]
             if conn_type == 4:
-                address = struct.unpack(">H", request[1:16])[0]
-            port_number = struct.unpack(">H", request[-8:-6])[0]
-
-            print "conn type:{}, address:{}, fqdn:{}, port number:{}".format(conn_type, address, fqdn, port_number)
+                address, = struct.unpack(">H", request[1:16])
+            port_number, = struct.unpack(">H", request[-8:-6])
+            logging.debug(
+                "conn type:{}, address:{}, fqdn:{}, port number:{}".format(conn_type, address, fqdn, port_number))
 
             port = int(port_number)
-            self.HOST = fqdn
-            self.PORT = port
-
-            print "Stage 1 finished, start to connect to website {}:{}".format(fqdn, port)
+            self.conn_socks[id] = (fqdn, port)
 
         else:
-            print "Start stage 2, connect to remote website"
-            if self.PORT == 80:
-                self.remote = socket.create_connection((self.HOST, self.PORT))
-            else:
-                try:
-                    host, port = self.remote.getpeername()
-                    print "remote pair", host, port
-                except:
-                    print "handle exception, create connection to"
-                    # if hostname doesn't exist
-                    self.remote = socket.create_connection((self.HOST, self.PORT))
+            id, = struct.unpack(">i", request[0:4])
+            logging.info("Start stage 2, connect to remote website")
+            fqdn, port = self.conn_socks[id]
+            logging.debug(self.conn_socks)
+            logging.debug(fqdn, port)
+            new_request = request[4:]
+            logging.debug(new_request)
 
-            self.handle_tcp(request)
+            if port == 80:
+                threading.Thread(target=self.start_remote_sock, args=(fqdn, port, new_request, request[0:4])).start()
 
-    def handle_tcp(self, request):
-        print "The length of request", len(request)
-        addr = [p.address for p in self.addrset]
+            # else:
+            #     try:
+            #         sock = self.create_socket()
+            #         host, port = sock.getpeername()
+            #         print "remote pair", host, port
+            #         print "handle exception, create connection to"
+            #         # if hostname doesn't exist
+            #     except Exception as e:
+            #         # sock = socket.create_connection((self.HOST, self.PORT))
+            #         print e
+
+    def start_remote_sock(self, fqdn, port, newrequest, id):
+        sock = socket.create_connection((fqdn, port))
+        self.handle_tcp(sock, newrequest, id)
+
+    def handle_tcp(self, sock, request, id):
+        logging.debug("The length of request: {}, id: {}".format(len(request), repr(id)))
+        addr = [p.address for p in self.addr_set]
         if request:
-            print request
-            self.remote.sendall(request)
+            sock.sendall(request)
             response = ''
             while True:
-                data = self.remote.recv(4096)
+                data = sock.recv(4096)
                 if not data:
                     break
-                packet = self.create_message(data)
+                packet = self.create_message(id + data)
                 self.endpoint.send(addr[0], packet)
                 response += data
-            print "response:{}, length:{}".format(response, len(response))
-            print "sent done"
-            # self.remote.close()
+            logging.info("response length:{}".format(len(response)))
+            logging.info("sent done")
 
 
 _COMMUNITIES['MyServer'] = MyServer
@@ -165,14 +168,3 @@ for i in [1]:
     IPv8(configuration)
 
 reactor.run()
-
-# example request
-# request = "GET / HTTP/1.1\r\n" + \
-#           "Host: www.moe.edu.cn\r\n" + \
-#           "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:60.0) Gecko/20100101 Firefox/60.0\r\n" + \
-#           "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n" + \
-#           "Accept-Language: en-US,en;q=0.5\r\n" + \
-#           "Accept-Encoding: gzip, deflate\r\n" + \
-#           "DNT: 1\r\n" + \
-#           "Connection: keep-alive\r\n" + \
-#           "Upgrade-Insecure-Requests: 1\r\n\r\n"

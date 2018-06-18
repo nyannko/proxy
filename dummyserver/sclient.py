@@ -65,27 +65,39 @@ class MyClient(Community):
 
         # self.register_task("start_communication", LoopingCall(start_communication)).start(20.0, True)
         self.register_task("start_communication", Deferred().addCallback(start_communication))
-        threads.deferToThread(self.start_socks5_server())
-        # self.start_socks5_server()
 
-    def start_socks5_server(self):
+        socketServer = self.create_srv_socket()
+        for i in range(100):
+            threads.deferToThread(self.start_socks5_server, socketServer)
+        #self.start_socks5_server(socketServer)
+
+    def create_srv_socket(self):
         socketServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socketServer.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         socketServer.bind((self.HOST, self.PORT))
-        socketServer.listen(1)
+        socketServer.listen(5)
+        return socketServer
 
+    def start_socks5_server(self, socketServer):
         try:
             while True:
                 sock, addr = socketServer.accept()
-                print "Connection from %s:%s" % addr
-                t = threading.Thread(target=self.handle_socks, args=(sock,))
-                t.start()
-                # self.handle_socks(sock, )
+                print "Receive connection from {}".format(addr)
+                self.handle_conversation(sock, addr)
         except socket.error as e:
             logging.error(e)
         except KeyboardInterrupt:
             socketServer.close()
+
+    def handle_conversation(self, sock, addr):
+        try:
+            while True:
+                self.handle_socks(sock)
+        except Exception as e:
+            print "Client {} error {}".format(addr, e)
+        finally:
+            sock.close()
 
     def handle_socks(self, sock):
 

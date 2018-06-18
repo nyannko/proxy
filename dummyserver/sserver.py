@@ -1,4 +1,4 @@
-from twisted.internet import reactor
+from twisted.internet import reactor, threads
 from twisted.internet.task import LoopingCall
 from twisted.internet.defer import Deferred
 
@@ -66,29 +66,38 @@ class MyServer(Community):
 
         # self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True)
         self.register_task("start_communication", Deferred().addCallback(start_communication))
-        self.start_socks5_server()
 
-    def start_socks5_server(self):
+        socketServer = self.create_srv_server()
+        for i in range(100):
+            threads.deferToThread(self.start_socks5_server, socketServer)
 
+    def create_srv_server(self):
         socketServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socketServer.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
         socketServer.bind((self.HOST, self.PORT))
         print "Local client(socks5 server for browser) listening at: {}:{}".format(self.HOST, self.PORT)
+        socketServer.listen(5)
+        return socketServer
 
-        socketServer.listen(1)
-
+    def start_socks5_server(self, socketServer):
         try:
             while True:
                 sock, addr = socketServer.accept()
                 print "Receive connection from {}".format(addr)
-                t = threading.Thread(target=self.handle_con, args=(sock,))
-                t.start()
-                # self.handle_con(sock,)
+                self.handle_conversation(sock, addr)
         except socket.error as e:
             logging.error(e)
         except KeyboardInterrupt:
             socketServer.close()
+
+    def handle_conversation(self, sock, addr):
+        try:
+            while True:
+                self.handle_con(sock)
+        except Exception as e:
+            print "Client {} error: {}".format(addr, e)
+        finally:
+            sock.close()
 
     def create_message(self, message):
         # Create a message with our digital signature on it.
