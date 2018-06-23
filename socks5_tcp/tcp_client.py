@@ -6,19 +6,20 @@ import select
 
 logging.basicConfig(level=logging.DEBUG, format='%(levelname)s %(thread)d %(funcName)s %(message)s')
 
-class MyClient(object):
+
+class Client(object):
 
     def __init__(self):
         self.HOST = "127.0.0.1"
         self.PORT = 40000
 
     def create_srv_socket(self):
-        socketServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        socketServer.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        logging.info("Local client(socks5 server for browser) listening at: {}:{}".format(self.HOST, self.PORT))
-        socketServer.bind((self.HOST, self.PORT))
-        socketServer.listen(5)
-        return socketServer
+        socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        logging.info("Local client(socks5_twisted server for browser) listening at: {}:{}".format(self.HOST, self.PORT))
+        socket_server.bind((self.HOST, self.PORT))
+        socket_server.listen(5)
+        return socket_server
 
     def start_socks5_server(self, socketServer):
         try:
@@ -74,8 +75,8 @@ class MyClient(object):
         addr_to_send += port
 
         logging.debug("Handle request from client: " + \
-              "Address type: {}, address: {}, fqdn: {}, port number: {}" \
-                  .format(addr_type, address, fqdn, port_number))
+                      "Address type: {}, address: {}, fqdn: {}, port number: {}" \
+                      .format(addr_type, address, fqdn, port_number))
 
         logging.debug(addr_to_send)
 
@@ -116,9 +117,12 @@ class MyClient(object):
             remote.close()
 
 
-if __name__ == "__main__":
-    client = MyClient()
-    socketServer = client.create_srv_socket()
+def test_client():
+    client = Client()
+    socket_server = client.create_srv_socket()
     for i in range(10):
-        threading.Thread(target=client.start_socks5_server, args=(socketServer,)).start()
-    # client.start_socks5_server(socketServer)
+        threading.Thread(target=client.start_socks5_server, args=(socket_server,)).start()
+
+
+if __name__ == "__main__":
+    test_client()

@@ -75,7 +75,7 @@ class MyServer(Community):
         socketServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socketServer.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         socketServer.bind((self.HOST, self.PORT))
-        print "Local client(socks5 server for browser) listening at: {}:{}".format(self.HOST, self.PORT)
+        print "Local client(socks5_twisted server for browser) listening at: {}:{}".format(self.HOST, self.PORT)
         socketServer.listen(5)
         return socketServer
 

@@ -6,19 +6,20 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG, format='%(levelname)s %(thread)d %(funcName)s %(message)s')
 
-class MyServer(object):
+
+class Server(object):
 
     def __init__(self):
         self.HOST = "127.0.0.1"
         self.PORT = 50000
 
     def create_srv_server(self):
-        socketServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        socketServer.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        socketServer.bind((self.HOST, self.PORT))
-        logging.info("Local client(socks5 server for browser) listening at: {}:{}".format(self.HOST, self.PORT))
-        socketServer.listen(5)
-        return socketServer
+        socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        socket_server.bind((self.HOST, self.PORT))
+        logging.info("Local client(socks5_twisted server for browser) listening at: {}:{}".format(self.HOST, self.PORT))
+        socket_server.listen(5)
+        return socket_server
 
     def start_socks5_server(self, socketServer):
         try:
@@ -84,9 +85,12 @@ class MyServer(object):
             remote.close()
 
 
-if __name__ == '__main__':
-    server = MyServer()
-    socketServer = server.create_srv_server()
+def test_server():
+    server = Server()
+    socket_server = server.create_srv_server()
     for i in range(10):
-        threading.Thread(target=server.start_socks5_server, args=(socketServer,)).start()
-    # server.start_socks5_server(socketServer)
+        threading.Thread(target=server.start_socks5_server, args=(socket_server,)).start()
+
+
+if __name__ == '__main__':
+    test_server()
