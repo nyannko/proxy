@@ -24,6 +24,9 @@
 ######################
 *.log
 *.sqlite
+*.db
+*.db-shm
+*.db-wal
 
 # OS generated files #
 ######################

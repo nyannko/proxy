@@ -19,6 +19,10 @@ class Socks5Protocol(protocol.Protocol):
         self.buffer = None
         self.client_protocol = None
 
+    def connectionMade(self):
+        address = self.transport.getPeer()
+        logging.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
+
     def dataReceived(self, data):
 
         if self.state == 'NEGOTIATION':
