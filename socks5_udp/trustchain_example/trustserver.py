@@ -8,6 +8,8 @@ from pyipv8.ipv8.configuration import get_default_configuration
 from pyipv8.ipv8.peer import Peer
 from pyipv8.ipv8_service import _COMMUNITIES, IPv8
 
+from twisted.python import log
+
 
 class DummyBlock(TrustChainBlock):
     """
@@ -37,27 +39,39 @@ class TrustServer(TrustChainCommunity):
 
     def __init__(self, my_peer, endpoint, network):
         super(TrustServer, self).__init__(my_peer, endpoint, network)
-        self.my_key = self.my_peer.public_key.key_to_bin()
+        # self.add_listener(TestBlockListener(), ['test'])
+        # self.my_key = self.my_peer.public_key.key_to_bin()
         self.his_pubkey = ''
+        self.count = 0
+        self._balance = 0
 
     def started(self):
         def start_communication():
             for p in self.get_peers():
                 print "New host {} join the network".format(p)
-                if not self.his_pubkey:
-                    self.his_node = p
-                    self.his_pubkey = p.public_key.key_to_bin()
-                    self.send_sign()
-                    # self.check_db()
+                self.my_key = self.my_peer.public_key.key_to_bin()
+                self.his_node = p
+                self.his_pubkey = p.public_key.key_to_bin()
+                self.send_sign()
+                self.check_db(self.count)
 
-        self.register_task("start_communication", LoopingCall(start_communication)).start(1.0, True)
+        self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True) \
+            .addErrback(log.err)
 
     def send_sign(self):
-        self.sign_block(self.his_node, public_key=self.his_pubkey, block_type='test', transaction={})
-        print self.his_node, self.his_pubkey
+        transaction = self.create_transaction()
+        print transaction
+        self.sign_block(self.his_node, public_key=self.his_pubkey, block_type='test', transaction=transaction)
 
-    def check_db(self):
-        print self.persistence.get(self.my_key)
+    def create_transaction(self):
+        debit = 1
+        credit = 0
+        self._balance += debit - credit
+        bill = {'identity': 'server->', "debit": debit, "credit": credit, "balance": self._balance}
+        return bill
+
+    def check_db(self, count):
+        print "from persistence", count, self.persistence.get(self.my_key, count)
 
 
 def trust_server():
