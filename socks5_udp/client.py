@@ -1,10 +1,9 @@
 from twisted.internet import reactor, protocol
 from twisted.internet.protocol import Factory
 from twisted.internet.task import LoopingCall
+from twisted.python import log
 
 from pyipv8.ipv8.attestation.trustchain.community import TrustChainCommunity
-from pyipv8.ipv8.deprecated.community import Community
-from pyipv8.ipv8.deprecated.payload import Payload
 from pyipv8.ipv8.deprecated.payload_headers import BinMemberAuthenticationPayload, GlobalTimeDistributionPayload
 from pyipv8.ipv8_service import _COMMUNITIES, IPv8
 from pyipv8.ipv8.configuration import get_default_configuration
@@ -12,31 +11,22 @@ from pyipv8.ipv8.peer import Peer
 
 import socket
 import struct
-import logging
 import os
 
-import sqlite3
 import time
+import random
 
 from payload import IdentityRequestPayload, IdentityResponsePayload, TargetAddressPayload, Message, PayoutPayload
-from socks5_udp.database import ProxyDatabase
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
-logger.addHandler(ch)
-
-# master_peer_init = Peer(
-#     "307e301006072a8648ce3d020106052b81040024036a00040046d529db97b697d56b33d7935cd9213df309a7c3eb96a15c494ee72697f1d192c649d0666e903977de4a412649a28c970af0940155bfe7d7e0abd13e0bf7673b65f087a976deac412464c4959da06cc36945eee5017ec2007cca71841c6cddce8a84e525e64c88".decode(
-#         'HEX'))
 
 master_peer_init = Peer(
-    "307e301006072a8648ce3d020106052b81040024036a000401142bae9f90e77434a6ddda16c9bc913a3440366b9eedc9e57a660789e10aa3f470c1f7ae769083a3494be79ad78165caed85da009a7e897bd51e531e9fd90465c038993d2bbe6646b592872cb432c818ce9fa6e3ae0382a76d39ef982fb85801279def1409a86a".decode(
-        'HEX'))
+    "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
+        .decode('HEX'))
 
 
-class Client(Community):
+class Client(TrustChainCommunity):
     master_peer = master_peer_init
+
+    DB_NAME = 'trustchain_client'
 
     def __init__(self, my_peer, endpoint, network):
         super(Client, self).__init__(my_peer, endpoint, network)
@@ -44,11 +34,7 @@ class Client(Community):
         self.server_dict = {}
         self.socks5_factory = Socks5Factory(self)
 
-        self.database = ProxyDatabase(working_directory='.', db_name='client_ledger')
-        self._balance = self.get_balance()
-        if self._balance == 0:
-            self.set_balance(1000)
-        logger.info("init balance: %s", self._balance)
+        self._balance = 0
 
         self.decode_map.update({
             chr(7): self.on_identity_request,
@@ -61,35 +47,27 @@ class Client(Community):
         def start_communication():
             for p in self.get_peers():
                 if p not in self.host_dict:
-                    print "New Host {} join the network".format(p)
+                    self.logger.info("New Host {} join the network".format(p))
                     self.send_identity_request("identity?", p)
                     self.host_dict.update({p: None})
 
-        self.register_task("start_communication", LoopingCall(start_communication)).start(1.0, True)
-        self.register_task("start_credit", LoopingCall(self.credit)).start(60.0, True)
+        self.register_task("start_communication", LoopingCall(start_communication)).start(1.0, True).addErrback(log.err)
 
-    def get_balance(self):
-        """
-        Get current balance from database
-        :return: balance
-        """
-        balance = self.database.get_balance()
-        return balance
-
-    def set_balance(self, balance):
-        self._balance = balance
-
-    def credit(self):
-        """
-        Insert token to database
-        :return: None
-        """
+    # run in an enclave(?)
+    def create_client_transaction(self):
         timestamp = int(round(time.time() * 1000))
         debit = 0
         credit = 1
         self._balance += debit - credit
-        self.database.debit(timestamp, debit, credit, self._balance)
-        logger.debug("Latest record in server database: %s", self.database.get_last())
+        bill = {'time': timestamp, 'identity': 'client->', 'debit': debit, 'credit': credit, 'balance': self._balance}
+        return bill
+
+    # choose a random peer to sign the tx
+    def send_sign(self):
+        random_peer = random.choice(self.host_dict.keys())
+        random_peer_pubkey = random_peer.public_key.key_to_bin()
+        transaction = self.create_client_transaction()
+        self.sign_block(random_peer, public_key=random_peer_pubkey, block_type='test', transaction=transaction)
 
     def create_identity_request(self, data):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
@@ -107,22 +85,23 @@ class Client(Community):
         if response == 'identity?':
             self.send_identity_response("client", source_address)
         else:
-            print "client id request error", response
+            self.logger("client id request error, {}".format(response))
 
     def on_identity_response(self, source_address, data):
         auth, dist, payload = self._ez_unpack_auth(IdentityResponsePayload, data)
         response = payload.message
-        # check server or client
+        # todo check server or client
         if response == 'server':
-            print "server comes from: ", source_address
-            print "update host dict", self.server_dict, self.host_dict
+            self.logger.info("server comes from: {}".format(source_address))
             for host in self.host_dict.keys():
                 if host.address == source_address:
                     self.server_dict.update({host: None})
-                    print "update server dict", self.server_dict
+                    self.logger.info("server.dict: {}, host.dict: {}".format(self.server_dict, self.host_dict))
+
+            self.register_task("start_credit", LoopingCall(self.send_sign)).start(30.0, True).addErrback(log.err)
 
         elif response == 'client':
-            print "client comes from: ", source_address
+            self.logger.info("client comes from: {}".format(source_address))
 
     def create_identity_response(self, data):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
@@ -139,17 +118,17 @@ class Client(Community):
         try:
             reactor.listenTCP(port, self.socks5_factory)
         except Exception as e:
-            print e.message
+            self.logger.debug(e.message)
             port += 1
             reactor.listenTCP(port, self.socks5_factory)
 
-        logger.debug("socks5_twisted server listening at port {}".format(port))
+        self.logger.info("socks5_twisted server listening at port {}".format(port))
 
     def create_target_address(self, data):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
         payload = TargetAddressPayload(data).to_pack_list()
-        print "payload", payload
+        # print "payload", payload
         return self._ez_pack(self._prefix, 9, [auth, dist, payload])
 
     def send_target_address(self, data, p):
@@ -160,7 +139,7 @@ class Client(Community):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
         payload = Message(message).to_pack_list()
-        print "payload message", payload
+        # print "payload message", payload
         return self._ez_pack(self._prefix, 10, [auth, dist, payload])
 
     def on_message(self, source_address, data):
@@ -168,14 +147,15 @@ class Client(Community):
 
         auth, dist, payload = self._ez_unpack_auth(Message, data)
         res = payload.message
-        print "onmessage", res
+        # print "onmessage", res
         seq_id = res[0:4]
+        # print seq_id
         response = res[4:]
-        print response
+        # print response
         # logging.debug("send back response id:{} to protocol:{}", repr(seq_id), self.socks5_factory.socks[seq_id])
-        print "self.socks5_factory.socks", self.socks5_factory.socks
-        print repr(seq_id), "browser!!!", repr(response)
-        print self.socks5_factory
+        # print "self.socks5_factory.socks", self.socks5_factory.socks
+        # print repr(seq_id), "browser!!!", repr(response)
+        # print self.socks5_factory
         self.socks5_factory.socks[seq_id].transport.write(response)
         # self.socks5_factory.socks.transport.write(response)
 
@@ -189,32 +169,33 @@ class Socks5Protocol(protocol.Protocol):
 
     def connectionMade(self):
         address = self.transport.getPeer()
-        logger.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
+        # logger.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
 
     def dataReceived(self, data):
         if self.state == 'NEGOTIATION':
-            logger.debug("1.start socks5_twisted handshake")
+            # logger.debug("1.start socks5_twisted handshake")
             self.handle_NEGOTIATION(data)
             self.state = 'REQUEST'
 
         elif self.state == 'REQUEST':
-            logger.debug("2.handshake success, start request phase")
+            # logger.debug("2.handshake success, start request phase")
             self.handle_REQUEST(data)
             self.state = 'TRANSMISSION'
 
         elif self.state == 'TRANSMISSION':
-            logger.debug("3.start data transmission")
+            # logger.debug("3.start data transmission")
             self.handle_TRANSMISSION(data)
 
     def handle_NEGOTIATION(self, data):
         self.transport.write('\x05\x00')
 
     def handle_REQUEST(self, data):
-        print "mydata2", data
+        # print "mydata2", data
         target_address, target_port = self.unpack_request_data(data)
         self.seq_id = self.get_ID()
-        print "ididididhandle", self.seq_id
+        # print "ididididhandle", self.seq_id
         target_address = self.seq_id + target_address
+        print self.seq_id
         # send id with address
         self.send_address(target_address)
 
@@ -226,25 +207,25 @@ class Socks5Protocol(protocol.Protocol):
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
         # seq_id = self.register_ID()
-        print "length of data", len(data)
-        print "idididid", self.seq_id
+        # print "length of data", len(data)
+        # print "idididid", self.seq_id
         self.send_data(self.seq_id + data)
 
         # check encode
         test_packet = self.socks5_factory.client.create_message(data)
         auth, dist, payload = self.socks5_factory.client._ez_unpack_auth(Message, test_packet)
-        if data == payload.message:
-            print "encode correct"
-        else:
-            print "encode wrong"
+        # if data == payload.message:
+        #     print "encode correct"
+        # else:
+        #     print "encode wrong"
         # check encode
 
         # self.send_data(self.seq_id, data)
-        print "whatsinsocks", self.socks5_factory
+        # print "whatsinsocks", self.socks5_factory
 
     def get_ID(self):
         self.socks5_factory.seq_id = '%04d' % (int(self.socks5_factory.seq_id) + 1)
-        print "id from client", self.socks5_factory.seq_id
+        # print "id from client", self.socks5_factory.seq_id
         # while seq_id not in self.socks5_factory.socks:
         seq_id = self.socks5_factory.seq_id
         self.socks5_factory.socks[seq_id] = self
@@ -252,7 +233,7 @@ class Socks5Protocol(protocol.Protocol):
 
     def register_ID(self):
         seq_id = os.urandom(4)
-        print "id from client", repr(seq_id)
+        # print "id from client", repr(seq_id)
         while seq_id not in self.socks5_factory.socks:
             self.socks5_factory.socks[seq_id] = self
         return seq_id
@@ -273,7 +254,7 @@ class Socks5Protocol(protocol.Protocol):
         offset += 1
 
         if addr_type == 1:
-            logging.debug(socket.inet_ntoa(data[offset: offset + 4]))
+            # logging.debug(socket.inet_ntoa(data[offset: offset + 4]))
             target_address += data[offset: offset + 4]
             offset += 4
 
@@ -284,11 +265,11 @@ class Socks5Protocol(protocol.Protocol):
 
         port, = struct.unpack('>H', data[offset:offset + 2])
         target_address += data[offset:offset + 2]
-        logger.debug("version:{}, cmd:{}, addr_type:{}, port:{}".format(socks_version, cmd, addr_type, port))
+        # logger.debug("version:{}, cmd:{}, addr_type:{}, port:{}".format(socks_version, cmd, addr_type, port))
 
         reply = b'\x05\x00\x00\x01'
         host_address = self.transport.getHost()
-        logging.debug("socks5_twisted send success message to {}".format(host_address))
+        # logging.debug("socks5_twisted send success message to {}".format(host_address))
         reply += ''.join(self.get_packed_address(host_address))
         self.transport.write(reply)
 
@@ -316,7 +297,7 @@ class Socks5Protocol(protocol.Protocol):
     def connectionLost(self, reason):
         # if self.seq_id in self.socks5_factory.socks:
         #     del self.socks5_factory.socks[self.seq_id]
-        logger.debug("connection lost:{}".format(reason.getErrorMessage()))
+        # logger.debug("connection lost:{}".format(reason.getErrorMessage()))
         self.transport.loseConnection()
 
 
@@ -338,9 +319,12 @@ def client():
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
-            'generation': u"medium",
+            'generation': u"curve25519",
             'file': u"ec%d.pem" % i
         }]
+        configuration['logger'] = {
+            'level': 'DEBUG'
+        }
         configuration['overlays'] = [{
             'class': 'Client',
             'key': "my peer",

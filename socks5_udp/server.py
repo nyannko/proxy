@@ -1,8 +1,9 @@
 from twisted.internet import reactor, protocol
 from twisted.internet.task import LoopingCall
 from twisted.internet.protocol import ClientFactory
+from twisted.python import log
 
-from pyipv8.ipv8.deprecated.community import Community
+from pyipv8.ipv8.attestation.trustchain.community import TrustChainCommunity
 from pyipv8.ipv8.deprecated.payload_headers import BinMemberAuthenticationPayload, GlobalTimeDistributionPayload
 from pyipv8.ipv8.keyvault.crypto import ECCrypto
 from pyipv8.ipv8_service import _COMMUNITIES, IPv8
@@ -13,31 +14,26 @@ import socket
 import struct
 import logging
 import time
+import random
 
 from socks5_udp.database import ProxyDatabase
 from socks5_udp.payload import IdentityRequestPayload, IdentityResponsePayload, TargetAddressPayload, Message
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
-logger.addHandler(ch)
 
 key1 = ECCrypto().generate_key(u"medium")
 # master_peer_init = Peer(key1)
 logging.info(key1.pub().key_to_bin().encode('HEX'))
 # master_peer_init = Peer(key1.pub().key_to_bin().encode('HEX').decode('HEX'))
-print key1.pub().key_to_bin().encode('HEX')
-# master_peer_init = Peer(
-#     "307e301006072a8648ce3d020106052b81040024036a00040046d529db97b697d56b33d7935cd9213df309a7c3eb96a15c494ee72697f1d192c649d0666e903977de4a412649a28c970af0940155bfe7d7e0abd13e0bf7673b65f087a976deac412464c4959da06cc36945eee5017ec2007cca71841c6cddce8a84e525e64c88".decode(
-#         'HEX'))
+# print key1.pub().key_to_bin().encode('HEX')
 
 master_peer_init = Peer(
-    "307e301006072a8648ce3d020106052b81040024036a000401142bae9f90e77434a6ddda16c9bc913a3440366b9eedc9e57a660789e10aa3f470c1f7ae769083a3494be79ad78165caed85da009a7e897bd51e531e9fd90465c038993d2bbe6646b592872cb432c818ce9fa6e3ae0382a76d39ef982fb85801279def1409a86a".decode(
-        'HEX'))
+    "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
+        .decode('HEX'))
 
 
-class Server(Community):
+class Server(TrustChainCommunity):
     master_peer = master_peer_init
+
+    DB_NAME = 'trustchain_server'
 
     def __init__(self, my_peer, endpoint, network):
         super(Server, self).__init__(my_peer, endpoint, network)
@@ -49,10 +45,7 @@ class Server(Community):
         self.buffer = None
         self.client_protocol = None
         self.factories = {}
-
-        self.database = ProxyDatabase(working_directory='.', db_name='server_ledger')
-        self._balance = self.get_balance()
-        logger.info("init balance: %s", self._balance)
+        self._balance = 0
 
         self.decode_map.update({
             chr(7): self.on_identity_request,
@@ -66,38 +59,32 @@ class Server(Community):
         def start_communication():
             for p in self.get_peers():
                 if p not in self.host_dict:
-                    print "New host {} join the network".format(p)
+                    self.logger.info("New host {} join the network".format(p))
                     self.send_identity_request("identity?", p)
                     self.host_dict.update({p: None})
 
                     # print "all blocks", len(self.persistence.get_all_blocks())
 
-        self.register_task("start_communication", LoopingCall(start_communication)).start(1.0, True)
-        self.register_task("on_payment", LoopingCall(self.debit)).start(60.0, True)
+        self.register_task("start_communication", LoopingCall(start_communication)).start(1.0, True).addErrback(log.err)
 
-    def get_balance(self):
-        """
-        Get current balance from database
-        :return: balance
-        """
-        balance = self.database.get_balance()
-        return balance
-
-    def debit(self):
-        """
-        Insert token to database
-        :return: None
-        """
+    # run in an enclave(?)
+    def create_server_transaction(self):
         timestamp = int(round(time.time() * 1000))
         debit = 1
         credit = 0
         self._balance += debit - credit
-        self.database.debit(timestamp, debit, credit, self._balance)
-        logger.debug("Latest record in server database: %s", self.database.get_last())
+        bill = {'time': timestamp, 'identity': 'server->', "debit": debit, "credit": credit, "balance": self._balance}
+        return bill
+
+    # choose a random peer to sign the tx
+    def send_sign(self):
+        random_peer = random.choice(self.host_dict.keys())
+        random_peer_pubkey = random_peer.public_key.key_to_bin()
+        transaction = self.create_server_transaction()
+        self.sign_block(random_peer, public_key=random_peer_pubkey, block_type='test', transaction=transaction)
 
     def get_target_address(self, data):
         addr_type, = struct.unpack('>B', data[0])
-        print "addr_type", addr_type
 
         target_ip = ''
         if addr_type == 1:
@@ -114,7 +101,7 @@ class Server(Community):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
         payload = IdentityRequestPayload(data).to_pack_list()
-        print self.my_peer.public_key.key_to_bin().encode('HEX')
+        # print self.my_peer.public_key.key_to_bin().encode('HEX')
         # print "auth, dist, payload", auth, dist, payload
         return self._ez_pack(self._prefix, 7, [auth, dist, payload])
 
@@ -126,9 +113,15 @@ class Server(Community):
         auth, dist, payload = self._ez_unpack_auth(IdentityRequestPayload, data)
         response = payload.message
         if response == 'identity?':
+            # todo challenge-response here (to prove as a server)
+            # if cr is True:
+            # identity = "server"
+            # else:
+            # identity = "client"
+            # self.send_identity_response(identity, source_address)
             self.send_identity_response("server", source_address)
         else:
-            print "server id request error"
+            self.logger.debug("server id request error")
 
     def create_identity_response(self, data):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
@@ -145,15 +138,16 @@ class Server(Community):
         response = payload.message
         # check server or client
         if response == 'client':
-            print "client comes from: ", source_address
-            print "update host dict", self.client_dict, self.host_dict
+            self.logger.info("client comes from: {}".format(source_address))
             for host in self.host_dict.keys():
                 if host.address == source_address:
                     self.client_dict.update({host: None})
-                    print "update client dict", self.client_dict
+                    self.logger.info("client.dict: {}, host.dict: {}".format(self.client_dict, self.host_dict))
+
+            self.register_task("on_payment", LoopingCall(self.send_sign)).start(30.0, True).addErrback(log.err)
 
         elif response == 'server':
-            print "server comes from: ", source_address
+            self.logger.info("server comes from: {}".format(source_address))
 
     def create_message(self, message):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
@@ -165,11 +159,11 @@ class Server(Community):
     def on_target_address(self, source_address, data):
         auth, dist, payload = self._ez_unpack_auth(TargetAddressPayload, data)
         target_address = payload.message
-        print "target address", target_address, "target address"
+        # print "target address", target_address, "target address"
         seq_id = target_address[0:4]
         target_address = target_address[4:]
         address = self.get_target_address(target_address)
-        print address
+        # print address
         target_ip, target_port = address
 
         # connectTCP
@@ -190,13 +184,13 @@ class Server(Community):
         message = payload.message
         seq_id = message[0:4]
         request = message[4:]
-        print "id and message", repr(seq_id), " ||| ", len(data)
-        print "self.factories", self.factories
+        # print "id and message", repr(seq_id), " ||| ", len(data)
+        # print "self.factories", self.factories
         remote_factory = self.factories[seq_id]
         remote_factory.seq_id = seq_id
         remote_factory.request = request
         if remote_factory.protocol:
-            print "send from server"
+            # print "send from server"
             remote_factory.protocol.transport.write(request)
 
         # Modify values in factory
@@ -218,7 +212,7 @@ class Server(Community):
 
     def unpack_data(self, data):
         id = data[0:4]
-        print "id from unpack", repr(id)
+        # print "id from unpack", repr(id)
         source_ip, source_port = self.get_source_address(data[4:10])
         length = ord(data[10])
         target_ip, target_port = self.get_target_address(data[11:11 + length])
@@ -233,7 +227,6 @@ class Server(Community):
 
     def get_target_address(self, data):
         addr_type, = struct.unpack('>B', data[0])
-        print "addr_type", addr_type
 
         target_ip = ''
         if addr_type == 1:
@@ -261,10 +254,10 @@ class RemoteProtocol(protocol.Protocol):
     # establish connection with remote server
     def connectionMade(self):
         if self.factory.request:
-            print "send from protocol"
+            # print "send from protocol"
             self.transport.write(self.factory.request)
-        else:
-            print "no data"
+        # else:
+        #     print "no data"
         # record protocol
         # print "self.factory", self.factory
         # request = self.factory.requests
@@ -281,22 +274,26 @@ class RemoteProtocol(protocol.Protocol):
 
     # Send data to local proxy
     def dataReceived(self, data):
-        print len(data), self.factory.request
+        # print len(data), self.factory.request
+        print len(data), self.factory.seq_id, data[:5]
         self.send_all(data)
 
     def send_all(self, data):
         bytes_sent = 0
         while bytes_sent < len(data):
-            chunk_data = data[bytes_sent:bytes_sent + 4096]
+            chunk_data = data[bytes_sent:bytes_sent + 8096]
+            # print  self.factory.seq_id
             packed_data = self.factory.seq_id + chunk_data
             self.factory.server.send(packed_data)  # endpoint send
-            bytes_sent += 4096
+            bytes_sent += 8096
 
     def clientConnectionLost(self, connector, reason):
-        logging.debug("connection failed", reason.getErrorMessage())
+        # logging.debug("connection failed", reason.getErrorMessage())
+        pass
 
     def clientConnectionFailed(self, connector, reason):
-        logging.debug("connection lost", reason.getErrorMessage())
+        # logging.debug("connection lost", reason.getErrorMessage())
+        pass
 
 
 class RemoteFactory(ClientFactory):
@@ -317,9 +314,12 @@ def server():
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
-            'generation': u"medium",
+            'generation': u"curve25519",
             'file': u"ec%d.pem" % i
         }]
+        configuration['logger'] = {
+            'level': 'DEBUG'
+        }
         configuration['overlays'] = [{
             'class': 'Server',
             'key': "my peer",

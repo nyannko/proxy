@@ -15,6 +15,8 @@ class TrustClient(TrustChainCommunity):
         "307e301006072a8648ce3d020106052b81040024036a000401142bae9f90e77434a6ddda16c9bc913a3440366b9eedc9e57a660789e10aa3f470c1f7ae769083a3494be79ad78165caed85da009a7e897bd51e531e9fd90465c038993d2bbe6646b592872cb432c818ce9fa6e3ae0382a76d39ef982fb85801279def1409a86a".decode(
             'HEX'))
 
+    DB_NAME = 'trustchain_client'
+
     def __init__(self, my_peer, endpoint, network):
         super(TrustClient, self).__init__(my_peer, endpoint, network)
         # self.add_listener(TestBlockListener(), ['test'])

@@ -54,7 +54,6 @@ class TargetAddressPayload(Payload):
     def from_unpack_list(cls, message):
         return cls(message)
 
-
 class Message(Payload):
     format_list = ['raw']
 
@@ -62,11 +61,27 @@ class Message(Payload):
         self.message = message
 
     def to_pack_list(self):
-        return [('raw', self.message)]
+        data = [('raw', self.message)]
+        return data
 
     @classmethod
     def from_unpack_list(cls, message):
         return cls(message)
+
+# class Message(Payload):
+#     format_list = ['H','raw']
+#
+#     def __init__(self, index, message):
+#         self.index = index
+#         self.message = message
+#
+#     def to_pack_list(self):
+#         data = [('H', self.index), ('raw', self.message)]
+#         return data
+#
+#     @classmethod
+#     def from_unpack_list(cls, index, message):
+#         return cls(index, message)
 
 class PayoutPayload(Payload):
     """
