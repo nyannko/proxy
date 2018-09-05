@@ -27,30 +27,17 @@ class RemoteProtocol(protocol.Protocol):
             self.handle_REQUEST(data)
 
     def handle_REMOTEADDR(self, data):
-        host, port, request, index = self.unpack_address(data, 4)
+        host, port, request = self.unpack_address(data)
         logger.debug("host:{}, port:{}, length of request:{}".format(host, port, len(request)))
         factory = self.create_client_factory()
-        # buffer without id
-        self.buffer = request
-        print "request in remote addr",host, port,request,"selfbuffer",self.buffer
-        print "index", index
         reactor.connectTCP(host, port, factory)
-
-        # self.buffer = request[4:]
+        self.buffer = request
 
     def handle_REQUEST(self, data):
-        print "request data", data
-        index = data
-        # data1 = data[4:]
         if self.client_protocol is not None:
-            print "index", index, "request", data
-            data1 = data[4:]
-            self.client_protocol.write(data1)
+            self.client_protocol.write(data)
         else:
-            print "buffer before", self.buffer
-            data2 = data[4:]
-            self.buffer = self.buffer + data2
-            print "self.buffer", self.buffer
+            self.buffer += data
 
     def create_client_factory(self):
         client_factory = protocol.ClientFactory()
@@ -58,15 +45,11 @@ class RemoteProtocol(protocol.Protocol):
         client_factory.socks5_protocol = self
         return client_factory
 
-    def unpack_address(self, data, offset):
-        print "dataaaa", data
-        # print "data", data[0:4]
-        index = data[0:offset]
+    def unpack_address(self, data):
+        data_length, = struct.unpack('>B', data[0])
 
-        data_length, = struct.unpack('>B', data[0 + offset])
-        address = data[0 + offset: 1 + offset + data_length]
+        address = data[0: 1 + data_length]
         addr_type, = struct.unpack('>B', address[1])
-        print addr_type
 
         host = ''
         if addr_type == 3:
@@ -75,9 +58,8 @@ class RemoteProtocol(protocol.Protocol):
 
         port, = struct.unpack('>H', address[-2:])
 
-        request = data[1 + offset + data_length:]
-        print "request!!!", request
-        return host, port, request, index
+        request = data[1 + data_length:]
+        return host, port, request
 
     def write(self, data):
         self.transport.write(data)
@@ -91,10 +73,6 @@ class ClientProtocol(protocol.Protocol):
 
     def connectionMade(self):
         self.factory.socks5_protocol.client_protocol = self
-        print "write to", self.factory.socks5_protocol.buffer
-        if self.factory.socks5_protocol.buffer.startswith("0"):
-            self.factory.socks5_protocol.buffer=self.factory.socks5_protocol.buffer[5:]
-            print "write to2", self.factory.socks5_protocol.buffer
         self.write(self.factory.socks5_protocol.buffer)
         self.factory.socks5_protocol.buffer = ''
 

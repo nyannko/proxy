@@ -18,7 +18,6 @@ class Socks5Protocol(protocol.Protocol):
         self.state = 'NEGOTIATION'
         self.buffer = None
         self.client_protocol = None
-        self.a = b"abcd"
 
     def connectionMade(self):
         address = self.transport.getPeer()
@@ -49,33 +48,15 @@ class Socks5Protocol(protocol.Protocol):
         client_factory = ClientsFactory(self)
         logger.debug("4.connect to remote proxy localhost:50000")
 
-        self.id = self.get_ID()
-        print "self.id", self.id
-
-        data_attach_id = self.id + addr_to_send
-        print data_attach_id
-        self.buffer = data_attach_id
-
         reactor.connectTCP('localhost', 50000, client_factory)
 
-
-        # self.client_protocol.write(self.buffer)
-        # self.buffer = addr_to_send
+        self.buffer = addr_to_send
 
     def handle_TRANSMISSION(self, data):
-        print "socks5 data", data
-        # data = self.id + data
         if self.client_protocol is not None:
-            # data_attach_id = self.id[:] + data
-            # self.client_protocol.write(data_attach_id)
-            data1 = self.id + data
-            print "data1", data1
-            self.client_protocol.write(data1)
+            self.client_protocol.write(data)
         else:
-            print "buffer before", self.buffer
-            # self.buffer += data_attach_id
-            self.buffer = self.buffer + data
-            print "buffer", self.buffer
+            self.buffer += data
 
     def unpack_address(self, data):
         addr_type, = struct.unpack('>B', data[0])
@@ -121,19 +102,11 @@ class Socks5Protocol(protocol.Protocol):
         logger.error("connection lost:{}".format(reason))
         self.transport.loseConnection()
 
-    def get_ID(self):
-        self.socks5_factory.seq_id = '%04d' % (int(self.socks5_factory.seq_id) + 1)
-        # print "id from client", self.socks5_factory.seq_id
-        # while seq_id not in self.socks5_factory.socks:
-        seq_id = self.socks5_factory.seq_id
-        self.socks5_factory.socks[seq_id] = self
-        return seq_id
 
 class Socks5Factory(Factory):
 
     def __init__(self):
-        self.socks = {}
-        self.seq_id = 0
+        pass
 
     def buildProtocol(self, addr):
         return Socks5Protocol(self)
@@ -146,9 +119,8 @@ class ClientProtocol(protocol.Protocol):
 
     def connectionMade(self):
         self.client_factory.socks5_protocol.client_protocol = self
-        print "write to", self.client_factory.socks5_protocol.buffer
         self.write(self.client_factory.socks5_protocol.buffer)
-        self.client_factory.socks5_protocol.buffer = ''
+        self.client_factory.socks5_protocol.buffer = None
 
     def dataReceived(self, data):
         self.client_factory.socks5_protocol.write(data)
