@@ -30,7 +30,6 @@ master_peer_init = Peer(
 
 class Client(Community):
     master_peer = master_peer_init
-
     DB_NAME = 'trustchain_client'
 
     def __init__(self, my_peer, endpoint, network):
@@ -52,7 +51,6 @@ class Client(Community):
         })
 
     def started(self):
-
         def start_communication():
             for p in self.get_peers():
                 if p not in self.peers_dict:
@@ -172,15 +170,11 @@ class Client(Community):
 
         self.logger.info("socks5_twisted server listening at port {}".format(port))
 
-    def create_target_address(self, data):
+    def create_target_address(self, seq_id, data):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
-        payload = TargetAddressPayload(data).to_pack_list()
+        payload = TargetAddressPayload(seq_id, data).to_pack_list()
         return self._ez_pack(self._prefix, 9, [auth, dist, payload])
-
-    def send_target_address(self, data, p):
-        packet = self.create_target_address(data)
-        self.endpoint.send(p.address, packet)
 
     def create_message(self, seq_id, message):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
@@ -197,7 +191,6 @@ class Client(Community):
 
 
 class Socks5Protocol(protocol.Protocol):
-
     def __init__(self, factory):
         self.socks5_factory = factory
         self.state = 'NEGOTIATION'
@@ -228,14 +221,13 @@ class Socks5Protocol(protocol.Protocol):
     def handle_REQUEST(self, data):
         target_address, target_port = self.unpack_request_data(data)
         self.seq_id = self.get_ID()
-        target_address = self.seq_id + target_address
         print self.seq_id
         # send id with address
-        self.send_address(target_address)
+        self.send_address(self.seq_id, target_address)
 
-    def send_address(self, data):
+    def send_address(self, seq_id, data):
         for p in self.socks5_factory.client.server_dict.keys():
-            packet = self.socks5_factory.client.create_target_address(data)
+            packet = self.socks5_factory.client.create_target_address(seq_id, data)
             self.socks5_factory.client.endpoint.send(p.address, packet)
 
     def handle_TRANSMISSION(self, data):
@@ -314,7 +306,6 @@ class Socks5Protocol(protocol.Protocol):
 
 
 class Socks5Factory(Factory):
-
     def __init__(self, client):
         self.client = client
         self.socks = {}

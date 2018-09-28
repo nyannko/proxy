@@ -33,7 +33,6 @@ master_peer_init = Peer(
 
 class Server(Community):
     master_peer = master_peer_init
-
     DB_NAME = 'trustchain_server'
 
     def __init__(self, my_peer, endpoint, network):
@@ -58,9 +57,7 @@ class Server(Community):
         })
 
     def started(self):
-
         def start_communication():
-
             for p in self.get_peers():
                 if p not in self.host_dict:
                     self.logger.debug("New host {} join the network".format(p))
@@ -160,12 +157,10 @@ class Server(Community):
     # Establish connection to remote server
     def on_target_address(self, source_address, data):
         auth, dist, payload = self._ez_unpack_auth(TargetAddressPayload, data)
+        seq_id = payload.seq_id[0]
         target_address = payload.message
-        # print "target address", target_address, "target address"
-        seq_id = target_address[0:4]
-        target_address = target_address[4:]
         address = self.get_target_address(target_address)
-        # print address
+        self.logger.debug("Target address: {}".format(address))
         target_ip, target_port = address
 
         # connectTCP
@@ -185,34 +180,6 @@ class Server(Community):
         if remote_factory.protocol:
             remote_factory.protocol.transport.write(remote_request)
 
-    def unpack_data(self, data):
-        id = data[0:4]
-        source_ip, source_port = self.get_source_address(data[4:10])
-        length = ord(data[10])
-        target_ip, target_port = self.get_target_address(data[11:11 + length])
-        data = data[11 + length:]
-        return id, source_ip, source_port, target_ip, target_port, data
-
-    def get_source_address(self, data, offset=0):
-        source_ip = socket.inet_ntoa(data[offset:offset + 4])
-        offset += 4
-        source_port, = struct.unpack('>H', data[offset:offset + 2])
-        return source_ip, source_port
-
-    def get_target_address(self, data):
-        addr_type, = struct.unpack('>B', data[0])
-
-        target_ip = ''
-        if addr_type == 1:
-            target_ip = socket.inet_ntoa(data[1: 5])
-
-        elif addr_type == 3:
-            length, = struct.unpack('>B', data[1])
-            target_ip = data[2: 2 + length]
-
-        target_port, = struct.unpack('>H', data[-2:])
-        return target_ip, target_port
-
     def send(self, seq_id, data):
         addr = [p.address for p in self.client_dict.keys()]
         packet = self.create_message(seq_id, data)
@@ -220,7 +187,6 @@ class Server(Community):
 
 
 class RemoteProtocol(protocol.Protocol):
-
     def __init__(self, factory):
         self.factory = factory
         self.factory.protocol = self
@@ -252,7 +218,6 @@ class RemoteProtocol(protocol.Protocol):
 
 
 class RemoteFactory(ClientFactory):
-
     def __init__(self, server, seq_id, request=None):
         self.server = server
         self.seq_id = seq_id
