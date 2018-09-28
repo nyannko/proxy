@@ -4,6 +4,7 @@ from twisted.internet.protocol import ClientFactory
 from twisted.python import log
 
 from pyipv8.ipv8.attestation.trustchain.community import TrustChainCommunity
+from pyipv8.ipv8.deprecated.community import Community
 from pyipv8.ipv8.deprecated.payload_headers import BinMemberAuthenticationPayload, GlobalTimeDistributionPayload
 from pyipv8.ipv8.keyvault.crypto import ECCrypto
 from pyipv8.ipv8_service import _COMMUNITIES, IPv8
@@ -23,14 +24,14 @@ key1 = ECCrypto().generate_key(u"medium")
 # master_peer_init = Peer(key1)
 logging.info(key1.pub().key_to_bin().encode('HEX'))
 # master_peer_init = Peer(key1.pub().key_to_bin().encode('HEX').decode('HEX'))
-# print key1.pub().key_to_bin().encode('HEX')
+print key1.pub().key_to_bin().encode('HEX')
 
 master_peer_init = Peer(
     "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
         .decode('HEX'))
 
 
-class Server(TrustChainCommunity):
+class Server(Community):
     master_peer = master_peer_init
 
     DB_NAME = 'trustchain_server'
@@ -47,6 +48,8 @@ class Server(TrustChainCommunity):
         self.factories = {}
         self._balance = 0
 
+        self.logger.level = logging.DEBUG
+
         self.decode_map.update({
             chr(7): self.on_identity_request,
             chr(8): self.on_identity_response,
@@ -57,9 +60,10 @@ class Server(TrustChainCommunity):
     def started(self):
 
         def start_communication():
+
             for p in self.get_peers():
                 if p not in self.host_dict:
-                    self.logger.info("New host {} join the network".format(p))
+                    self.logger.debug("New host {} join the network".format(p))
                     self.send_identity_request("identity?", p)
                     self.host_dict.update({p: None})
 
@@ -101,8 +105,6 @@ class Server(TrustChainCommunity):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
         payload = IdentityRequestPayload(data).to_pack_list()
-        # print self.my_peer.public_key.key_to_bin().encode('HEX')
-        # print "auth, dist, payload", auth, dist, payload
         return self._ez_pack(self._prefix, 7, [auth, dist, payload])
 
     def send_identity_request(self, data, p):
@@ -144,15 +146,15 @@ class Server(TrustChainCommunity):
                     self.client_dict.update({host: None})
                     self.logger.info("client.dict: {}, host.dict: {}".format(self.client_dict, self.host_dict))
 
-            self.register_task("on_payment", LoopingCall(self.send_sign)).start(30.0, True).addErrback(log.err)
+            # self.register_task("on_payment", LoopingCall(self.send_sign)).start(30.0, True).addErrback(log.err)
 
         elif response == 'server':
             self.logger.info("server comes from: {}".format(source_address))
 
-    def create_message(self, message):
+    def create_message(self, seq_id, message):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
-        payload = Message(message).to_pack_list()
+        payload = Message(seq_id, message).to_pack_list()
         return self._ez_pack(self._prefix, 10, [auth, dist, payload])
 
     # Establish connection to remote server
@@ -171,48 +173,20 @@ class Server(TrustChainCommunity):
         self.factories[seq_id] = remote_factory
         reactor.connectTCP(target_ip, target_port, remote_factory)
 
-        ### Endpoints
-        # self.endpoints = TCP4ClientEndpoint(reactor, target_ip, target_port)
-        # remote_factory = RemoteFactory(self)
-        # self.factories[seq_id] = remote_factory
-
     def on_message(self, source_address, data):
         """ Receive request from client """
-
         auth, dist, payload = self._ez_unpack_auth(Message, data)
-
-        message = payload.message
-        seq_id = message[0:4]
-        request = message[4:]
-        # print "id and message", repr(seq_id), " ||| ", len(data)
-        # print "self.factories", self.factories
+        seq_id = payload.seq_id[0]
+        remote_request = payload.message
+        self.logger.debug("received request id {} from client".format(seq_id))
         remote_factory = self.factories[seq_id]
         remote_factory.seq_id = seq_id
-        remote_factory.request = request
+        remote_factory.request = remote_request
         if remote_factory.protocol:
-            # print "send from server"
-            remote_factory.protocol.transport.write(request)
-
-        # Modify values in factory
-        # remote_factory = RemoteFactory(self)
-        # remote_factory.requests[seq_id] = request
-
-        # Get last protocol
-
-        # remote_factory.proto[seq_id] = None
-        # print "remote_factory.protocol ", remote_factory.protocol
-
-        # print "remote_factory", remote_factory
-
-        # Connect to remote factory
-        # whenConnected = self.endpoints.connect(remote_factory)
-        # print self.endpoints
-        # print "whenConnected", remote_factory
-        # whenConnected.addCallbacks(self.cbConnected, self.ebConnectError)
+            remote_factory.protocol.transport.write(remote_request)
 
     def unpack_data(self, data):
         id = data[0:4]
-        # print "id from unpack", repr(id)
         source_ip, source_port = self.get_source_address(data[4:10])
         length = ord(data[10])
         target_ip, target_port = self.get_target_address(data[11:11 + length])
@@ -239,9 +213,9 @@ class Server(TrustChainCommunity):
         target_port, = struct.unpack('>H', data[-2:])
         return target_ip, target_port
 
-    def send(self, data):
+    def send(self, seq_id, data):
         addr = [p.address for p in self.client_dict.keys()]
-        packet = self.create_message(data)
+        packet = self.create_message(seq_id, data)
         self.endpoint.send(addr[0], packet)
 
 
@@ -254,37 +228,18 @@ class RemoteProtocol(protocol.Protocol):
     # establish connection with remote server
     def connectionMade(self):
         if self.factory.request:
-            # print "send from protocol"
             self.transport.write(self.factory.request)
-        # else:
-        #     print "no data"
-        # record protocol
-        # print "self.factory", self.factory
-        # request = self.factory.requests
-        # protocol = self.factory.proto
-        # print "request", request
-        # self.seq_id, message = request.popitem()
-
-        # record protocol
-        # self.factory.proto[self.seq_id] = self
-        # print "self.factory.proto", self.factory.proto
-
-        # print "self.seq_id, message", self.seq_id, self
-        # self.transport.write(message)
 
     # Send data to local proxy
     def dataReceived(self, data):
-        # print len(data), self.factory.request
-        print len(data), self.factory.seq_id, data[:5]
+        # logging.info("Send response to client: ", len(data), self.factory.seq_id)
         self.send_all(data)
 
     def send_all(self, data):
         bytes_sent = 0
         while bytes_sent < len(data):
             chunk_data = data[bytes_sent:bytes_sent + 8096]
-            # print  self.factory.seq_id
-            packed_data = self.factory.seq_id + chunk_data
-            self.factory.server.send(packed_data)  # endpoint send
+            self.factory.server.send(self.factory.seq_id, chunk_data)  # endpoint send
             bytes_sent += 8096
 
     def clientConnectionLost(self, connector, reason):
@@ -313,7 +268,7 @@ def server():
     for i in [1]:
         configuration = get_default_configuration()
         configuration['keys'] = [{
-            'alias': "my peer",
+            'alias': "my peer2",
             'generation': u"curve25519",
             'file': u"ec%d.pem" % i
         }]
@@ -322,7 +277,7 @@ def server():
         }
         configuration['overlays'] = [{
             'class': 'Server',
-            'key': "my peer",
+            'key': "my peer2",
             'walkers': [{
                 'strategy': "RandomWalk",
                 'peers': 10,

@@ -1,6 +1,24 @@
 from pyipv8.ipv8.deprecated.payload import Payload
 
 
+class ChallengeResponsePayload(Payload):
+    """
+    Check Identity of server or client
+    """
+    format_list = ['4s', 'raw']
+
+    def __init__(self, message):
+        super(ChallengeResponsePayload, self).__init__()
+        self.message = message
+
+    def to_pack_list(self):
+        return [('raw', self.message)]
+
+    @classmethod
+    def from_unpack_list(cls, message):
+        return cls(message)
+
+
 class IdentityRequestPayload(Payload):
     """
     Check Identity of server or client
@@ -54,19 +72,23 @@ class TargetAddressPayload(Payload):
     def from_unpack_list(cls, message):
         return cls(message)
 
-class Message(Payload):
-    format_list = ['raw']
 
-    def __init__(self, message):
+class Message(Payload):
+    format_list = ['4s', 'raw']
+
+    def __init__(self, seq_id, message):
+        self.seq_id = seq_id
         self.message = message
 
     def to_pack_list(self):
-        data = [('raw', self.message)]
+        data = [('4s', self.seq_id),
+                ('raw', self.message)]
         return data
 
     @classmethod
-    def from_unpack_list(cls, message):
-        return cls(message)
+    def from_unpack_list(cls, seq_id, message):
+        return cls(seq_id, message)
+
 
 # class Message(Payload):
 #     format_list = ['H','raw']
