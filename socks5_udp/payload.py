@@ -59,7 +59,7 @@ class TargetAddressPayload(Payload):
     """
     Target IP address
     """
-    format_list = ['4s','4s', 'raw']
+    format_list = ['4s', '4s', 'raw']
 
     def __init__(self, proto_id, seq_id, message):
         self.proto_id = proto_id
@@ -78,7 +78,7 @@ class TargetAddressPayload(Payload):
 
 
 class Message(Payload):
-    format_list = ['4s','4s', 'raw']
+    format_list = ['4s', '4s', 'raw']
 
     def __init__(self, proto_id, seq_id, message):
         self.proto_id = proto_id
@@ -94,6 +94,23 @@ class Message(Payload):
     @classmethod
     def from_unpack_list(cls, proto_id, seq_id, message):
         return cls(proto_id, seq_id, message)
+
+
+class ACKPayload(Payload):
+    format_list = ['4s', '4s']
+
+    def __init__(self, proto_id, seq_id):
+        self.proto_id = proto_id
+        self.seq_id = seq_id
+
+    def to_pack_list(self):
+        data = [('4s', self.proto_id),
+                ('4s', self.seq_id)]
+        return data
+
+    @classmethod
+    def from_unpack_list(cls, proto_id, seq_id):
+        return cls(proto_id, seq_id)
 
 
 class PayoutPayload(Payload):

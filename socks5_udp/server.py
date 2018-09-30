@@ -18,7 +18,8 @@ import time
 import random
 
 from socks5_udp.database import ProxyDatabase
-from socks5_udp.payload import IdentityRequestPayload, IdentityResponsePayload, TargetAddressPayload, Message
+from socks5_udp.payload import IdentityRequestPayload, IdentityResponsePayload, TargetAddressPayload, Message, \
+    ACKPayload
 
 key1 = ECCrypto().generate_key(u"medium")
 # master_peer_init = Peer(key1)
@@ -53,7 +54,7 @@ class Server(Community):
             chr(7): self.on_identity_request,
             chr(8): self.on_identity_response,
             chr(9): self.on_target_address,
-            chr(10): self.on_message,
+            chr(10): self.on_message
         })
 
     def started(self):
@@ -169,12 +170,24 @@ class Server(Community):
         self.factories[proto_id] = remote_factory
         reactor.connectTCP(target_ip, target_port, remote_factory)
 
+    def create_ack(self, proto_id, seq_id):
+        auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
+        dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
+        payload = ACKPayload(proto_id, seq_id).to_pack_list()
+        return self._ez_pack(self._prefix, 11, [auth, dist, payload])
+
+    def send_ack(self, address, proto_id, seq_id):
+        ack = self.create_ack(proto_id, seq_id)
+        self.endpoint.send(address, ack)
+
     def on_message(self, source_address, data):
         """ Receive request from client """
         auth, dist, payload = self._ez_unpack_auth(Message, data)
         proto_id = payload.proto_id[0]
         seq_id = payload.seq_id[0]
-        print seq_id
+        print proto_id, seq_id
+        self.send_ack(source_address, proto_id, seq_id)  # send back ack
+
         remote_request = payload.message
         self.logger.debug("received request id {} from client".format(proto_id))
         remote_factory = self.factories[proto_id]

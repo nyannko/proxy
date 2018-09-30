@@ -46,8 +46,9 @@ class Client(Community):
         self.decode_map.update({
             chr(7): self.on_identity_request,
             chr(8): self.on_identity_response,
-            chr(10): self.on_message
+            chr(10): self.on_message,
             # chr(11): self.send_cr_message
+            chr(11): self.on_ack
         })
 
     def started(self):
@@ -59,6 +60,7 @@ class Client(Community):
                     self.peers_dict.update({p: None})
 
         self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True).addErrback(log.err)
+        self.register_task("check_update", LoopingCall(self.check_update)).start(0.5, True).addErrback(log.err)
 
     def update_peers(self):
         for peer in self.get_peers():
@@ -189,6 +191,23 @@ class Client(Community):
         response = payload.message
         self.socks5_factory.socks[proto_id].transport.write(response)
 
+    def on_ack(self, source_address, data):
+        # del seq_id in buffer
+        # define a timer and resend the buffer
+        auth, dist, payload = self._ez_unpack_auth(Message, data)
+        proto_id = payload.proto_id[0]
+        seq_id = payload.seq_id[0]
+        print "recv id from server", proto_id, seq_id
+        del self.socks5_factory.send_buffer[proto_id][seq_id]
+
+    # register to reactor looping call
+    def check_update(self):
+        for proto_id, seq_dict in self.socks5_factory.send_buffer.items():
+            for seq_id, data_chunk in seq_dict.items():
+                print "resend data to server: ", proto_id, seq_id
+                data = self.create_message(proto_id, seq_id, data_chunk)
+                self.endpoint.send(self.server_dict.keys()[0].address, data)
+
 
 class Socks5Protocol(protocol.Protocol):
     def __init__(self, factory):
@@ -294,7 +313,7 @@ class Socks5Protocol(protocol.Protocol):
                 chunk_data = data[bytes_sent:bytes_sent + 4096]
                 seq_id = self.get_seq_id()  # attach sequence number for each data chunk in one protocol
                 self.socks5_factory.send_buffer[proto_id][seq_id] = chunk_data  # update send buffer
-                print proto_id, seq_id, self.socks5_factory.send_buffer
+                print "send to server: ", proto_id, seq_id, self.socks5_factory.send_buffer
                 packet = self.socks5_factory.client.create_message(proto_id, seq_id, chunk_data)
                 self.socks5_factory.client.endpoint.send(p.address, packet)
                 bytes_sent += 4096
@@ -304,9 +323,6 @@ class Socks5Protocol(protocol.Protocol):
 
     def connectionLost(self, reason):
         pass
-        # if self.proto_id in self.socks5_factory.socks:
-        #     del self.socks5_factory.socks[self.proto_id]
-        # logging.debug("connection lost:{}".format(reason.getErrorMessage()))
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
