@@ -148,15 +148,16 @@ class Server(Community):
         elif response == 'server':
             self.logger.info("server comes from: {}".format(source_address))
 
-    def create_message(self, seq_id, message):
+    def create_message(self, proto_id, message):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
-        payload = Message(seq_id, message).to_pack_list()
+        payload = Message(proto_id, '0000', message).to_pack_list()
         return self._ez_pack(self._prefix, 10, [auth, dist, payload])
 
     # Establish connection to remote server
     def on_target_address(self, source_address, data):
         auth, dist, payload = self._ez_unpack_auth(TargetAddressPayload, data)
+        proto_id = payload.proto_id[0]
         seq_id = payload.seq_id[0]
         target_address = payload.message
         address = self.get_target_address(target_address)
@@ -164,25 +165,27 @@ class Server(Community):
         target_ip, target_port = address
 
         # connectTCP
-        remote_factory = RemoteFactory(self, seq_id)
-        self.factories[seq_id] = remote_factory
+        remote_factory = RemoteFactory(self, proto_id)
+        self.factories[proto_id] = remote_factory
         reactor.connectTCP(target_ip, target_port, remote_factory)
 
     def on_message(self, source_address, data):
         """ Receive request from client """
         auth, dist, payload = self._ez_unpack_auth(Message, data)
+        proto_id = payload.proto_id[0]
         seq_id = payload.seq_id[0]
+        print seq_id
         remote_request = payload.message
-        self.logger.debug("received request id {} from client".format(seq_id))
-        remote_factory = self.factories[seq_id]
-        remote_factory.seq_id = seq_id
+        self.logger.debug("received request id {} from client".format(proto_id))
+        remote_factory = self.factories[proto_id]
+        remote_factory.proto_id = proto_id
         remote_factory.request = remote_request
         if remote_factory.protocol:
             remote_factory.protocol.transport.write(remote_request)
 
-    def send(self, seq_id, data):
+    def send(self, proto_id, data):
         addr = [p.address for p in self.client_dict.keys()]
-        packet = self.create_message(seq_id, data)
+        packet = self.create_message(proto_id, data)
         self.endpoint.send(addr[0], packet)
 
 
@@ -195,36 +198,39 @@ class RemoteProtocol(protocol.Protocol):
     def connectionMade(self):
         if self.factory.request:
             self.transport.write(self.factory.request)
+        # self.transport.loseConnection()
 
     # Send data to local proxy
     def dataReceived(self, data):
-        # logging.info("Send response to client: ", len(data), self.factory.seq_id)
+        # logging.info("Send response to client: ", len(data), self.factory.proto_id)
         self.send_all(data)
 
     def send_all(self, data):
         bytes_sent = 0
         while bytes_sent < len(data):
             chunk_data = data[bytes_sent:bytes_sent + 8096]
-            self.factory.server.send(self.factory.seq_id, chunk_data)  # endpoint send
+            self.factory.server.send(self.factory.proto_id, chunk_data)  # endpoint send
             bytes_sent += 8096
 
     def clientConnectionLost(self, connector, reason):
-        # logging.debug("connection failed", reason.getErrorMessage())
-        pass
+        logging.debug("connection failed", reason.getErrorMessage())
 
     def clientConnectionFailed(self, connector, reason):
-        # logging.debug("connection lost", reason.getErrorMessage())
-        pass
+        logging.debug("connection lost", reason.getErrorMessage())
 
 
 class RemoteFactory(ClientFactory):
-    def __init__(self, server, seq_id, request=None):
+    def __init__(self, server, proto_id, request=None):
         self.server = server
-        self.seq_id = seq_id
+        self.proto_id = proto_id
         self.request = request
 
     def buildProtocol(self, addr):
         return RemoteProtocol(self)
+
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
 def server():

@@ -170,24 +170,24 @@ class Client(Community):
 
         self.logger.info("socks5_twisted server listening at port {}".format(port))
 
-    def create_target_address(self, seq_id, data):
+    def create_target_address(self, proto_id, seq_id, data):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
-        payload = TargetAddressPayload(seq_id, data).to_pack_list()
+        payload = TargetAddressPayload(proto_id, '0000', data).to_pack_list()
         return self._ez_pack(self._prefix, 9, [auth, dist, payload])
 
-    def create_message(self, seq_id, message):
+    def create_message(self, proto_id, seq_id, message):
         auth = BinMemberAuthenticationPayload(self.my_peer.public_key.key_to_bin()).to_pack_list()
         dist = GlobalTimeDistributionPayload(self.claim_global_time()).to_pack_list()
-        payload = Message(seq_id, message).to_pack_list()
+        payload = Message(proto_id, seq_id, message).to_pack_list()
         return self._ez_pack(self._prefix, 10, [auth, dist, payload])
 
     def on_message(self, source_address, data):
         """ Write response from server to browser """
         auth, dist, payload = self._ez_unpack_auth(Message, data)
-        seq_id = payload.seq_id[0]
+        proto_id = payload.proto_id[0]
         response = payload.message
-        self.socks5_factory.socks[seq_id].transport.write(response)
+        self.socks5_factory.socks[proto_id].transport.write(response)
 
 
 class Socks5Protocol(protocol.Protocol):
@@ -195,24 +195,26 @@ class Socks5Protocol(protocol.Protocol):
         self.socks5_factory = factory
         self.state = 'NEGOTIATION'
         self.target_address = None
+        self.seq_id = 0
 
     def connectionMade(self):
         address = self.transport.getPeer()
-        # logger.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
+        # logging.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
+        # self.transport.loseConnection()
 
     def dataReceived(self, data):
         if self.state == 'NEGOTIATION':
-            # logger.debug("1.start socks5_twisted handshake")
+            # logging.debug("1.start socks5_twisted handshake")
             self.handle_NEGOTIATION(data)
             self.state = 'REQUEST'
 
         elif self.state == 'REQUEST':
-            # logger.debug("2.handshake success, start request phase")
+            # logging.debug("2.handshake success, start request phase")
             self.handle_REQUEST(data)
             self.state = 'TRANSMISSION'
 
         elif self.state == 'TRANSMISSION':
-            # logger.debug("3.start data transmission")
+            # logging.debug("3.start data transmission")
             self.handle_TRANSMISSION(data)
 
     def handle_NEGOTIATION(self, data):
@@ -220,33 +222,32 @@ class Socks5Protocol(protocol.Protocol):
 
     def handle_REQUEST(self, data):
         target_address, target_port = self.unpack_request_data(data)
-        self.seq_id = self.get_ID()
-        print self.seq_id
+        self.proto_id = self.get_conv_ID()
         # send id with address
-        self.send_address(self.seq_id, target_address)
+        self.send_address(self.proto_id, self.seq_id, target_address)
 
-    def send_address(self, seq_id, data):
+    def send_address(self, proto_id, seq_id, data):
         for p in self.socks5_factory.client.server_dict.keys():
-            packet = self.socks5_factory.client.create_target_address(seq_id, data)
+            packet = self.socks5_factory.client.create_target_address(proto_id, seq_id, data)
             self.socks5_factory.client.endpoint.send(p.address, packet)
 
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
-        self.send_data(self.seq_id, data)
+        # print self.proto_id, len(data)
+        self.send_data(self.proto_id, data)
 
-    def get_ID(self):
-        self.socks5_factory.seq_id = '%04d' % (int(self.socks5_factory.seq_id) + 1)
-        # print "id from client", self.socks5_factory.seq_id
-        # while seq_id not in self.socks5_factory.socks:
-        seq_id = self.socks5_factory.seq_id
-        self.socks5_factory.socks[seq_id] = self
-        return seq_id
+    def get_conv_ID(self):
+        self.socks5_factory.proto_id = '%04d' % (int(self.socks5_factory.proto_id) + 1)
+        # print "id from client", self.socks5_factory.proto_id
+        # while proto_id not in self.socks5_factory.socks:
+        proto_id = self.socks5_factory.proto_id
+        self.socks5_factory.socks[proto_id] = self
+        self.socks5_factory.send_buffer.setdefault(proto_id, {})
+        return proto_id
 
-    def register_ID(self):
-        seq_id = os.urandom(4)
-        while seq_id not in self.socks5_factory.socks:
-            self.socks5_factory.socks[seq_id] = self
-        return seq_id
+    def get_seq_id(self):
+        self.seq_id = '%04d' % (int(self.seq_id) + 1)
+        return self.seq_id
 
     def get_packed_address(self, address):
         packed_ip = socket.inet_aton(address.host)
@@ -275,7 +276,7 @@ class Socks5Protocol(protocol.Protocol):
 
         port, = struct.unpack('>H', data[offset:offset + 2])
         target_address += data[offset:offset + 2]
-        # logger.debug("version:{}, cmd:{}, addr_type:{}, port:{}".format(socks_version, cmd, addr_type, port))
+        # logging.debug("version:{}, cmd:{}, addr_type:{}, port:{}".format(socks_version, cmd, addr_type, port))
 
         reply = b'\x05\x00\x00\x01'
         host_address = self.transport.getHost()
@@ -285,13 +286,16 @@ class Socks5Protocol(protocol.Protocol):
 
         return target_address, port
 
-    def send_data(self, seq_id, data):
+    def send_data(self, proto_id, data):
         """Send data chunk to peer"""
         for p in self.socks5_factory.client.server_dict.keys():
             bytes_sent = 0
             while bytes_sent < len(data):
                 chunk_data = data[bytes_sent:bytes_sent + 4096]
-                packet = self.socks5_factory.client.create_message(seq_id, chunk_data)
+                seq_id = self.get_seq_id()  # attach sequence number for each data chunk in one protocol
+                self.socks5_factory.send_buffer[proto_id][seq_id] = chunk_data  # update send buffer
+                print proto_id, seq_id, self.socks5_factory.send_buffer
+                packet = self.socks5_factory.client.create_message(proto_id, seq_id, chunk_data)
                 self.socks5_factory.client.endpoint.send(p.address, packet)
                 bytes_sent += 4096
 
@@ -299,17 +303,22 @@ class Socks5Protocol(protocol.Protocol):
         self.transport.write(data)
 
     def connectionLost(self, reason):
-        # if self.seq_id in self.socks5_factory.socks:
-        #     del self.socks5_factory.socks[self.seq_id]
-        # logger.debug("connection lost:{}".format(reason.getErrorMessage()))
-        self.transport.loseConnection()
+        pass
+        # if self.proto_id in self.socks5_factory.socks:
+        #     del self.socks5_factory.socks[self.proto_id]
+        # logging.debug("connection lost:{}".format(reason.getErrorMessage()))
+
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
 class Socks5Factory(Factory):
     def __init__(self, client):
         self.client = client
         self.socks = {}
-        self.seq_id = 0
+        self.proto_id = 0
+        self.send_buffer = {}
 
     def buildProtocol(self, addr):
         return Socks5Protocol(self)

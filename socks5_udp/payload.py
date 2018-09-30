@@ -59,38 +59,41 @@ class TargetAddressPayload(Payload):
     """
     Target IP address
     """
-    format_list = ['4s', 'raw']
+    format_list = ['4s','4s', 'raw']
 
-    def __init__(self, seq_id, message):
-        super(TargetAddressPayload, self).__init__()
+    def __init__(self, proto_id, seq_id, message):
+        self.proto_id = proto_id
         self.seq_id = seq_id
         self.message = message
 
     def to_pack_list(self):
-        data = [('4s', self.seq_id),
+        data = [('4s', self.proto_id),
+                ('4s', self.seq_id),
                 ('raw', self.message)]
         return data
 
     @classmethod
-    def from_unpack_list(cls, seq_id, message):
-        return cls(seq_id, message)
+    def from_unpack_list(cls, proto_id, seq_id, message):
+        return cls(proto_id, seq_id, message)
 
 
 class Message(Payload):
-    format_list = ['4s', 'raw']
+    format_list = ['4s','4s', 'raw']
 
-    def __init__(self, seq_id, message):
+    def __init__(self, proto_id, seq_id, message):
+        self.proto_id = proto_id
         self.seq_id = seq_id
         self.message = message
 
     def to_pack_list(self):
-        data = [('4s', self.seq_id),
+        data = [('4s', self.proto_id),
+                ('4s', self.seq_id),
                 ('raw', self.message)]
         return data
 
     @classmethod
-    def from_unpack_list(cls, seq_id, message):
-        return cls(seq_id, message)
+    def from_unpack_list(cls, proto_id, seq_id, message):
+        return cls(proto_id, seq_id, message)
 
 
 class PayoutPayload(Payload):
