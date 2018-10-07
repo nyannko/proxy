@@ -1,6 +1,6 @@
 from twisted.internet import reactor, protocol
 from twisted.internet.task import LoopingCall
-from twisted.internet.protocol import ClientFactory
+from twisted.internet.protocol import ClientFactory, Factory
 from twisted.python import log
 
 from pyipv8.ipv8.attestation.trustchain.community import TrustChainCommunity
@@ -50,6 +50,11 @@ class Server(Community):
 
         self.logger.level = logging.DEBUG
 
+        # listen tcp connection
+        self.port = self.endpoint._port
+        reactor.listenTCP(self.port, RemoteFactory_TCP())
+        print("server is listening at port", self.port)
+
         self.decode_map.update({
             chr(7): self.on_identity_request,
             chr(8): self.on_identity_response,
@@ -64,6 +69,7 @@ class Server(Community):
                     self.logger.debug("New host {} join the network".format(p))
                     self.send_identity_request("identity?", p)
                     self.host_dict.update({p: None})
+                    print self.port
 
                     # print "all blocks", len(self.persistence.get_all_blocks())
 
@@ -201,7 +207,6 @@ class Server(Community):
         packet = self.create_message(proto_id, data)
         self.endpoint.send(addr[0], packet)
 
-
 class RemoteProtocol(protocol.Protocol):
     def __init__(self, factory):
         self.factory = factory
@@ -242,9 +247,104 @@ class RemoteFactory(ClientFactory):
         return RemoteProtocol(self)
 
 
+
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
+#________
+class RemoteProtocol_TCP(protocol.Protocol):
+
+    def __init__(self, factory):
+        self.factory = factory
+        self.state = 'ADDRESS_FROM_SOCKS5'
+        self.buffer = None
+        self.client_protocol = None
+
+
+    def dataReceived(self, data):
+        if self.state == 'ADDRESS_FROM_SOCKS5':
+            self.handle_REMOTEADDR(data)
+            self.state = 'DATA_FROM_SOCKS5'
+
+        elif self.state == 'DATA_FROM_SOCKS5':
+            self.handle_REQUEST(data)
+
+    def handle_REMOTEADDR(self, data):
+        host, port, request = self.unpack_address(data)
+        print "host,", host,"port",  port,"request", request
+        logging.debug("host:{}, port:{}, length of request:{}".format(host, port, len(request)))
+        factory = self.create_client_factory()
+        reactor.connectTCP(host, port, factory)
+        self.buffer = request
+
+    def handle_REQUEST(self, data):
+        if self.client_protocol is not None:
+            self.client_protocol.write(data)
+        else:
+            self.buffer += data
+
+    def create_client_factory(self):
+        client_factory = protocol.ClientFactory()
+        client_factory.protocol = ClientProtocol
+        client_factory.socks5_protocol = self
+        return client_factory
+
+    def unpack_address(self, data):
+        data_length, = struct.unpack('>B', data[0])
+
+        address = data[0: 1 + data_length]
+        addr_type, = struct.unpack('>B', address[1])
+
+        host = ''
+        if addr_type == 3:
+            length = ord(address[2])
+            host = address[3:3 + length]
+
+        port, = struct.unpack('>H', address[-2:])
+
+        request = data[1 + data_length:]
+        return host, port, request
+    ###
+        addr_type, = struct.unpack('>B', data[0])
+
+        target_ip = ''
+        if addr_type == 1:
+            target_ip = socket.inet_ntoa(data[1: 5])
+
+        elif addr_type == 3:
+            length, = struct.unpack('>B', data[1])
+            target_ip = data[2: 2 + length]
+
+        target_port, = struct.unpack('>H', data[-2:])
+        return target_ip, target_port
+
+    def write(self, data):
+        self.transport.write(data)
+
+    def connectionLost(self, reason):
+        logging.error("connection lost:{}".format(reason))
+        self.transport.loseConnection()
+
+class RemoteFactory_TCP(Factory):
+
+    def __init__(self):
+        pass
+
+    def buildProtocol(self, addr):
+        return RemoteProtocol_TCP(self)
+
+class ClientProtocol(protocol.Protocol):
+
+    def connectionMade(self):
+        self.factory.socks5_protocol.client_protocol = self
+        self.write(self.factory.socks5_protocol.buffer)
+        self.factory.socks5_protocol.buffer = ''
+
+    def dataReceived(self, data):
+        self.factory.socks5_protocol.write(data)
+
+    def write(self, data):
+        self.transport.write(data)
 
 def server():
     _COMMUNITIES['Server'] = Server
