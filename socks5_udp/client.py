@@ -265,9 +265,10 @@ class Socks5Protocol(protocol.Protocol):
         print self.socks5_factory.server_peers
         host, port = self.socks5_factory.server_peers.keys()[0].address #todo
         print "send data to tcp address: ", host, port
-        reactor.connectTCP(host, port, client_factory)
+        reactor.connectTCP(host, 8091, client_factory)
         self.buffer = data
         # print self.buffer
+        print "buffer1", self.buffer
 
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
@@ -280,6 +281,7 @@ class Socks5Protocol(protocol.Protocol):
             self.client_protocol.write(data)
         else:
             self.buffer += data
+        print "buffer2", self.buffer
 
     def get_conv_ID(self):
         self.socks5_factory.proto_id = '%04d' % (int(self.socks5_factory.proto_id) + 1)
