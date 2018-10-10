@@ -57,12 +57,11 @@ class ForwardProtocol(protocol.Protocol):
         logging.debug("Receive connection from {}".format(address))
 
     def dataReceived(self, data):
-        print data
         if self.state == 'REQUEST':
             self.handle_REQUEST(data)
             self.state = 'TRANSMISSION'
 
-        if self.state == 'TRANSMISSION':
+        elif self.state == 'TRANSMISSION':
             self.handle_TRANSMISSION(data)
 
     def handle_REQUEST(self, data):
@@ -71,15 +70,13 @@ class ForwardProtocol(protocol.Protocol):
         # host, port = self.forward_factory.server_dict.keys()[0].address
         reactor.connectTCP('localhost', 8092, client_factory)
         self.buffer = data
-        print "buffer1", self.buffer
 
 
     def handle_TRANSMISSION(self, data):
         if self.client_protocol is not None:
             self.client_protocol.write(data)
         else:
-            self.buffer = data
-            print "buffer2", self.buffer
+            self.buffer += data
 
     def write(self, data):
         self.transport.write(data)
@@ -104,10 +101,8 @@ class ClientProtocol(protocol.Protocol):
     def connectionMade(self):
         self.client_factory.forward_protocol.client_protocol = self
         self.write(self.client_factory.forward_protocol.buffer)
-        print "buffer3", self.client_factory.forward_protocol.buffer
         self.client_factory.forward_protocol.buffer = None
 
-        print "buffer3 after", self.client_factory.forward_protocol.buffer
     def dataReceived(self, data):
         self.client_factory.forward_protocol.write(data)
 

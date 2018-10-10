@@ -271,7 +271,6 @@ class RemoteProtocol_TCP(protocol.Protocol):
 
     def handle_REMOTEADDR(self, data):
         host, port, request = self.unpack_address(data)
-        print "host,", host,"port",  port,"request", request
         logging.debug("host:{}, port:{}, length of request:{}".format(host, port, len(request)))
         factory = self.create_client_factory()
         reactor.connectTCP(host, port, factory)
@@ -305,18 +304,18 @@ class RemoteProtocol_TCP(protocol.Protocol):
         request = data[1 + data_length:]
         return host, port, request
     ###
-        addr_type, = struct.unpack('>B', data[0])
-
-        target_ip = ''
-        if addr_type == 1:
-            target_ip = socket.inet_ntoa(data[1: 5])
-
-        elif addr_type == 3:
-            length, = struct.unpack('>B', data[1])
-            target_ip = data[2: 2 + length]
-
-        target_port, = struct.unpack('>H', data[-2:])
-        return target_ip, target_port
+        # addr_type, = struct.unpack('>B', data[0])
+        #
+        # target_ip = ''
+        # if addr_type == 1:
+        #     target_ip = socket.inet_ntoa(data[1: 5])
+        #
+        # elif addr_type == 3:
+        #     length, = struct.unpack('>B', data[1])
+        #     target_ip = data[2: 2 + length]
+        #
+        # target_port, = struct.unpack('>H', data[-2:])
+        # return target_ip, target_port
 
     def write(self, data):
         self.transport.write(data)
