@@ -1,17 +1,17 @@
-import logging
-import socket
 import struct
+import socket
+import logging
 
+from twisted.python import log
 from twisted.internet import reactor
 from twisted.internet import protocol
-from twisted.internet.protocol import Factory, ClientFactory
 from twisted.internet.task import LoopingCall
-from twisted.python import log
+from twisted.internet.protocol import Factory, ClientFactory
 
-from pyipv8.ipv8.configuration import get_default_configuration
-from pyipv8.ipv8.deprecated.community import Community
 from pyipv8.ipv8.peer import Peer
 from pyipv8.ipv8_service import IPv8, _COMMUNITIES
+from pyipv8.ipv8.deprecated.community import Community
+from pyipv8.ipv8.configuration import get_default_configuration
 
 master_peer_init = Peer(
     "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
@@ -21,7 +21,9 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(m
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
-# for discover peers
+# IPv8 node
+# ----------------------------------------------------------------------------------------------------------------------
+# For peer discovery ...
 class MultiProxy(Community):
     master_peer = master_peer_init
 
@@ -32,16 +34,15 @@ class MultiProxy(Community):
         self.socks5_factory = Socks5Factory(self)
 
         # self.forward_factory = ForwardFactory(self)
+        self.open_socks5_server()
 
         self.port = self.endpoint._port
-        if self.be_server:
+        if not self.be_server:
             reactor.listenTCP(self.port, ForwardFactory(self))
-            logging.debug("Forwarder is listening on port: {}".format(self.port))
+            self.logger.debug("Forwarder is listening on port: {}".format(self.port))
         else:
             reactor.listenTCP(self.port, ServerFactory(self))
-            logging.debug("Server is listening on port: {}".format(self.port))
-
-        self.open_socks5_server()
+            self.logger.debug("Server is listening on port: {}".format(self.port))
 
     def open_socks5_server(self):
         """Start socks5 twisted server"""
@@ -51,8 +52,7 @@ class MultiProxy(Community):
                 reactor.listenTCP(port, self.socks5_factory)
                 break
             except Exception as e:
-                print e
-                # logging.exception(e.message, " port number plus one.")
+                self.logger.exception(e.message)
                 port += 1
                 continue
         print "listening at ", port
@@ -69,7 +69,7 @@ class MultiProxy(Community):
 
 # Client local side
 # ----------------------------------------------------------------------------------------------------------------------
-# browser sends requests to here
+# Browser sends requests to here
 class Socks5Protocol(protocol.Protocol):
     def __init__(self, factory):
         self.socks5_factory = factory
@@ -80,7 +80,7 @@ class Socks5Protocol(protocol.Protocol):
 
     def connectionMade(self):
         address = self.transport.getPeer()
-        # logging.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
+        logging.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
 
     def dataReceived(self, data):
         if self.state == 'NEGOTIATION':
@@ -159,34 +159,9 @@ class Socks5Factory(Factory):
         return Socks5Protocol(self)
 
 
-# Client remote side
-# class ClientProtocol(protocol.Protocol):
-#
-#     def __init__(self, client_factory):
-#         self.client_factory = client_factory
-#
-#     def connectionMade(self):
-#         self.client_factory.socks5_protocol.client_protocol = self
-#         self.write(self.client_factory.socks5_protocol.buffer)
-#         self.client_factory.socks5_protocol.buffer = None
-#
-#     def dataReceived(self, data):
-#         self.client_factory.socks5_protocol.write(data)
-#
-#     def write(self, data):
-#         self.transport.write(data)
-#
-#
-# class ClientsFactory(ClientFactory):
-#
-#     def __init__(self, socks5_protocol):
-#         self.socks5_protocol = socks5_protocol
-#
-#     def buildProtocol(self, addr):
-#         return ClientProtocol(self)
-
-
 # Forwarder local side
+# ----------------------------------------------------------------------------------------------------------------------
+# Receive data from other peers
 class ForwardProtocol(protocol.Protocol):
 
     def __init__(self, forward_factory):
@@ -197,7 +172,7 @@ class ForwardProtocol(protocol.Protocol):
 
     def connectionMade(self):
         address = self.transport.getPeer()
-        # logging.debug("Receive connection from {}".format(address))
+        logging.debug("Receive connection from {}".format(address))
 
     def dataReceived(self, data):
         if self.state == 'REQUEST':
@@ -233,6 +208,8 @@ class ForwardFactory(Factory):
 
 
 # Server local side
+# ----------------------------------------------------------------------------------------------------------------------
+# Exit node
 class ServerProtocol(protocol.Protocol):
 
     def __init__(self, server_factory):
@@ -263,12 +240,6 @@ class ServerProtocol(protocol.Protocol):
         else:
             self.buffer += data
 
-    # def create_client_factory(self):
-    #     client_factory = protocol.ClientFactory()
-    #     client_factory.protocol = ClientProtocol
-    #     client_factory.socks5_protocol = self
-    #     return client_factory
-
     def unpack_address(self, data):
         data_length, = struct.unpack('>B', data[0])
 
@@ -285,7 +256,7 @@ class ServerProtocol(protocol.Protocol):
         request = data[1 + data_length:]
         return host, port, request
 
-    ###
+    ############################################
     # addr_type, = struct.unpack('>B', data[0])
     #
     # target_ip = ''
@@ -314,7 +285,10 @@ class ServerFactory(Factory):
     def buildProtocol(self, addr):
         return ServerProtocol(self)
 
+
 # Remote side
+# ----------------------------------------------------------------------------------------------------------------------
+# Used by socks5/forwarder/server protocol
 class RemoteProtocol(protocol.Protocol):
 
     def __init__(self, remote_factory):
@@ -326,13 +300,12 @@ class RemoteProtocol(protocol.Protocol):
         self.remote_factory.local_protocol.buffer = None
 
     def dataReceived(self, data):
-        self.remote_factory.forward_protocol.write(data)
+        self.remote_factory.local_protocol.write(data)
 
     def write(self, data):
         self.transport.write(data)
 
 
-# Remote side
 class RemoteFactory(ClientFactory):
 
     def __init__(self, local_protocol):
@@ -343,24 +316,10 @@ class RemoteFactory(ClientFactory):
         return RemoteProtocol(self)
 
 
-class ClientProtocol(protocol.Protocol):
-
-    def connectionMade(self):
-        self.factory.socks5_protocol.client_protocol = self
-        self.write(self.factory.socks5_protocol.buffer)
-        self.factory.socks5_protocol.buffer = ''
-
-    def dataReceived(self, data):
-        self.factory.socks5_protocol.write(data)
-
-    def write(self, data):
-        self.transport.write(data)
-
-
 def proxy():
     _COMMUNITIES['MultiProxy'] = MultiProxy
 
-    for i in [3]:
+    for i in [1]:
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
