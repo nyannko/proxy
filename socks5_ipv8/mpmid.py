@@ -33,10 +33,9 @@ class MultiProxy(Community):
         self.be_server = False
         self.socks5_factory = Socks5Factory(self)
 
-        # self.forward_factory = ForwardFactory(self)
         self.open_socks5_server()
 
-        self.port = self.endpoint._port
+        self.port = self.endpoint.get_address()[1]
         if not self.be_server:
             reactor.listenTCP(self.port, ForwardFactory(self))
             self.logger.debug("Forwarder is listening on port: {}".format(self.port))
@@ -107,6 +106,7 @@ class Socks5Protocol(protocol.Protocol):
         # print self.socks5_factory.server_peers
         # host, port = self.socks5_factory.server_peers.keys()[0].address  # todo
         reactor.connectTCP('localhost', 8091, remote_factory)
+        # reactor.connectTCP('localhost', 8092, remote_factory)
         # packed_data = self.createTCPPayload(data)
         self.buffer = data
         # print self.buffer
