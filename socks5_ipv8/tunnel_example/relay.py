@@ -22,7 +22,7 @@ class MyCommunity(TunnelCommunity):
         self.settings = TunnelSettings()
         self.settings.become_exitnode = False
         self.nodes = {}
-        self.build_tunnels(1)
+        # self.build_tunnels(1)
 
     @inlineCallbacks
     def build_conn(self):
@@ -36,6 +36,7 @@ class MyCommunity(TunnelCommunity):
             for other in self.nodes:
                 if other != node:
                     print(other.endpoint.get_address())
+
                     node.overlay.walk_to(other.endpoint.wan_address)
 # I know: ['Peer<145.94.160.220:8092, xDPZmlsmAw/fGvdp+fTH0e9Ra78=>', 'Peer<145.94.160.220:8090, 4uQM2VNhSL0gbBHiVcEzxQJLI50=>']
         # yield self.deliver_messages()
@@ -44,6 +45,8 @@ class MyCommunity(TunnelCommunity):
         def print_peers():
             print "I am:", self.my_peer, "\nI know:", [str(p) for p in self.get_peers()]
             for p in self.get_peers():
+                print("any node", [c.peer.address for c in self.circuits.values()], "exit node",
+                  [c.address for c in self.exit_candidates.values()])
                 if p not in self.nodes:
                     self.nodes[p] = None
 

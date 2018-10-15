@@ -10,6 +10,7 @@ from pyipv8.ipv8_service import _COMMUNITIES, IPv8
 from pyipv8.ipv8.configuration import get_default_configuration
 from pyipv8.ipv8.keyvault.crypto import ECCrypto
 from pyipv8.ipv8.peer import Peer
+from twisted.python import log
 
 
 class MyCommunity(TunnelCommunity):
@@ -24,20 +25,6 @@ class MyCommunity(TunnelCommunity):
         self.nodes = {}
         self.build_tunnels(2)
 
-    @inlineCallbacks
-    def build_conn(self):
-
-        yield self.introduce_nodes()
-        self.nodes[0].overlay.build_tunnels(1)
-
-    @inlineCallbacks
-    def introduce_nodes(self):
-        for node in self.nodes:
-            for other in self.nodes:
-                if other != node:
-                    print(other.endpoint.get_address())
-                    node.overlay.walk_to(other.endpoint.wan_address)
-        # yield self.deliver_messages()
 
     def started(self):
         def print_peers():
@@ -45,11 +32,12 @@ class MyCommunity(TunnelCommunity):
             for p in self.get_peers():
                 if p not in self.nodes:
                     self.nodes[p] = None
-
+                print("any node", [c.peer.address for c in self.circuits.values()], "exit node",
+                  [c.address for c in self.exit_candidates.values()])
         # We register a Twisted task with this overlay.
         # This makes sure that the task ends when this overlay is unloaded.
         # We call the 'print_peers' function every 5.0 seconds, starting now.
-        self.register_task("print_peers", LoopingCall(print_peers)).start(5.0, True)
+        self.register_task("print_peers", LoopingCall(print_peers)).start(5.0, True).addErrback(log.err)
 
 
 _COMMUNITIES['MyCommunity'] = MyCommunity

@@ -73,6 +73,8 @@ class MultiProxy(TunnelCommunity):
                 if p not in self.peers_dict:
                     self.logger.info("New Host {} join the network".format(p))
 
+                    print self.settings.become_exitnode
+
         self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True).addErrback(log.err)
         self.register_task("build_tunnel", LoopingCall(self.check_circuit)).start(1.0, True).addErrback(log.err)
 
@@ -100,7 +102,7 @@ class MultiProxy(TunnelCommunity):
 
     def tunnel_data(self, hops=2):
         self.build_tunnels(hops)
-        # self.send_network_traffic()
+        self.send_network_traffic()
 
 
 # Client local side
@@ -143,8 +145,8 @@ class Socks5Protocol(protocol.Protocol):
         # print self.socks5_factory.server_peers
         # host, port = self.socks5_factory.server_peers.keys()[0].address  # todo
         host, port = self.socks5_factory.circuit_peers.keys()[0].address
-        print host, port
-        reactor.connectTCP('localhost', 8091, remote_factory)
+        print "host and port", host, port
+        reactor.connectTCP(host, port, remote_factory)
         # reactor.connectTCP('localhost', 8092, remote_factory)
         # packed_data = self.createTCPPayload(data)
         self.buffer = data
@@ -362,7 +364,7 @@ class RemoteFactory(ClientFactory):
 def proxy():
     _COMMUNITIES['MultiProxy'] = MultiProxy
 
-    for i in [2]:
+    for i in [3]:
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
