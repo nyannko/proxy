@@ -76,6 +76,7 @@ class MultiProxy(TunnelCommunity):
 
         self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True).addErrback(log.err)
         self.register_task("build_tunnel", LoopingCall(self.check_circuit)).start(1.0, True).addErrback(log.err)
+        # self.register_task("tunnels_ready", LoopingCall(self.tunnels_ready).start(5.0, True).addErrback(log.err))
 
     # only if there are new circuits available could we send the data
     def check_circuit(self):
@@ -83,18 +84,17 @@ class MultiProxy(TunnelCommunity):
             print "get new circuit", self.circuits, self.relay_from_to, self.exit_candidates
             cir_id = self.circuits.keys()[0]
             peer_address = self.circuits[cir_id].peer.address
-            print "peer address"
-            self.socks5_factory.circuit_peers.append(peer_address)
+            print "peer address", peer_address
+            self.socks5_factory.circuit_peers[cir_id] = peer_address
         if self.exit_candidates != {}:
             print "get new exit candidates", self.circuits, self.relay_from_to, self.exit_candidates
             exit_pub_key = self.exit_candidates.keys()[0]
             exit_address = self.exit_candidates[exit_pub_key].address
-            self.forward_factory.circuit_peers.append(exit_address)
+            self.forward_factory.circuit_peers[exit_pub_key] = exit_address
         if self.relay_from_to != {}:
             print "get new relay from to peers", self.circuits, self.relay_from_to, self.exit_candidates
-            from_cir_id = self.relay_from_to.keys()[0]
-            from_relay_address = self.relay_from_to[from_cir_id]
-
+            from_cir_id = self.relay_from_to.keys()
+            print "from_realy_address", [i.peer.address for i in self.relay_from_to[from_cir_id]]
         else:
             # no circuit available
             print "self.circuits is None", self.circuits, self.relay_from_to, self.exit_candidates
@@ -137,15 +137,10 @@ class Socks5Protocol(protocol.Protocol):
     def send_address(self, data):
         # use tcp endpoint
         remote_factory = RemoteFactory(self)
-        # print self.socks5_factory.server_peers
-        # host, port = self.socks5_factory.server_peers.keys()[0].address  # todo
-        host, port = self.socks5_factory.circuit_peers[0]
+        host, port = self.socks5_factory.circuit_peers.values()[0]
         reactor.connectTCP(host, port, remote_factory)
         logging.info("Connected to {}:{}".format(host, port))
-        # reactor.connectTCP('localhost', 8092, remote_factory)
-        # packed_data = self.createTCPPayload(data)
         self.buffer = data
-        # print self.buffer
 
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
@@ -190,7 +185,7 @@ class Socks5Protocol(protocol.Protocol):
 class Socks5Factory(Factory):
     def __init__(self, proxy):
         self.proxy = proxy
-        self.circuit_peers = []
+        self.circuit_peers = {}
 
     def buildProtocol(self, addr):
         return Socks5Protocol(self)
@@ -220,10 +215,12 @@ class ForwardProtocol(protocol.Protocol):
             self.handle_TRANSMISSION(data)
 
     def handle_REQUEST(self, data):
-        remote_factory = RemoteFactory(self)
         # build TCP connection with server
-        # host, port = self.forward_factory.server_dict.keys()[0].address
-        reactor.connectTCP('localhost', 8092, remote_factory)
+        remote_factory = RemoteFactory(self)
+        print "forward factory address", self.forward_factory
+        host, port = self.forward_factory.circuit_peers.values()[0]
+        print "connected to ", host, port
+        reactor.connectTCP(host, port, remote_factory)
         self.buffer = data
 
     def handle_TRANSMISSION(self, data):
@@ -239,7 +236,7 @@ class ForwardProtocol(protocol.Protocol):
 class ForwardFactory(Factory):
     def __init__(self, proxy):
         self.proxy = proxy
-        self.circuit_peers = []
+        self.circuit_peers = {}
 
     def buildProtocol(self, addr):
         return ForwardProtocol(self)
