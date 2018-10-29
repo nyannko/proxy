@@ -1,3 +1,5 @@
+import pickle
+
 from twisted.internet import reactor, protocol
 from twisted.internet.protocol import Factory, ClientFactory
 
@@ -5,6 +7,7 @@ import struct
 import logging
 import socket
 import os
+from socks5_twisted.Message import Message
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -44,61 +47,27 @@ class Socks5Protocol(protocol.Protocol):
             self.handle_TRANSMISSION(data)
 
     def handle_NEGOTIATION(self, data):
-        logger.debug("1.start handshake phase")
         self.transport.write('\x05\x00')
 
     def handle_REQUEST(self, data):
-        logger.debug("2.handshake phase success, start request phase")
         addr_to_send = self.unpack_request_data(data)
-        logger.debug("3.unpack request to addr_to_send {}".format(addr_to_send))
-
         client_factory = ClientsFactory(self)
-        logger.debug("4.connect to remote proxy localhost:50000")
-
-        self.id = self.get_ID()
-        print "self.id", self.id
-        logger.debug("self.id: %r, %r", self.id, len(self.id))
-
-        # data_attach_id = self.id + addr_to_send
-        data_attach_id = addr_to_send
-        # data_attach_id = struct.pack('!4sL%ds' % len(addr_to_send), self.id, len(addr_to_send), addr_to_send)
-        print data_attach_id
-        self.buffer = data_attach_id
-
+        self.idx = self.get_ID()
+        data_to_send = Message(self.idx, addr_to_send).to_bytes()
+        self.buffer = data_to_send
         reactor.connectTCP('localhost', 50000, client_factory)
-
-        # self.client_protocol.write(self.buffer)
-        # self.buffer = addr_to_send
 
     # trying to implement buffer here.
     # https://stackoverflow.com/questions/33949409/twisted-protocol-to-handle-concantenated-tcp-stream-with-custom-frame-structure
     def handle_TRANSMISSION(self, data):
-        print "socks5 data", data
-        # data = self.id + data
+        data_send = Message(self.idx, data).to_bytes()
         if self.client_protocol is not None:
-            # data_attach_id = self.id[:] + data
-            # self.client_protocol.write(data_attach_id)
-            logger.debug("write direc: %r", (data))
-            print "test_direct", len(data), self.id
-            # data_test = self.id + data
-            data1 = struct.pack('!4sL%ds' % len(data), self.id, len(data), data)
-            logger.debug("write direc1: %r", struct.unpack('!4sL%ds' % len(data), data1))
-            # logger.debug("data1: {}, data_test: {}".format(len(data1), len(data_test)))
-            self.client_protocol.write(data1)
+            self.client_protocol.write(data_send)
         else:
-            print "buffer before", self.buffer, "buffer before"
-            # self.buffer += data_attach_id
-            buffer = self.buffer + data
-            logger.debug("write buffe1: %r", (self.buffer))
-            self.buffer = struct.pack(
-                '!4sL%ds' % len(buffer), self.id, len(buffer), buffer)
-            print "test_buffer", struct.unpack('!4sL%ds' % len(buffer), self.buffer)
-            logger.debug("write buffe2: %r", repr(self.buffer))
-            print "buffer", self.buffer
+            self.buffer += data_send
 
     def unpack_address(self, data):
         addr_type, = struct.unpack('>B', data[0])
-
         host = ''
         if addr_type == 3:
             length = ord(data[1])
@@ -167,12 +136,8 @@ class ClientProtocol(protocol.Protocol):
 
     def connectionMade(self):
         self.client_factory.socks5_protocol.client_protocol = self
-        print "write to", self.client_factory.socks5_protocol.buffer
-        logger.debug("write clien1: %r", repr(self.client_factory.socks5_protocol.buffer))
-
         if self.client_factory.socks5_protocol.buffer is not None:
             self.write(self.client_factory.socks5_protocol.buffer)
-        logger.debug("write clien2: %r", repr(buffer))
         self.client_factory.socks5_protocol.buffer = ''
 
     def dataReceived(self, data):

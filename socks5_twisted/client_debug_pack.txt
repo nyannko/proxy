@@ -2043,3 +2043,1598 @@ gfycat.com»
 ]
 2018-09-11 22:17:06,897:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
 ]
+2018-10-28 18:43:47,365:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 18:43:58,297:__main__:1.start handshake phase
+2018-10-28 18:43:58,298:__main__:2.handshake phase success, start request phase
+2018-10-28 18:43:58,298:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 18:43:58,299:__main__:3.unpack request to addr_to_send detectportal.firefox.com P
+2018-10-28 18:43:58,299:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:43:58,315:__main__:write clien1: "'\\x1c\\x03\\x18detectportal.firefox.com\\x00PGET /success.txt HTTP/1.1\\r\\nHost: detectportal.firefox.com\\r\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:64.0) Gecko/20100101 Firefox/64.0\\r\\nAccept: */*\\r\\nAccept-Language: en-US,en;q=0.5\\r\\nAccept-Encoding: gzip, deflate\\r\\nCache-Control: no-cache\\r\\nPragma: no-cache\\r\\nConnection: keep-alive\\r\\n\\r\\n'"
+2018-10-28 18:43:58,687:__main__:1.start handshake phase
+2018-10-28 18:43:58,687:__main__:2.handshake phase success, start request phase
+2018-10-28 18:43:58,687:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:43:58,687:__main__:3.unpack request to addr_to_send aus5.mozilla.org»
+2018-10-28 18:43:58,688:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:43:58,691:__main__:write clien1: "'\\x14\\x03\\x10aus5.mozilla.org\\x01\\xbb\\x16\\x03\\x01\\x00\\xc2\\x01\\x00\\x00\\xbe\\x03\\x033\\x8c\\xaa\\x95)\\xb6\\xfd\\xceo\\xcb\\xba\\x1b\\x04K\\xe6MN\\x17\\xe3h\\xf2\\x11(-\\x83\\xae\\xfc\\xecjy\\xb6\\x1c\\x00\\x00\\x1e\\xc0+\\xc0/\\xcc\\xa9\\xcc\\xa8\\xc0,\\xc00\\xc0\\n\\xc0\\t\\xc0\\x13\\xc0\\x14\\x003\\x009\\x00/\\x005\\x00\\n\\x01\\x00\\x00w\\x00\\x00\\x00\\x15\\x00\\x13\\x00\\x00\\x10aus5.mozilla.org\\x00\\x17\\x00\\x00\\xff\\x01\\x00\\x01\\x00\\x00\\n\\x00\\n\\x00\\x08\\x00\\x1d\\x00\\x17\\x00\\x18\\x00\\x19\\x00\\x0b\\x00\\x02\\x01\\x00\\x00#\\x00\\x00\\x00\\x10\\x00\\x0e\\x00\\x0c\\x02h2\\x08http/1.1\\x00\\x05\\x00\\x05\\x01\\x00\\x00\\x00\\x00\\x00\\r\\x00\\x18\\x00\\x16\\x04\\x03\\x05\\x03\\x06\\x03\\x08\\x04\\x08\\x05\\x08\\x06\\x04\\x01\\x05\\x01\\x06\\x01\\x02\\x03\\x02\\x01\\x00\\x1c\\x00\\x02@\\x00'"
+2018-10-28 18:43:59,078:__main__:1.start handshake phase
+2018-10-28 18:43:59,080:__main__:2.handshake phase success, start request phase
+2018-10-28 18:43:59,080:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:43:59,080:__main__:3.unpack request to addr_to_send search.services.mozilla.com»
+2018-10-28 18:43:59,080:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:43:59,083:__main__:write clien1: "'\\x1f\\x03\\x1bsearch.services.mozilla.com\\x01\\xbb'"
+2018-10-28 18:43:59,324:__main__:1.start handshake phase
+2018-10-28 18:43:59,325:__main__:2.handshake phase success, start request phase
+2018-10-28 18:43:59,326:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:43:59,326:__main__:3.unpack request to addr_to_send tiles.services.mozilla.com»
+2018-10-28 18:43:59,327:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:43:59,338:__main__:write clien1: "'\\x1e\\x03\\x1atiles.services.mozilla.com\\x01\\xbb\\x16\\x03\\x01\\x02\\x00\\x01\\x00\\x01\\xfc\\x03\\x03\\xb8\\xa1W\\xb8\\xf9{\\x0f\\x84\\xc4\\xd5\\xa4\\xd3\\xe7))\\x0eK\\x18\\xefN\\xfdp\\x89\\xeb\\xb5/\\xff\\xa1\\x99j\\xe3\\x13 \\x12\\xb3\\n\\xc2\\xbb6E\\xc9\\x8db\\x06\\xd9\\xc0\\xe9\\x12 k\\x83r\\xc0\\xbd-\\xb6\\xa1V\\x85\\x84%\\xbe(\\x0b\\x1e\\x00$\\x13\\x01\\x13\\x03\\x13\\x02\\xc0+\\xc0/\\xcc\\xa9\\xcc\\xa8\\xc0,\\xc00\\xc0\\n\\xc0\\t\\xc0\\x13\\xc0\\x14\\x003\\x009\\x00/\\x005\\x00\\n\\x01\\x00\\x01\\x8f\\x00\\x00\\x00\\x1f\\x00\\x1d\\x00\\x00\\x1atiles.services.mozilla.com\\x00\\x17\\x00\\x00\\xff\\x01\\x00\\x01\\x00\\x00\\n\\x00\\x0e\\x00\\x0c\\x00\\x1d\\x00\\x17\\x00\\x18\\x00\\x19\\x01\\x00\\x01\\x01\\x00\\x0b\\x00\\x02\\x01\\x00\\x00#\\x00\\x00\\x00\\x10\\x00\\x0e\\x00\\x0c\\x02h2\\x08http/1.1\\x00\\x05\\x00\\x05\\x01\\x00\\x00\\x00\\x00\\x003\\x00k\\x00i\\x00\\x1d\\x00 %\\x0c\\xb9\\xdeb\\x9e\\xc8\\xc7\\xc9l\\xb9\\xe4Q\\x94\\xa4\\x89V\\xe8\\xf7\\x98\\\\\\xd4\\x9e\\xb8!2\\xe3T\\xbcbb\\x19\\x00\\x17\\x00A\\x04)$\\x86c\\x13\\x7f\\xc3\\xb7U\\x96\\x11\\xa7\\x1cA\\xa0\\xfb\\xd8\\xeaga\\xd0\\x89\\xedJ\\xe4\\xd6\\xff\\x87\\xd5\\xea\\n-#c\\xea\\xde(\\x99jC\\x91\\x95\\xf6X^I?\\xee]\\xa0_]\\xc3\\xa2\\xecL\\x8f;\\xff&\\x11\\x89\\x9a\\xc8\\x00+\\x00\\t\\x08\\x03\\x04\\x03\\x03\\x03\\x02\\x03\\x01\\x00\\r\\x00\\x18\\x00\\x16\\x04\\x03\\x05\\x03\\x06\\x03\\x08\\x04\\x08\\x05\\x08\\x06\\x04\\x01\\x05\\x01\\x06\\x01\\x02\\x03\\x02\\x01\\x00-\\x00\\x02\\x01\\x01\\x00\\x1c\\x00\\x02@\\x01\\x00\\x15\\x00\\x84\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'"
+2018-10-28 18:44:00,896:__main__:1.start handshake phase
+2018-10-28 18:44:00,900:__main__:2.handshake phase success, start request phase
+2018-10-28 18:44:00,900:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:44:00,901:__main__:3.unpack request to addr_to_send safebrowsing.googleapis.com»
+2018-10-28 18:44:00,904:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:44:00,912:__main__:write clien1: "'\\x1f\\x03\\x1bsafebrowsing.googleapis.com\\x01\\xbb\\x16\\x03\\x01\\x02\\x00\\x01\\x00\\x01\\xfc\\x03\\x03:\\xa9\\t^ST\\x9ez\\xe7w\\x14;\\xfa\\x9f\\xff\\\\\\xb0\\xd05M\\xcc\\tB\\xf9\\xa6\\xa8\\xb2\\x06\\xf1\\x9d\\xa7Q \\x94=F\\xa4\\xf7K\\xe9cJ\\xc1\\xd5\\x10\\n\\xa9\\xa8\\x04\\xb4\\x84\\xb9\\x06\\xd2\\xdb\\x1d\\x16\\xbcd\\x16\\x1c\\r\\xaaQ\\xa2\\x00$\\x13\\x01\\x13\\x03\\x13\\x02\\xc0+\\xc0/\\xcc\\xa9\\xcc\\xa8\\xc0,\\xc00\\xc0\\n\\xc0\\t\\xc0\\x13\\xc0\\x14\\x003\\x009\\x00/\\x005\\x00\\n\\x01\\x00\\x01\\x8f\\x00\\x00\\x00 \\x00\\x1e\\x00\\x00\\x1bsafebrowsing.googleapis.com\\x00\\x17\\x00\\x00\\xff\\x01\\x00\\x01\\x00\\x00\\n\\x00\\x0e\\x00\\x0c\\x00\\x1d\\x00\\x17\\x00\\x18\\x00\\x19\\x01\\x00\\x01\\x01\\x00\\x0b\\x00\\x02\\x01\\x00\\x00#\\x00\\x00\\x00\\x10\\x00\\x0e\\x00\\x0c\\x02h2\\x08http/1.1\\x00\\x05\\x00\\x05\\x01\\x00\\x00\\x00\\x00\\x003\\x00k\\x00i\\x00\\x1d\\x00 \\xaf\\x1aj\\xd2A\\xe2\\x0c\\xf2\\xf001\\xfdY\\x106\\xc0\\xdc\\xb9\\x10\\xe9\\x1a\\x8ey}W\\xc4\\x0e\\xea)\\r\\x19]\\x00\\x17\\x00A\\x04\\xef\\x1d7X\\xf4\\x99\\xb3\\xb1;\\xb3L\\x17m2w\\xa3\\xbd\\x9c\\xda\\x1e\\xf0\\xb1\\xebbrb\\xd7]^_\\xf4\\x95\\xc9v\\xcd\\xe48\\x87\\xb9|,\\x11\\x01\\xf7eh%\\xbd\\xb7\\xee|?&\\x99\\x89\\xee\\x9355\\xd1\\xbeM\\xfd7\\x00+\\x00\\t\\x08\\x03\\x04\\x03\\x03\\x03\\x02\\x03\\x01\\x00\\r\\x00\\x18\\x00\\x16\\x04\\x03\\x05\\x03\\x06\\x03\\x08\\x04\\x08\\x05\\x08\\x06\\x04\\x01\\x05\\x01\\x06\\x01\\x02\\x03\\x02\\x01\\x00-\\x00\\x02\\x01\\x01\\x00\\x1c\\x00\\x02@\\x01\\x00\\x15\\x00\\x83\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'"
+2018-10-28 18:44:02,921:__main__:1.start handshake phase
+2018-10-28 18:44:02,923:__main__:2.handshake phase success, start request phase
+2018-10-28 18:44:02,923:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:44:02,924:__main__:3.unpack request to addr_to_send snippets.cdn.mozilla.net»
+2018-10-28 18:44:02,925:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:44:02,929:__main__:write clien1: '\'\\x1c\\x03\\x18snippets.cdn.mozilla.net\\x01\\xbb\\x16\\x03\\x01\\x02\\x00\\x01\\x00\\x01\\xfc\\x03\\x03\\xdfD\\xd8\\xe2\\x0f\\xbd\\x7fi\\x14\\xa4\\x05\\x04"\\x03\\x94\\x91\\xe74\\xe1m\\xb6\\xfb\\x1fk\\x8c\\xeb+"\\xa8\\xa8>\\x03 9}U7F\\x03\\x82\\xeb\\xff\\xa3\\xa8\\xac\\xce\\xd1e\\xf6\\xdd\\x11\\xf2_\\x15\\x10/\\x9a&\\x11<^\\x06\\xae\\xec\\xef\\x00$\\x13\\x01\\x13\\x03\\x13\\x02\\xc0+\\xc0/\\xcc\\xa9\\xcc\\xa8\\xc0,\\xc00\\xc0\\n\\xc0\\t\\xc0\\x13\\xc0\\x14\\x003\\x009\\x00/\\x005\\x00\\n\\x01\\x00\\x01\\x8f\\x00\\x00\\x00\\x1d\\x00\\x1b\\x00\\x00\\x18snippets.cdn.mozilla.net\\x00\\x17\\x00\\x00\\xff\\x01\\x00\\x01\\x00\\x00\\n\\x00\\x0e\\x00\\x0c\\x00\\x1d\\x00\\x17\\x00\\x18\\x00\\x19\\x01\\x00\\x01\\x01\\x00\\x0b\\x00\\x02\\x01\\x00\\x00#\\x00\\x00\\x00\\x10\\x00\\x0e\\x00\\x0c\\x02h2\\x08http/1.1\\x00\\x05\\x00\\x05\\x01\\x00\\x00\\x00\\x00\\x003\\x00k\\x00i\\x00\\x1d\\x00 etE\\x91B\\x93\\x93/9Q\\x88\\xee}\\xa4E?\\x89\\x88\\x89\\x0f\\x03\\xcf\\xff?*\\x9cL\\xd2L6K\\t\\x00\\x17\\x00A\\x04\\x83H\\x01,\\xfe\\xc5\\xaf4m]It/\\xc6T\\x1f\\x1c\\xa0D\\xae\\xcf*\\x92\\xe1\\xd3\\xf31\\xb2^\\x99-0\\x8a=\\xba\\xd0w[P\\xfd\\xb4\\xb2W\\x054"\\xe72e\\x11\\xc4\\xec\\x88b\\xe1dK+\\xae\\xc2\\x9fa\\x05B\\x00+\\x00\\t\\x08\\x03\\x04\\x03\\x03\\x03\\x02\\x03\\x01\\x00\\r\\x00\\x18\\x00\\x16\\x04\\x03\\x05\\x03\\x06\\x03\\x08\\x04\\x08\\x05\\x08\\x06\\x04\\x01\\x05\\x01\\x06\\x01\\x02\\x03\\x02\\x01\\x00-\\x00\\x02\\x01\\x01\\x00\\x1c\\x00\\x02@\\x01\\x00\\x15\\x00\\x86\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\''
+2018-10-28 18:44:03,327:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 18:44:03,328:__main__:1.start handshake phase
+2018-10-28 18:44:03,329:__main__:2.handshake phase success, start request phase
+2018-10-28 18:44:03,329:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 18:44:03,329:__main__:3.unpack request to addr_to_send detectportal.firefox.com P
+2018-10-28 18:44:03,329:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:44:03,332:__main__:write clien1: "'\\x1c\\x03\\x18detectportal.firefox.com\\x00PGET /success.txt HTTP/1.1\\r\\nHost: detectportal.firefox.com\\r\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:64.0) Gecko/20100101 Firefox/64.0\\r\\nAccept: */*\\r\\nAccept-Language: en-US,en;q=0.5\\r\\nAccept-Encoding: gzip, deflate\\r\\nCache-Control: no-cache\\r\\nPragma: no-cache\\r\\nConnection: keep-alive\\r\\n\\r\\n'"
+2018-10-28 18:44:08,332:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 18:44:08,334:__main__:1.start handshake phase
+2018-10-28 18:44:08,334:__main__:2.handshake phase success, start request phase
+2018-10-28 18:44:08,334:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 18:44:08,335:__main__:3.unpack request to addr_to_send detectportal.firefox.com P
+2018-10-28 18:44:08,335:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:44:08,344:__main__:write clien1: "'\\x1c\\x03\\x18detectportal.firefox.com\\x00PGET /success.txt HTTP/1.1\\r\\nHost: detectportal.firefox.com\\r\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:64.0) Gecko/20100101 Firefox/64.0\\r\\nAccept: */*\\r\\nAccept-Language: en-US,en;q=0.5\\r\\nAccept-Encoding: gzip, deflate\\r\\nCache-Control: no-cache\\r\\nPragma: no-cache\\r\\nConnection: keep-alive\\r\\n\\r\\n'"
+2018-10-28 18:44:13,337:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 18:44:13,338:__main__:1.start handshake phase
+2018-10-28 18:44:13,338:__main__:2.handshake phase success, start request phase
+2018-10-28 18:44:13,339:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 18:44:13,339:__main__:3.unpack request to addr_to_send detectportal.firefox.com P
+2018-10-28 18:44:13,339:__main__:4.connect to remote proxy localhost:50000
+2018-10-28 18:44:13,341:__main__:write clien1: "'\\x1c\\x03\\x18detectportal.firefox.com\\x00PGET /success.txt HTTP/1.1\\r\\nHost: detectportal.firefox.com\\r\\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:64.0) Gecko/20100101 Firefox/64.0\\r\\nAccept: */*\\r\\nAccept-Language: en-US,en;q=0.5\\r\\nAccept-Encoding: gzip, deflate\\r\\nCache-Control: no-cache\\r\\nPragma: no-cache\\r\\nConnection: keep-alive\\r\\n\\r\\n'"
+2018-10-28 18:44:13,889:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:44:13,890:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:44:13,890:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:44:13,890:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:44:13,891:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:44:13,891:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:45:23,880:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 18:45:29,508:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:45:29,545:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:45:29,787:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:45:34,279:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 18:45:36,021:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:45:36,022:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:46:59,496:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 18:47:04,963:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 18:47:06,162:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:47:07,220:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:47:09,963:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 18:47:09,963:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 18:47:12,269:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:47:12,269:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:47:12,270:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:49:05,329:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 18:49:07,390:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 18:49:08,320:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 18:49:10,553:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 18:49:10,554:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 20:58:54,022:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 20:59:02,783:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 20:59:03,198:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 20:59:03,560:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 20:59:03,710:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 20:59:05,253:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 20:59:07,777:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 20:59:07,778:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 20:59:10,243:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 20:59:10,244:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 20:59:10,244:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 20:59:10,245:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 20:59:10,245:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:32:54,266:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 21:32:59,545:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 21:32:59,595:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 21:32:59,634:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 21:33:04,346:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 21:33:16,438:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:33:16,443:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:43:20,724:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 21:43:25,375:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 21:43:56,005:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:43:58,643:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 21:44:02,636:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 21:44:02,809:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 21:44:02,827:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 21:44:04,314:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 21:44:04,315:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 21:44:09,018:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:44:09,019:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:44:09,020:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:44:29,032:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 21:44:34,707:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 21:44:41,351:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 21:44:41,632:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:44:41,633:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 21:49:03,166:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 21:49:08,946:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 21:49:15,395:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:13:01,169:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:13:05,524:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:13:09,443:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:21:22,714:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:21:30,770:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:21:49,582:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:24:23,897:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:24:27,723:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:24:36,175:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:24:37,206:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:24:38,959:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:24:47,407:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:24:51,537:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:24:51,538:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:26:31,526:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:26:36,214:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:44,278:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:26:45,309:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:26:47,174:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,288:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,295:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,306:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,309:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,310:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,314:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,316:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,318:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,319:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:26:47,540:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:26:47,557:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:26:47,558:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:15,814:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:27:15,816:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:27:15,818:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:27:16,041:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:27:16,479:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:20,390:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:20,508:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:20,563:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:20,678:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:20,682:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:20,686:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:27:20,796:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:27:25,252:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:27:47,188:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,190:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,192:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,193:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,193:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,194:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,194:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,195:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,195:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,196:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,196:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,197:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,199:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,200:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,200:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:27:47,201:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:29:13,446:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:29:17,884:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:18,130:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:18,383:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:18,405:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:18,408:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:18,410:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:18,414:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:18,434:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:18,540:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:18,589:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:18,593:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:18,594:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:18,595:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:18,739:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:18,739:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:23,834:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:23,835:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:23,836:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:23,837:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:23,840:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:24,104:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:28,843:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:28,844:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:28,844:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:29,847:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:29,855:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:30,450:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:30,593:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:30,608:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:30,612:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:30,614:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:30,615:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:30,844:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:35,852:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:35,853:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:35,853:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:35,854:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:35,854:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:37,710:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:37,750:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:29:37,902:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:38,239:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,094:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,113:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,115:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,370:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:40,372:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:40,376:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:40,393:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,418:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,442:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,445:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,449:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,455:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,464:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,476:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:40,637:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:41,411:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:42,812:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:43,019:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:43,020:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:43,021:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:43,031:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:43,033:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:43,034:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:43,222:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:43,252:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:43,253:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:43,344:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:45,242:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:45,243:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:45,319:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:29:45,594:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:45,598:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:47,296:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:29:47,373:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:30:03,809:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,809:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,810:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,811:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,811:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,812:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,813:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,813:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,814:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,815:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,816:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,818:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,830:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,833:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,834:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,835:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,837:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,838:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,839:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,841:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,843:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,843:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,844:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,845:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:30:03,845:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:14,149:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:33:15,947:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:16,410:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:33:17,220:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:33:17,483:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:33:26,911:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:28,871:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:28,875:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:28,954:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:29,112:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:29,116:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:29,123:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:29,638:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:33:29,646:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:29,649:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:29,652:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:29,910:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:33:29,912:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:30,359:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:33:32,304:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:33:32,393:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:33:41,167:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,168:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,169:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,173:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,173:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,174:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,181:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,182:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,188:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,192:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,225:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:33:41,241:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:37:38,867:__main__:socks5_twisted server is listening at port 40000
+2018-10-28 22:37:44,916:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,230:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,235:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,238:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,244:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,245:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,246:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,250:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,254:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,293:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:45,483:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:37:45,489:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:37:45,935:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:37:45,998:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-28 22:37:46,344:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:37:46,350:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-28 22:37:55,620:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:38:16,274:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-28 22:38:18,099:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,100:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,100:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,101:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,105:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,112:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,114:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,115:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,118:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,122:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,124:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,126:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,129:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-28 22:38:18,132:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:41:28,043:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:41:30,102:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:41:30,104:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: unsupported operand type(s) for +: 'int' and 'tuple'
+]
+2018-10-29 10:41:30,105:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:41:30,105:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: unsupported operand type(s) for +: 'int' and 'tuple'
+]
+2018-10-29 10:42:41,151:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:42:45,449:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:42:49,507:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:43:18,449:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:43:23,222:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:43:26,812:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:43:53,502:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:43:54,457:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:43:56,530:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:48:13,169:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:48:15,312:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:48:15,319:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 4
+]
+2018-10-29 10:48:15,327:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:48:15,329:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 4
+]
+2018-10-29 10:49:20,045:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:49:21,577:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:49:24,894:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:49:57,754:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:49:58,711:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:50:00,470:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:50:16,495:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:50:18,247:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:50:19,968:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:51:48,247:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:51:50,723:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:51:53,979:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:52:01,492:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:52:02,277:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:52:02,280:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 8
+]
+2018-10-29 10:52:02,280:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:52:02,281:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 8
+]
+2018-10-29 10:52:47,075:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:52:47,964:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:52:49,420:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:53:10,059:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:53:11,619:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:53:13,038:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:53:54,165:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:53:56,035:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:53:59,288:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:55:16,907:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:55:18,689:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:55:18,692:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 8
+]
+2018-10-29 10:55:18,693:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:55:18,696:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 8
+]
+2018-10-29 10:56:28,707:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:56:30,509:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:56:31,615:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:57:36,406:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:57:36,579:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:57:38,907:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:58:06,633:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:58:07,891:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:58:10,501:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 10:59:11,917:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 10:59:12,608:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 10:59:14,035:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 11:00:17,061:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 11:00:17,154:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 11:00:19,818:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 11:00:42,140:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 11:00:43,785:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 11:00:45,308:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 11:00:59,035:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 11:00:59,854:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 11:01:00,979:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 14:46:57,856:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 14:46:59,013:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 14:47:04,749:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 16:28:27,578:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 16:28:32,525:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 16:28:37,261:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 16:34:54,983:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 16:34:57,739:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 16:35:01,522:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 16:35:18,500:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 16:35:20,721:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 16:35:28,698:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:07:44,272:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:07:47,477:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:07:54,661:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:18:57,390:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:19:05,037:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:19:11,543:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:22:03,003:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:22:05,597:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:22:14,455:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:24:17,172:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:24:18,696:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:24:23,055:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:24:56,384:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:24:59,492:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:25:06,830:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:25:26,956:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:25:29,089:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:25:37,589:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:26:16,755:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:26:18,612:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:26:22,983:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:27:31,399:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:27:33,623:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:27:37,995:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 17:29:08,444:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 17:29:10,014:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 17:29:14,024:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:22:15,364:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:22:16,539:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:22:17,709:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:22:20,433:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:22:20,433:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:28:48,592:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:28:51,559:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,584:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,588:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,591:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,599:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,606:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,623:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,629:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,639:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,642:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,657:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,670:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,673:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,676:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,683:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,685:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,688:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,690:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:28:51,691:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:28:51,697:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.AttributeError'>: Socks5Protocol instance has no attribute 'id'
+]
+2018-10-29 18:29:30,800:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:29:32,835:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:29:35,384:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:31:51,116:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:31:53,196:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:31:55,965:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:32:52,951:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:32:55,098:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:32:57,232:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:36:46,684:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:36:48,207:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:36:50,572:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:37:54,743:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:37:57,779:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:37:57,843:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:37:58,073:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:37:58,104:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:41:44,396:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:41:46,860:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:41:46,933:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:41:47,023:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:41:47,077:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:44:24,141:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:44:29,672:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:44:29,738:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:44:29,828:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:44:29,944:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:46:14,472:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:46:15,936:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:46:16,068:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:46:16,316:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:46:16,350:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:48:03,700:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:48:07,330:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:48:07,411:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:48:07,547:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 18:48:07,818:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:48:07,855:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:48:17,856:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:48:46,790:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:48:49,794:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:48:49,854:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:48:50,083:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:48:50,123:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:57:06,168:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 18:57:07,711:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,902:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,908:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,911:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,919:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,926:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,970:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,971:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,972:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:07,973:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 18:57:08,155:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 18:57:08,180:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 18:57:08,307:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 18:57:12,608:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,609:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,610:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,612:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,614:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,616:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,617:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,621:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,622:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,622:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 18:57:12,623:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:14:32,250:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:14:36,630:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:50,559:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:14:50,699:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:53,413:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:14:53,485:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:53,792:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:53,798:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:53,800:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:53,807:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:53,808:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:14:53,816:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:14:54,044:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:14:54,050:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:14:59,804:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:14:59,804:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:14:59,805:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:14:59,805:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:15:09,424:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:15:09,425:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:15:09,427:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:16:23,393:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:16:23,638:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:16:23,724:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:16:24,005:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:16:24,007:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:16:24,008:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:16:24,010:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:16:24,256:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:24,261:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:24,362:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:16:24,633:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:29,662:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:16:29,663:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:16:29,663:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:16:29,664:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:16:45,913:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:45,914:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:45,915:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:45,916:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:45,923:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:45,925:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:16:55,055:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:16:55,057:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:16:55,112:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:17:16,101:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:16,103:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:16,103:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:16,104:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:16,104:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:16,105:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:16,355:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:17:16,355:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:17:16,356:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:17:47,172:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:47,173:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:47,173:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:17:47,427:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:17:54,451:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:18:15,689:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:18:23,927:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:18:23,928:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:18:25,256:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:18:25,509:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:18:36,213:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:18:41,217:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:18:41,222:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:18:46,225:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:18:46,230:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:18:51,227:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:18:51,229:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:18:51,998:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:18:52,001:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:18:52,002:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:18:53,495:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:18:55,088:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:19:01,223:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:19:45,921:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:19:47,169:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:19:47,443:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:19:47,446:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:19:47,448:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:19:47,453:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:19:47,694:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:19:47,703:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:19:47,786:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:19:52,705:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:19:52,708:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:19:52,709:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:19:52,709:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:20:03,185:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:20:03,187:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:20:04,633:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:20:06,526:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:20:06,634:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:20:06,635:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:20:06,636:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:20:06,641:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:20:06,891:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:20:06,966:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:20:11,542:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:20:12,543:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:20:12,544:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:20:12,544:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:20:12,546:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:24:43,252:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:24:44,865:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:24:45,209:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:24:45,210:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:24:45,211:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:24:45,216:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:24:45,461:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:24:45,559:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:24:45,822:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:24:50,876:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:24:50,877:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:24:50,877:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:24:50,878:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:24:59,952:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:24:59,952:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:25:55,272:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:26:01,218:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:26:04,851:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:28:46,636:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:28:49,443:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:29:11,853:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:29:11,891:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:29:18,581:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:29:18,669:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:29:23,766:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:30:33,521:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:31:13,683:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 19:31:17,531:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:17,782:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:17,789:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:17,792:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:17,794:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:17,795:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:18,034:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:18,037:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:18,417:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:18,431:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:18,915:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:18,916:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:19,451:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:20,201:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:20,225:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:20,228:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:20,231:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:20,400:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:20,403:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:20,430:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:20,516:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:20,590:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:20,712:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:21,204:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:21,212:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:21,243:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:21,244:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:21,245:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:21,636:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:21,971:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:22,011:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:22,014:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:22,284:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:22,332:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:22,465:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:22,729:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:22,776:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:23,076:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:23,086:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:23,121:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:23,206:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:23,265:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:23,742:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:23,793:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:23,796:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:23,865:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:23,898:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:24,105:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:24,214:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:24,352:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:24,716:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:24,777:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:24,788:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,146:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,186:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,187:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,188:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,189:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,402:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:25,450:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:25,737:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,925:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,969:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:25,986:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:26,008:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:26,207:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:26,297:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:26,385:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:26,775:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:26,819:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:26,824:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:26,852:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:27,250:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:27,251:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:27,268:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:27,278:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:27,383:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:27,901:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,009:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,010:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,011:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,011:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,011:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,014:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,014:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,041:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,041:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,052:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:28,174:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 19:31:28,602:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:29,539:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:30,589:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:31,535:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:32,260:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,272:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,380:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:32,496:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,497:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,515:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,522:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,526:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,529:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,548:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,555:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,574:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:32,801:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:33,697:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:33,698:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:33,744:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:33,929:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:35,580:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:36,481:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:36,801:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:37,048:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:37,341:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:37,765:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:38,385:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:39,088:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 19:31:40,024:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:40,060:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:40,775:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:40,777:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:41,053:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 19:31:42,030:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,035:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,036:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,036:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,036:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,037:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,037:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,038:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,038:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,039:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,039:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,040:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,040:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,041:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,041:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,042:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,043:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,044:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,048:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,053:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,054:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,055:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,055:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,064:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,066:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,068:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,069:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,073:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,074:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,074:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,074:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,075:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,075:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,076:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,076:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,076:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,077:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,077:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,077:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,079:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,082:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,083:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,088:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,091:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,091:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,093:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,108:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,109:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,110:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,128:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,130:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,131:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,135:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,136:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,136:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,139:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,141:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,142:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,144:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,153:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,153:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,154:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,157:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,159:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,160:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,161:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,161:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,161:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,161:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,162:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,162:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,162:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,163:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,164:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,164:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,166:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,167:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,168:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,169:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,170:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 19:31:42,175:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:24:28,182:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 20:24:32,718:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:24:36,886:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:24:36,888:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:24:36,908:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:24:37,708:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:24:45,675:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:24:45,675:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:24:45,676:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:24:45,677:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:24:45,680:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:14,055:__main__:socks5_twisted server is listening at port 40000
+2018-10-29 20:25:15,459:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:17,511:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:17,614:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:19,147:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:19,839:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:19,855:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:22,117:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:23,152:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:23,339:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:23,341:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:23,351:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:23,607:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:24,460:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:24,815:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:25,115:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:25,881:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:25,903:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:26,075:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:26,321:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:26,681:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:26,719:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:26,778:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:26,929:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:27,044:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:27,230:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:27,305:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:27,394:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:27,400:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:27,406:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:27,454:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:27,456:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:27,457:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:27,475:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:27,583:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:28,130:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:28,590:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:28,759:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:28,846:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:28,926:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:28,952:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,205:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,217:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,219:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,220:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,220:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,467:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:29,523:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,621:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:29,657:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,032:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,035:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,039:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,041:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,042:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,043:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,045:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,258:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,290:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,296:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,298:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,479:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:30,505:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:30,506:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:30,571:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:30,589:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:30,801:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:31,041:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:31,122:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:31,125:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:31,133:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:31,138:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:31,139:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:31,608:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:31,858:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:31,859:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,305:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,327:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,567:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,569:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,580:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,746:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,769:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:32,836:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:33,193:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:33,684:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:33,707:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:33,750:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:34,333:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,783:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,785:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,785:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,789:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,791:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,791:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,792:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,793:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,794:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,795:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,839:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,848:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:34,994:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:34,995:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:34,996:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:34,999:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-10-29 20:25:35,006:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:35,013:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:35,052:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:35,055:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:35,058:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:35,295:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:35,323:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:35,326:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:35,334:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-10-29 20:25:36,127:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:36,534:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:36,536:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-10-29 20:25:39,708:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,709:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,709:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,709:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,710:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,710:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,711:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,711:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,711:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,712:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,712:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,712:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,713:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,713:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,714:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,714:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,714:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,715:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,715:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,716:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,716:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,716:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,717:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,718:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,718:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,718:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,719:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,720:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,720:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,720:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,721:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,721:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,722:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,722:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,723:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,723:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,723:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,724:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,724:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,725:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,725:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,725:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,726:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,726:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,727:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,727:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,728:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,728:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,732:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,735:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,735:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,736:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,736:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,737:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,737:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,737:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,738:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,738:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,738:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,739:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,739:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,740:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,740:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,740:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,741:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,741:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,741:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,742:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,742:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,742:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,743:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,743:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,754:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,756:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,757:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,758:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,759:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,761:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,762:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,763:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,763:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-10-29 20:25:39,763:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]

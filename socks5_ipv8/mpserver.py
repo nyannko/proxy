@@ -83,7 +83,7 @@ class MultiProxy(TunnelCommunity):
             print "get new circuit", self.circuits, self.relay_from_to, self.exit_candidates
             cir_id = self.circuits.keys()[0]
             peer_address = self.circuits[cir_id].peer.address
-            print "peer address", peer_address
+            print "peer address", peer_address, "compatible", self.compatible_candidates
             self.socks5_factory.circuit_peers[cir_id] = peer_address
         if self.exit_candidates != {}:
             print "get new exit candidates", self.circuits, self.relay_from_to, self.exit_candidates
@@ -97,7 +97,6 @@ class MultiProxy(TunnelCommunity):
         else:
             # no circuit available
             print "self.circuits is None", self.circuits, self.relay_from_to, self.exit_candidates
-
 
     def tunnel_data(self, hops=2):
         self.build_tunnels(hops)
@@ -227,7 +226,6 @@ class ForwardProtocol(protocol.Protocol):
         reactor.connectTCP(host, port, remote_factory)
         self.buffer = data
 
-
     def handle_TRANSMISSION(self, data):
         if self.remote_protocol is not None:
             self.remote_protocol.write(data)
@@ -309,6 +307,7 @@ class ServerProtocol(protocol.Protocol):
     #
     # target_port, = struct.unpack('>H', data[-2:])
     # return target_ip, target_port
+    ############################################
 
     def write(self, data):
         self.transport.write(data)

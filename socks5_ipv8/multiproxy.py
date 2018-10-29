@@ -70,6 +70,7 @@ class MultiProxy(TunnelCommunity):
 
     def started(self):
         def start_communication():
+            print "_all_addresses", self.network._all_addresses
             for p in self.get_peers():
                 if p not in self.peers_dict:
                     self.logger.info("New Host {} join the network".format(p))
@@ -84,7 +85,7 @@ class MultiProxy(TunnelCommunity):
             print "get new circuit", self.circuits, self.relay_from_to, self.exit_candidates
             cir_id = self.circuits.keys()[0]
             peer_address = self.circuits[cir_id].peer.address
-            print "peer address", peer_address
+            print "peer address", peer_address, "compatible", [p.address for p in self.compatible_candidates]
             self.socks5_factory.circuit_peers[cir_id] = peer_address
         if self.exit_candidates != {}:
             print "get new exit candidates", self.circuits, self.relay_from_to, self.exit_candidates

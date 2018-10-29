@@ -1,15 +1,16 @@
+import random
 import struct
 import socket
 import logging
-from binascii import unhexlify
 
+from tw2.core import Deferred
 from twisted.python import log
 from twisted.internet import reactor
 from twisted.internet import protocol
 from twisted.internet.task import LoopingCall
 from twisted.internet.protocol import Factory, ClientFactory
 
-from pyipv8.ipv8.messaging.anonymization.community import TunnelCommunity, TunnelSettings
+from pyipv8.ipv8.messaging.anonymization.community import TunnelCommunity, TunnelSettings, inlineCallbacks
 from pyipv8.ipv8.peer import Peer
 from pyipv8.ipv8_service import IPv8, _COMMUNITIES
 from pyipv8.ipv8.deprecated.community import Community
@@ -19,11 +20,6 @@ master_peer_init = Peer(
     "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
         .decode('HEX'))
 
-# master_peer_init =  Peer(unhexlify("3081a7301006072a8648ce3d020106052b8104002703819200040733caf0902748547efc04be6a7e0" +
-#                                  "64384e1939622b38cde42237eff06674e07f8c4dd364e207a8c3eee30cd5751bed76d7071e8af7b91" +
-#                                  "0a62ccf9fbbfde7eb724a8ebdb54b738e306744ad6b96ef4549f6335c4bac10799fbe63477d8fd939" +
-#                                  "5e8439685de72fabf3efc32f6cb28075fff6ad605891eaba161ecec2f9b65aab45e121defa47d098f" +
-#                                  "16bad7dac6025687"))
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
@@ -38,7 +34,6 @@ class MultiProxy(TunnelCommunity):
         super(MultiProxy, self).__init__(my_peer, endpoint, network)
         self.peers_dict = {}
         self.be_server = False
-        self.tunnel = False
         self.socks5_factory = Socks5Factory(self)
         self.forward_factory = ForwardFactory(self)
         self.server_factory = ServerFactory(self)
@@ -55,9 +50,6 @@ class MultiProxy(TunnelCommunity):
         else:
             reactor.listenTCP(self.port, self.server_factory)
             self.logger.debug("Server is listening on port: {}".format(self.port))
-
-        if self.tunnel:
-            self.tunnel_data()
 
     def open_socks5_server(self):
         """Start socks5 twisted server"""
@@ -80,36 +72,8 @@ class MultiProxy(TunnelCommunity):
                 if p not in self.peers_dict:
                     self.logger.info("New Host {} join the network".format(p))
 
-                    print self.settings.become_exitnode
-
         self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True).addErrback(log.err)
-        self.register_task("build_tunnel", LoopingCall(self.check_circuit)).start(1.0, True).addErrback(log.err)
-
-    # only if there are new circuits available could we send the data
-    def check_circuit(self):
-        if self.circuits != {}:
-            print "get new circuit", self.circuits, self.relay_from_to, self.exit_candidates
-            cir_id = self.circuits.keys()[0]
-            peer_address = self.circuits[cir_id].peer.address
-            print "peer address", peer_address, "compatible", self.compatible_candidatess
-            self.socks5_factory.circuit_peers[cir_id] = peer_address
-        if self.exit_candidates != {}:
-            print "get new exit candidates", self.circuits, self.relay_from_to, self.exit_candidates
-            exit_pub_key = self.exit_candidates.keys()[0]
-            exit_address = self.exit_candidates[exit_pub_key].address
-            self.forward_factory.circuit_peers[exit_pub_key] = exit_address
-        if self.relay_from_to != {}:
-            print "get new relay from to peers", self.circuits, self.relay_from_to, self.exit_candidates
-            from_cir_id = self.relay_from_to.keys()
-            print "from_realy_address", [i.peer.address for i in self.relay_from_to[from_cir_id]]
-        else:
-            # no circuit available
-            print "self.circuits is None", self.circuits, self.relay_from_to, self.exit_candidates
-
-
-    def tunnel_data(self, hops=2):
-        self.build_tunnels(hops)
-        self.send_network_traffic()
+        # self.register_task("tunnels_ready", LoopingCall(self.tunnels_ready).start(5.0, True).addErrback(log.err))
 
 
 # Client local side
@@ -149,7 +113,7 @@ class Socks5Protocol(protocol.Protocol):
     def send_address(self, data):
         # use tcp endpoint
         remote_factory = RemoteFactory(self)
-        host, port = self.socks5_factory.circuit_peers.values()[0]
+        host, port = 'localhost', 8092
         reactor.connectTCP(host, port, remote_factory)
         logging.info("Connected to {}:{}".format(host, port))
         self.buffer = data
@@ -234,7 +198,6 @@ class ForwardProtocol(protocol.Protocol):
         print "connected to ", host, port
         reactor.connectTCP(host, port, remote_factory)
         self.buffer = data
-
 
     def handle_TRANSMISSION(self, data):
         if self.remote_protocol is not None:
@@ -368,7 +331,7 @@ class RemoteFactory(ClientFactory):
 def proxy():
     _COMMUNITIES['MultiProxy'] = MultiProxy
 
-    for i in [3]:
+    for i in [1]:
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
