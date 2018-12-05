@@ -1,5 +1,6 @@
 from twisted.internet import reactor
 from twisted.internet.task import LoopingCall
+from twisted.python import log
 
 from pyipv8.ipv8.deprecated.community import Community
 from pyipv8.ipv8_service import _COMMUNITIES, IPv8
@@ -15,12 +16,14 @@ class MyCommunity(Community):
 
     def started(self):
         def print_peers():
+            print "walk to .."
+            self.walk_to(('127.0.0.1', 8090))
             print "I am:", self.endpoint.get_address(), repr(self.my_peer.mid), "\nI know:", [str(p) for p in self.get_peers()]
             # print "address", self.network._all_addresses
         # We register a Twisted task with this overlay.
         # This makes sure that the task ends when this overlay is unloaded.
         # We call the 'print_peers' function every 5.0 seconds, starting now.
-        self.register_task("print_peers", LoopingCall(print_peers)).start(5.0, True)
+        self.register_task("print_peers", LoopingCall(print_peers)).start(5.0, True).addErrback(log.err)
 
 
 _COMMUNITIES['MyCommunity'] = MyCommunity

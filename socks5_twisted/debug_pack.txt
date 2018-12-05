@@ -1984,3 +1984,553 @@
 ]
 2018-10-29 20:25:38,684:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
 ]
+2018-11-21 15:28:41,505:__main__:remote server is listening at port 50000
+2018-11-21 15:28:49,184:__main__:host:detectportal.firefox.com, port:80, length of request:2
+2018-11-21 15:28:49,343:__main__:host:aus5.mozilla.org, port:443, length of request:2
+2018-11-21 15:28:49,760:__main__:host:search.services.mozilla.com, port:443, length of request:1
+2018-11-21 15:28:49,768:__main__:host:ocsp.digicert.com, port:80, length of request:2
+2018-11-21 15:28:49,894:__main__:host:tiles.services.mozilla.com, port:443, length of request:1
+2018-11-21 15:28:50,530:__main__:host:download.mozilla.org, port:80, length of request:2
+2018-11-21 15:28:50,797:__main__:host:snippets.cdn.mozilla.net, port:443, length of request:2
+2018-11-21 15:28:50,939:__main__:host:download.cdn.mozilla.net, port:80, length of request:2
+2018-11-21 15:28:51,523:__main__:host:safebrowsing.googleapis.com, port:443, length of request:2
+2018-11-21 15:28:51,668:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:28:51,929:__main__:host:location.services.mozilla.com, port:443, length of request:2
+2018-11-21 15:28:54,639:__main__:host:shavar.services.mozilla.com, port:443, length of request:2
+2018-11-21 15:28:55,033:__main__:host:ocsp.digicert.com, port:80, length of request:2
+2018-11-21 15:29:10,772:__main__:host:www.youtube.com, port:443, length of request:2
+2018-11-21 15:29:10,838:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:29:11,738:__main__:host:fonts.googleapis.com, port:443, length of request:1
+2018-11-21 15:29:11,802:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:29:11,858:__main__:host:yt3.ggpht.com, port:443, length of request:1
+2018-11-21 15:29:11,860:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:29:11,875:__main__:host:yt3.ggpht.com, port:443, length of request:1
+2018-11-21 15:29:11,876:__main__:host:yt3.ggpht.com, port:443, length of request:1
+2018-11-21 15:29:11,912:__main__:host:s.ytimg.com, port:443, length of request:1
+2018-11-21 15:29:11,915:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:29:11,916:__main__:host:i.ytimg.com, port:443, length of request:1
+2018-11-21 15:29:11,969:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:29:11,970:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:29:11,979:__main__:host:i.ytimg.com, port:443, length of request:1
+2018-11-21 15:29:12,092:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:29:12,093:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:29:12,093:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:29:12,131:__main__:host:fonts.gstatic.com, port:443, length of request:2
+2018-11-21 15:29:12,160:__main__:host:fonts.gstatic.com, port:443, length of request:1
+2018-11-21 15:29:12,382:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:29:12,551:__main__:host:accounts.google.com, port:443, length of request:2
+2018-11-21 15:29:13,239:__main__:host:googleads.g.doubleclick.net, port:443, length of request:2
+2018-11-21 15:29:13,651:__main__:host:pubads.g.doubleclick.net, port:443, length of request:2
+2018-11-21 15:29:13,767:__main__:host:www.google.nl, port:443, length of request:1
+2018-11-21 15:29:13,770:__main__:host:www.google.com, port:443, length of request:1
+2018-11-21 15:29:14,412:__main__:host:s.ytimg.com, port:443, length of request:2
+2018-11-21 15:29:14,426:__main__:host:s.ytimg.com, port:443, length of request:2
+2018-11-21 15:29:14,818:__main__:host:ad.doubleclick.net, port:443, length of request:1
+2018-11-21 15:29:14,820:__main__:host:securepubads.g.doubleclick.net, port:443, length of request:1
+2018-11-21 15:29:19,315:__main__:host:static.doubleclick.net, port:443, length of request:2
+2018-11-21 15:29:21,470:__main__:host:r1---sn-5hne6nsd.googlevideo.com, port:443, length of request:2
+2018-11-21 15:29:21,523:__main__:host:r1---sn-5hne6nsd.googlevideo.com, port:443, length of request:2
+2018-11-21 15:29:26,852:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,855:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,855:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,856:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,856:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,856:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,856:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,857:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,857:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,858:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,858:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,858:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,858:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,859:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,859:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,859:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,860:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,860:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,860:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,860:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,861:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,861:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,861:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,861:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,862:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,862:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,862:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,862:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,863:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,863:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,863:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,864:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,864:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,865:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,866:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,867:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,867:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,867:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,868:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,869:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,869:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,869:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,870:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,870:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:29:26,870:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:30:35,833:__main__:remote server is listening at port 50000
+2018-11-21 15:30:45,431:__main__:host:detectportal.firefox.com, port:80, length of request:2
+2018-11-21 15:30:46,354:__main__:host:tiles.services.mozilla.com, port:443, length of request:2
+2018-11-21 15:30:46,775:__main__:host:ocsp.digicert.com, port:80, length of request:1
+2018-11-21 15:30:46,968:__main__:host:tiles.services.mozilla.com, port:443, length of request:2
+2018-11-21 15:30:47,008:__main__:host:www.reddit.com, port:443, length of request:2
+2018-11-21 15:30:47,025:__main__:host:safebrowsing.googleapis.com, port:443, length of request:2
+2018-11-21 15:30:47,110:__main__:host:ocsp.pki.goog, port:80, length of request:1
+2018-11-21 15:30:48,372:__main__:host:preview.redd.it, port:443, length of request:1
+2018-11-21 15:30:48,427:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:30:48,428:__main__:host:a.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:30:48,429:__main__:host:preview.redd.it, port:443, length of request:1
+2018-11-21 15:30:48,430:__main__:host:preview.redd.it, port:443, length of request:1
+2018-11-21 15:30:48,431:__main__:host:external-preview.redd.it, port:443, length of request:2
+2018-11-21 15:30:48,434:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:30:48,434:__main__:host:external-preview.redd.it, port:443, length of request:1
+2018-11-21 15:30:48,435:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:1
+2018-11-21 15:30:48,435:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:30:48,436:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:30:48,545:__main__:host:a.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:30:48,545:__main__:host:styles.redditmedia.com, port:443, length of request:2
+2018-11-21 15:30:48,546:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:30:48,547:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:30:48,547:__main__:host:a.thumbs.redditmedia.com, port:443, length of request:1
+2018-11-21 15:30:48,659:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:30:48,665:__main__:host:preview.redd.it, port:443, length of request:2
+2018-11-21 15:30:48,667:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:1
+2018-11-21 15:30:48,803:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:30:48,808:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:1
+2018-11-21 15:30:48,811:__main__:host:a.thumbs.redditmedia.com, port:443, length of request:1
+2018-11-21 15:30:48,813:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:30:48,819:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:30:48,828:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:30:56,800:__main__:host:www.googletagservices.com, port:443, length of request:2
+2018-11-21 15:30:56,832:__main__:host:c.amazon-adsystem.com, port:443, length of request:1
+2018-11-21 15:30:56,836:__main__:host:c.aaxads.com, port:443, length of request:2
+2018-11-21 15:30:56,876:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:31:06,420:__main__:host:www.redditmedia.com, port:443, length of request:2
+2018-11-21 15:31:13,950:__main__:host:www.youtube.com, port:443, length of request:2
+2018-11-21 15:31:15,148:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:31:15,157:__main__:host:fonts.googleapis.com, port:443, length of request:2
+2018-11-21 15:31:15,162:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:31:15,166:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:31:15,244:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:31:15,249:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:31:15,254:__main__:host:s.ytimg.com, port:443, length of request:2
+2018-11-21 15:31:15,256:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:31:15,376:__main__:host:i.ytimg.com, port:443, length of request:1
+2018-11-21 15:31:15,408:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:31:15,421:__main__:host:i.ytimg.com, port:443, length of request:1
+2018-11-21 15:31:15,422:__main__:host:i.ytimg.com, port:443, length of request:1
+2018-11-21 15:31:15,426:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:31:15,427:__main__:host:i.ytimg.com, port:443, length of request:1
+2018-11-21 15:31:15,760:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:31:15,762:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:31:15,767:__main__:host:ocsp.pki.goog, port:80, length of request:1
+2018-11-21 15:31:15,775:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:31:16,142:__main__:host:yt3.ggpht.com, port:443, length of request:1
+2018-11-21 15:31:16,145:__main__:host:yt3.ggpht.com, port:443, length of request:2
+2018-11-21 15:31:16,157:__main__:host:fonts.gstatic.com, port:443, length of request:2
+2018-11-21 15:31:16,158:__main__:host:fonts.gstatic.com, port:443, length of request:2
+2018-11-21 15:31:17,134:__main__:host:googleads.g.doubleclick.net, port:443, length of request:2
+2018-11-21 15:31:18,030:__main__:host:pubads.g.doubleclick.net, port:443, length of request:2
+2018-11-21 15:31:18,067:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:31:18,124:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:31:18,129:__main__:host:i.ytimg.com, port:443, length of request:2
+2018-11-21 15:31:18,280:__main__:host:www.google.nl, port:443, length of request:2
+2018-11-21 15:31:18,282:__main__:host:www.google.com, port:443, length of request:2
+2018-11-21 15:31:19,571:__main__:host:ad.doubleclick.net, port:443, length of request:1
+2018-11-21 15:31:19,579:__main__:host:securepubads.g.doubleclick.net, port:443, length of request:2
+2018-11-21 15:31:22,842:__main__:host:static.doubleclick.net, port:443, length of request:2
+2018-11-21 15:31:24,402:__main__:host:r1---sn-5hnekn7l.googlevideo.com, port:443, length of request:2
+2018-11-21 15:31:24,404:__main__:host:r1---sn-5hnekn7l.googlevideo.com, port:443, length of request:2
+2018-11-21 15:31:33,018:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,022:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,022:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,023:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,023:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,023:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,023:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,024:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,024:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,025:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,025:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,026:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,026:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,027:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,027:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,028:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,028:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,029:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,029:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,029:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,030:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,030:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,030:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,031:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,031:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,032:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,032:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,033:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,033:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,033:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,034:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,035:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,035:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,035:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,036:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,036:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,036:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,037:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,037:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,038:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,039:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,039:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,040:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,042:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,043:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,043:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,044:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,044:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,044:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,045:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,045:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,046:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,047:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,049:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,049:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,050:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,050:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,050:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,051:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,051:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,051:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,051:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,051:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,052:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,052:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,052:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,052:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,053:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,053:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,053:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,053:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:31:33,053:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:07,173:__main__:remote server is listening at port 50000
+2018-11-21 15:32:10,989:__main__:host:detectportal.firefox.com, port:80, length of request:2
+2018-11-21 15:32:11,665:__main__:host:tiles.services.mozilla.com, port:443, length of request:1
+2018-11-21 15:32:12,075:__main__:host:ocsp.digicert.com, port:80, length of request:2
+2018-11-21 15:32:12,830:__main__:host:www.reddit.com, port:443, length of request:2
+2018-11-21 15:32:12,853:__main__:host:safebrowsing.googleapis.com, port:443, length of request:2
+2018-11-21 15:32:13,095:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:32:14,221:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:14,301:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:14,303:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:14,304:__main__:host:external-preview.redd.it, port:443, length of request:2
+2018-11-21 15:32:14,308:__main__:host:external-preview.redd.it, port:443, length of request:1
+2018-11-21 15:32:14,308:__main__:host:styles.redditmedia.com, port:443, length of request:2
+2018-11-21 15:32:14,309:__main__:host:preview.redd.it, port:443, length of request:2
+2018-11-21 15:32:14,310:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:32:14,522:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:14,525:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:14,527:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:1
+2018-11-21 15:32:14,529:__main__:host:preview.redd.it, port:443, length of request:1
+2018-11-21 15:32:14,530:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:32:14,532:__main__:host:a.thumbs.redditmedia.com, port:443, length of request:1
+2018-11-21 15:32:14,535:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:14,538:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:32:14,547:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:32:14,552:__main__:host:b.thumbs.redditmedia.com, port:443, length of request:2
+2018-11-21 15:32:15,048:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:17,779:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:17,781:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:17,783:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:17,797:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:17,843:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:17,854:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:17,857:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:17,859:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:17,860:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:17,861:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:17,901:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:19,612:__main__:host:c.amazon-adsystem.com, port:443, length of request:2
+2018-11-21 15:32:19,614:__main__:host:www.googletagservices.com, port:443, length of request:2
+2018-11-21 15:32:19,623:__main__:host:c.aaxads.com, port:443, length of request:1
+2018-11-21 15:32:22,973:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,974:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,976:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,977:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,978:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,979:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,980:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,981:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,982:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,982:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,983:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,993:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,994:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,994:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,995:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,995:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,996:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,997:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,998:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,998:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,999:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,999:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:22,999:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,000:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,000:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,001:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,002:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,002:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,003:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,003:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,004:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,005:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,006:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,008:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,027:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,027:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,028:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,029:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:23,030:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]
+2018-11-21 15:32:34,016:__main__:remote server is listening at port 50000
+2018-11-21 15:32:35,155:__main__:host:www.reddit.com, port:443, length of request:2
+2018-11-21 15:32:36,317:__main__:host:external-preview.redd.it, port:443, length of request:2
+2018-11-21 15:32:36,323:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:37,402:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:37,936:__main__:host:www.redditstatic.com, port:443, length of request:2
+2018-11-21 15:32:38,597:__main__:host:c.aaxads.com, port:443, length of request:1
+2018-11-21 15:32:38,641:__main__:host:www.googletagservices.com, port:443, length of request:1
+2018-11-21 15:32:38,642:__main__:host:c.amazon-adsystem.com, port:443, length of request:2
+2018-11-21 15:32:40,322:__main__:host:normandy.cdn.mozilla.net, port:443, length of request:2
+2018-11-21 15:32:40,419:__main__:host:normandy.services.mozilla.com, port:443, length of request:2
+2018-11-21 15:32:40,515:__main__:host:www.redditmedia.com, port:443, length of request:2
+2018-11-21 15:32:40,962:__main__:host:alb.reddit.com, port:443, length of request:2
+2018-11-21 15:32:41,135:__main__:host:content-signature.cdn.mozilla.net, port:443, length of request:2
+2018-11-21 15:32:41,204:__main__:host:ocsp.sca1b.amazontrust.com, port:80, length of request:2
+2018-11-21 15:32:41,812:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:41,830:__main__:host:adservice.google.nl, port:443, length of request:1
+2018-11-21 15:32:41,833:__main__:host:adservice.google.com, port:443, length of request:1
+2018-11-21 15:32:41,927:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:32:41,928:__main__:host:ocsp.pki.goog, port:80, length of request:2
+2018-11-21 15:32:41,982:__main__:host:c.amazon-adsystem.com, port:443, length of request:1
+2018-11-21 15:32:42,140:__main__:host:securepubads.g.doubleclick.net, port:443, length of request:1
+2018-11-21 15:32:42,265:__main__:host:aaxdetect.com, port:443, length of request:1
+2018-11-21 15:32:42,417:__main__:host:v.redd.it, port:443, length of request:2
+2018-11-21 15:32:43,643:__main__:host:www.redditstatic.com, port:443, length of request:1
+2018-11-21 15:32:44,231:__main__:host:l.aaxads.com, port:443, length of request:1
+2018-11-21 15:32:44,358:__main__:host:www.googletagmanager.com, port:443, length of request:1
+2018-11-21 15:32:45,140:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,149:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,151:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,156:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,158:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,161:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,172:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,178:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,180:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,181:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,182:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,186:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,187:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,188:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,190:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,195:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,199:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,211:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,213:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,215:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,221:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,226:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,233:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,236:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,239:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]
+2018-11-21 15:32:45,366:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
+]

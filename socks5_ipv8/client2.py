@@ -379,7 +379,7 @@ class RemoteFactory(ClientFactory):
 def proxy():
     _COMMUNITIES['MultiProxy'] = MultiProxy
 
-    for i in [1]:
+    for i in [4]:
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",

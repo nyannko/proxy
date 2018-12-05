@@ -33,7 +33,7 @@ class MultiProxy(TunnelCommunity):
         super(MultiProxy, self).__init__(my_peer, endpoint, network)
         self.peers_dict = {}
         self.be_server = False
-        self.tunnel = True
+        self.tunnel = False
         self.socks5_factory = Socks5Factory(self)
         self.forward_factory = ForwardFactory(self)
         self.server_factory = ServerFactory(self)
@@ -379,7 +379,7 @@ class RemoteFactory(ClientFactory):
 def proxy():
     _COMMUNITIES['MultiProxy'] = MultiProxy
 
-    for i in [1]:
+    for i in [2]:
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",

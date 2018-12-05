@@ -1,3 +1,4 @@
+import argparse
 import struct
 import socket
 import logging
@@ -32,8 +33,6 @@ class MultiProxy(TunnelCommunity):
     def __init__(self, my_peer, endpoint, network):
         super(MultiProxy, self).__init__(my_peer, endpoint, network)
         self.peers_dict = {}
-        self.be_server = False
-        self.tunnel = True
         self.socks5_factory = Socks5Factory(self)
         self.forward_factory = ForwardFactory(self)
         self.server_factory = ServerFactory(self)
@@ -42,7 +41,11 @@ class MultiProxy(TunnelCommunity):
 
         self.settings = TunnelSettings()
         self.settings.become_exitnode = False
+        # self.choose_identity(("client", 3))
 
+        self.build_tunnels(2)
+
+        # for forwarder or server
         # self.port = self.endpoint.get_address()[1]
         # print "server listening at :", self.port
         # if not self.be_server:
@@ -52,8 +55,19 @@ class MultiProxy(TunnelCommunity):
         #     reactor.listenTCP(self.port, self.server_factory)
         #     self.logger.debug("Server is listening on port: {}".format(self.port))
 
-        if self.tunnel:
-            self.build_tunnels(2)
+    def choose_identity(self, choice):
+        if isinstance(choice, tuple) and choice[0] == 'client':
+            self.build_tunnels(choice[1])
+            self.be_server = False
+            self.settings.become_exitnode = False
+        elif choice == 'forwarder':
+            self.be_server = False
+            self.settings.become_exitnode = False
+        elif choice == 'server':
+            self.be_server = True
+            self.settings.become_exitnode = True
+        else:
+            logging.error("Wrong identity information.")
 
     def open_socks5_server(self):
         """Start socks5 twisted server"""
@@ -139,7 +153,7 @@ class Socks5Protocol(protocol.Protocol):
         self.remote_protocol = None
         self.state = 'NEGOTIATION'
         # buffer and protocol for tcp
-        self.buffer = None
+        self.buffer = bytes()
 
     def connectionMade(self):
         address = self.transport.getPeer()
@@ -232,7 +246,7 @@ class ForwardProtocol(protocol.Protocol):
         self.state = 'REQUEST'
         self.forward_factory = forward_factory
         self.remote_protocol = None
-        self.buffer = None
+        self.buffer = bytes()
 
     def connectionMade(self):
         address = self.transport.getPeer()
@@ -241,20 +255,26 @@ class ForwardProtocol(protocol.Protocol):
     def dataReceived(self, data):
         messages, _ = Message.parse_stream(data)
         for m in messages:
-            self.handle_REQUEST(m)
+            if self.state == 'REQUEST':
+                self.handle_REQUEST(m)
+                self.state = 'TRANSMISSION'
+
+            elif self.state == 'TRANSMISSION':
+                self.handle_TRANSMISSION(m)
 
     def handle_REQUEST(self, message):
-        from_cir_id = message.cir_id
+        from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
         to_cir_id = self.forward_factory.circuit_id[from_cir_id]
-        idx, msg_type, data = message.idx, message.msg_type, message.data
-
-        # build TCP connection with server
-        remote_factory = RemoteFactory(self)
         host, port = self.forward_factory.circuit_peers[from_cir_id]
-        print "connected to ", host, port
+        logging.debug("connect to {}:{}, to_circuit id is:{}".format(host, port, to_cir_id))
+        remote_factory = RemoteFactory(self)
         reactor.connectTCP(host, port, remote_factory)
-        data_to_send = Message(to_cir_id, msg_type, data).to_bytes()
+        self.buffer = Message(to_cir_id, msg_type, data).to_bytes()
 
+    def handle_TRANSMISSION(self, message):
+        from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
+        to_cir_id = self.forward_factory.circuit_id[from_cir_id]
+        data_to_send = Message(to_cir_id, msg_type, data).to_bytes()
         if self.remote_protocol is not None:
             self.remote_protocol.write(data_to_send)
         else:
@@ -283,10 +303,10 @@ class ServerProtocol(protocol.Protocol):
         self.server_factory = server_factory
         self.remote_protocol = None
         self.state = 'ADDRESS_FROM_SOCKS5'
-        self.buffer = None
+        self.buffer = bytes()
 
     def dataReceived(self, data):
-        print "data received from forwarder", data
+        print "data received from forwarder", repr(data)[:50]
         # parse data here
         messages, _ = Message.parse_stream(data)
         for m in messages:
@@ -378,6 +398,7 @@ class RemoteFactory(ClientFactory):
 
 def proxy():
     _COMMUNITIES['MultiProxy'] = MultiProxy
+    # add number here
 
     for i in [1]:
         configuration = get_default_configuration()
@@ -406,5 +427,14 @@ def proxy():
 
 
 if __name__ == '__main__':
-    proxy()
-    reactor.run()
+    parser = argparse.ArgumentParser(description="Please input the node identity and the number of nodes")
+    parser.add_argument('-client', type=int, dest='client_number', help="The number of the clients")
+    parser.add_argument('-forwarder', type=int, dest='forwarder_number', help="Which port to listen")
+    parser.add_argument('-server', type=int, dest='server number', help="The number of the nodes")
+    # parser.add_argument('-p', type=int, dest='client_port', help="The number of the clients")
+    # parser.add_argument('-p', type=int, dest='server_port', help="The number of the clients")
+    args = parser.parse_args()
+    print args
+    init_nodes_list = [args.client_number, args.forwarder_number, args.server_number]
+    proxy(init_nodes_list)
+    # reactor.run()

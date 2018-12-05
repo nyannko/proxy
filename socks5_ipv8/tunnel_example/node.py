@@ -23,12 +23,13 @@ class MyCommunity(TunnelCommunity):
         self.settings = TunnelSettings()
         self.settings.become_exitnode = False
         self.nodes = {}
-        self.build_tunnels(2)
+        self.build_tunnels(3)
 
 
     def started(self):
         def print_peers():
             print "I am:", self.my_peer, "\nI know:", [str(p) for p in self.get_peers()]
+            print "relay_session_keys", self.relay_session_keys
             for p in self.get_peers():
                 if p not in self.nodes:
                     self.nodes[p] = None

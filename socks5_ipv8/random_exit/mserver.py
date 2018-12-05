@@ -229,6 +229,10 @@ class ServerProtocol(protocol.Protocol):
         self.state = 'ADDRESS_FROM_SOCKS5'
         self.buffer = None
 
+    def connectionMade(self):
+        address = self.transport.getPeer()
+        logging.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
+
     def dataReceived(self, data):
         if self.state == 'ADDRESS_FROM_SOCKS5':
             self.handle_REMOTEADDR(data)

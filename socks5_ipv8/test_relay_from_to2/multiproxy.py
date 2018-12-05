@@ -1,6 +1,7 @@
 import struct
 import socket
 import logging
+import argparse
 
 from twisted.python import log
 from twisted.internet import reactor
@@ -8,12 +9,11 @@ from twisted.internet import protocol
 from twisted.internet.task import LoopingCall
 from twisted.internet.protocol import Factory, ClientFactory
 
-from pyipv8.ipv8.messaging.anonymization.community import TunnelCommunity, TunnelSettings, inlineCallbacks, \
-    CIRCUIT_STATE_READY
 from pyipv8.ipv8.peer import Peer
+from socks5_ipv8.Message import Message
 from pyipv8.ipv8_service import IPv8, _COMMUNITIES
 from pyipv8.ipv8.configuration import get_default_configuration
-from socks5_ipv8.Message import Message
+from pyipv8.ipv8.messaging.anonymization.community import TunnelCommunity, TunnelSettings, CIRCUIT_STATE_READY
 
 master_peer_init = Peer(
     "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
@@ -32,28 +32,10 @@ class MultiProxy(TunnelCommunity):
     def __init__(self, my_peer, endpoint, network):
         super(MultiProxy, self).__init__(my_peer, endpoint, network)
         self.peers_dict = {}
-        self.be_server = False
-        self.tunnel = True
         self.socks5_factory = Socks5Factory(self)
-        self.forward_factory = ForwardFactory(self)
-        self.server_factory = ServerFactory(self)
 
-        self.open_socks5_server()
-
-        self.settings = TunnelSettings()
-        self.settings.become_exitnode = False
-
-        # self.port = self.endpoint.get_address()[1]
-        # print "server listening at :", self.port
-        # if not self.be_server:
-        #     reactor.listenTCP(self.port, self.forward_factory)
-        #     self.logger.debug("Forwarder is listening on port: {}".format(self.port))
-        # else:
-        #     reactor.listenTCP(self.port, self.server_factory)
-        #     self.logger.debug("Server is listening on port: {}".format(self.port))
-
-        if self.tunnel:
-            self.build_tunnels(2)
+        self.addr, self.port = self.endpoint.get_address()
+        self.socks5_port = self.open_socks5_server()
 
     def open_socks5_server(self):
         """Start socks5 twisted server"""
@@ -62,66 +44,81 @@ class MultiProxy(TunnelCommunity):
             try:
                 reactor.listenTCP(port, self.socks5_factory)
                 break
-            except Exception as e:
-                self.logger.exception(e.message)
+            except:
                 port += 1
                 continue
-        print "listening at ", port
-        # logging.info("socks5_twisted server listening at port {}".format(port))
+        logging.info("socks5_twisted server listening at port {}".format(port))
+        return port
 
     def started(self):
         def start_communication():
-            print "_all_addresses", self.network._all_addresses
-            print "I am:", self.my_peer, "\nI know:", [str(p) for p in self.get_peers()]
+            # print "I am:", self.my_peer, "\nI know:", [str(p) for p in self.get_peers()]
             for p in self.get_peers():
                 if p not in self.peers_dict:
                     self.logger.info("New Host {} join the network".format(p))
+                self.peers_dict[p] = None
 
         self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True).addErrback(log.err)
-        self.register_task("build_tunnel", LoopingCall(self.check_circuit)).start(1.0, True).addErrback(log.err)
+        self.register_task("check_circuit", LoopingCall(self.check_circuit)).start(2.0, True).addErrback(log.err)
         # self.register_task("tunnels_ready", LoopingCall(self.tunnels_ready).start(5.0, True).addErrback(log.err))
 
-    # first hop's address
-    # exit node address
-    # forwarder's address
-    # only if there are new circuits available could we send the data
     def check_circuit(self):
-        # loop through circuits
+        """
+        Implemented by class MultiProxyClient
+        """
+        pass
+
+
+class MultiProxyClient(MultiProxy):
+
+    def __init__(self, my_peer, endpoint, network):
+        super(MultiProxyClient, self).__init__(my_peer, endpoint, network)
+        self.settings = TunnelSettings()
+        self.settings.become_exitnode = False
+        self.forward_factory = ForwardFactory(self)
+        reactor.listenTCP(self.port, self.forward_factory)
+
+    def check_circuit(self):
+        # Update first hop address
         for circuit_id, circuit in self.circuits.items():
             # check if the circuit is ready
             if circuit.state == CIRCUIT_STATE_READY:
-                print "get new circuit", self.circuits, self.relay_from_to, self.exit_candidates
-                print "first hop's address", [v.peer.address for k, v in
-                                              self.circuits.items()]  # print address for next hop
-            peer_address = circuit.peer.address
-            self.socks5_factory.circuit_peers[circuit_id] = peer_address
+                self.logger.debug("{}:{}, {}, Get new circuit {};{};{}"
+                                  .format(self.addr, self.port, self.__class__.__name__,
+                                          self.circuits, self.relay_from_to, self.exit_candidates, ))
+                first_hops = [v.peer.address for k, v in self.circuits.items()]
+                self.logger.debug("{}:{}, {}, First hop address is {}"
+                                  .format(self.addr, self.port, self.__class__.__name__, first_hops))
 
-            print "peer address", peer_address, "compatible", [p.address for p in self.compatible_candidates]
-        print "self.socks5_factory.circuit_peers", self.socks5_factory.circuit_peers
+                peer_address = circuit.peer.address
+                self.socks5_factory.circuit_peers[circuit_id] = peer_address
 
-        # select exit nodes
-        exit_node = []
-        print "exit node", self.exit_sockets, self.exit_candidates
-        for key, peer in self.exit_candidates.items():  # change to exit_socket
-            exit_address = peer.address
-            self.forward_factory.circuit_peers[key] = exit_address
-            exit_node.append(exit_address)
-        print "self.forward_factory.circuit_peers", self.forward_factory.circuit_peers
-        print "self.forward_factory.circuit_idx", self.forward_factory.circuit_id
-        print "exit node address", exit_node
+        self.logger.debug("{}:{}, {}, Update first hop {}"
+                          .format(self.addr, self.port, self.__class__.__name__, self.socks5_factory.circuit_peers))
 
-        if not self.forward_factory.circuit_peers:
-            print "no exit nodes available."
-
-        forwarder_addr = {}
+        # Update forwarder addresses
         for circuit_id, relay_route in self.relay_from_to.items():
             forwarder_address = relay_route.peer.address
             self.forward_factory.circuit_peers[circuit_id] = forwarder_address
-            forwarder_addr[circuit_id] = forwarder_address
-        print "self.forward_factory.circuit_peers", self.forward_factory.circuit_peers
-        print "forwarder's address", forwarder_addr
+        self.logger.debug("{}:{}, {}, Update forward address {}"
+                          .format(self.addr, self.port, self.__class__.__name__, self.forward_factory.circuit_peers))
 
-        print "self.circuits is None", self.circuits, self.relay_from_to, self.exit_candidates
+        # Update exit nodes
+        self.update_exit_node(self.socks5_factory)
+        exit_node = self.socks5_factory.exit_node.values()[0] if self.socks5_factory.exit_node else 'None'
+        self.logger.debug("{}:{}, {}, Update exit nodes {}"
+                          .format(self.addr, self.port, self.__class__.__name__, exit_node))
+
+        self.update_exit_node(self.forward_factory)
+        exit_node = self.forward_factory.exit_node.values()[0] if self.socks5_factory.exit_node else 'None'
+        self.logger.debug("{}:{}, {}, Update exit nodes {}"
+                          .format(self.addr, self.port, self.__class__.__name__, exit_node))
+
+    def update_exit_node(self, factory):
+        for key, peer in self.exit_candidates.items():  # change to exit_socket?
+            exit_address = peer.address
+            if key not in factory.exit_node:
+                factory.exit_node[key] = exit_address
 
     def update_address(self, cid, peer):
         self.forward_factory.circuit_peers[cid] = peer
@@ -130,20 +127,53 @@ class MultiProxy(TunnelCommunity):
         self.forward_factory.circuit_id[idx] = new_idx
 
 
+class MultiProxyInitiator(MultiProxyClient):
+
+    def __init__(self, my_peer, endpoint, network):
+        super(MultiProxyInitiator, self).__init__(my_peer, endpoint, network)
+        self.logger.debug("{}:{}, {}, Initialized at {}"
+                          .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
+
+        self.build_tunnels(2)
+
+
+class MultiProxyForwarder(MultiProxyClient):
+
+    def __init__(self, my_peer, endpoint, network):
+        super(MultiProxyForwarder, self).__init__(my_peer, endpoint, network)
+        self.logger.debug("{}:{}, {} initialized at {}"
+                          .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
+
+
+class MultiProxyServer(MultiProxy):
+
+    def __init__(self, my_peer, endpoint, network):
+        super(MultiProxyServer, self).__init__(my_peer, endpoint, network)
+        self.settings = TunnelSettings()
+        self.settings.become_exitnode = True
+        self.server_factory = ServerFactory(self)
+        reactor.listenTCP(self.port, self.server_factory)
+        self.logger.debug("{}:{}, {} initialized at {}"
+                          .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
+
+
 # Client local side
 # ----------------------------------------------------------------------------------------------------------------------
 # Browser sends requests to here
 class Socks5Protocol(protocol.Protocol):
+
     def __init__(self, factory):
         self.socks5_factory = factory
         self.remote_protocol = None
         self.state = 'NEGOTIATION'
-        # buffer and protocol for tcp
-        self.buffer = None
+        self.buffer = bytes()
 
     def connectionMade(self):
         address = self.transport.getPeer()
-        logging.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
+        self.host_address = self.transport.getHost()
+        logging.info("{}:{}, {}, Receive {} connection from {}:{}"
+                     .format(self.host_address.host, self.host_address.port,
+                             self.__class__.__name__, address.type, address.host, address.port))
 
     def dataReceived(self, data):
         if self.state == 'NEGOTIATION':
@@ -171,7 +201,8 @@ class Socks5Protocol(protocol.Protocol):
         self.cir_id = self.socks5_factory.circuit_peers.keys()[0]  # circuit_id
         self.buffer = Message(self.cir_id, 'addr', addr_to_send).to_bytes()
         reactor.connectTCP(host, port, remote_factory)
-        logging.info("Connected to {}:{}".format(host, port))
+        logging.info("{}:{}, {}, Connected to {}:{}"
+                     .format(self.host_address.host, self.host_address.port, self.__class__.__name__, host, port))
 
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
@@ -215,9 +246,11 @@ class Socks5Protocol(protocol.Protocol):
 
 
 class Socks5Factory(Factory):
+
     def __init__(self, proxy):
         self.proxy = proxy
         self.circuit_peers = {}
+        self.exit_node = {}
 
     def buildProtocol(self, addr):
         return Socks5Protocol(self)
@@ -232,29 +265,40 @@ class ForwardProtocol(protocol.Protocol):
         self.state = 'REQUEST'
         self.forward_factory = forward_factory
         self.remote_protocol = None
-        self.buffer = None
+        self.buffer = bytes()
 
     def connectionMade(self):
         address = self.transport.getPeer()
-        logging.debug("Receive connection from {}".format(address))
+        self.host_address = self.transport.getHost()
+        logging.debug("{}:{}, {}, Receive connection from {}:{}"
+                      .format(self.host_address.host, self.host_address.port, self.__class__.__name__,
+                              address.host, address.port))
 
     def dataReceived(self, data):
         messages, _ = Message.parse_stream(data)
         for m in messages:
-            self.handle_REQUEST(m)
+            if self.state == 'REQUEST':
+                self.handle_REQUEST(m)
+                self.state = 'TRANSMISSION'
+
+            elif self.state == 'TRANSMISSION':
+                self.handle_TRANSMISSION(m)
 
     def handle_REQUEST(self, message):
-        from_cir_id = message.cir_id
+        from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
         to_cir_id = self.forward_factory.circuit_id[from_cir_id]
-        idx, msg_type, data = message.idx, message.msg_type, message.data
-
-        # build TCP connection with server
-        remote_factory = RemoteFactory(self)
         host, port = self.forward_factory.circuit_peers[from_cir_id]
-        print "connected to ", host, port
+        logging.debug("{}:{}, {}, Connect to {}:{}, to_circuit id is:{}"
+                      .format(self.host_address.host, self.host_address.port,
+                              self.__class__.__name__, host, port, to_cir_id))
+        remote_factory = RemoteFactory(self)
         reactor.connectTCP(host, port, remote_factory)
-        data_to_send = Message(to_cir_id, msg_type, data).to_bytes()
+        self.buffer = Message(to_cir_id, msg_type, data).to_bytes()
 
+    def handle_TRANSMISSION(self, message):
+        from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
+        to_cir_id = self.forward_factory.circuit_id[from_cir_id]
+        data_to_send = Message(to_cir_id, msg_type, data).to_bytes()
         if self.remote_protocol is not None:
             self.remote_protocol.write(data_to_send)
         else:
@@ -265,10 +309,12 @@ class ForwardProtocol(protocol.Protocol):
 
 
 class ForwardFactory(Factory):
+
     def __init__(self, proxy):
         self.proxy = proxy
         self.circuit_peers = {}  # {1006213219: ('145.94.162.154', 8093), 1288425294L: ('145.94.162.154', 8091)}
         self.circuit_id = {}  # {1006213219: 1288425294L}
+        self.exit_node = {}
 
     def buildProtocol(self, addr):
         return ForwardProtocol(self)
@@ -283,10 +329,16 @@ class ServerProtocol(protocol.Protocol):
         self.server_factory = server_factory
         self.remote_protocol = None
         self.state = 'ADDRESS_FROM_SOCKS5'
-        self.buffer = None
+        self.buffer = bytes()
+
+    def connectionMade(self):
+        address = self.transport.getPeer()
+        self.host_address = self.transport.getHost()
+        logging.debug("{}:{}, {}, Receive requests from {}:{}"
+                      .format(self.host_address.host, self.host_address.port, self.__class__.__name__,
+                              address.host, address.port))
 
     def dataReceived(self, data):
-        print "data received from forwarder", data
         # parse data here
         messages, _ = Message.parse_stream(data)
         for m in messages:
@@ -299,8 +351,9 @@ class ServerProtocol(protocol.Protocol):
 
     def handle_REMOTEADDR(self, message):
         host, port, request = self.unpack_address(message.data)
-        logging.debug("host:{}, port:{}, length of request:{}".format(host, port, len(request)))
-        # factory = self.create_client_factory()
+        logging.debug("{}:{}, {}, Forward to target server {}:{}"
+                      .format(self.host_address.host, self.host_address.port, self.__class__.__name__,
+                              host, port))
         remote_factory = RemoteFactory(self)
         reactor.connectTCP(host, port, remote_factory)
         self.buffer = request
@@ -376,21 +429,27 @@ class RemoteFactory(ClientFactory):
         return RemoteProtocol(self)
 
 
-def proxy():
-    _COMMUNITIES['MultiProxy'] = MultiProxy
+def proxy(nodes):
+    _COMMUNITIES['MultiProxyInitiator'] = MultiProxyInitiator
+    _COMMUNITIES['MultiProxyForwarder'] = MultiProxyForwarder
+    _COMMUNITIES['MultiProxyServer'] = MultiProxyServer
 
-    for i in [1]:
+    client_num, forwarder_num, server_num = nodes
+    logging.debug("Initialize {} clients, {} forwarder, {} server"
+                  .format(client_num, forwarder_num, server_num))
+
+    def set_nodes(role, key):
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
             'generation': u"curve25519",
-            'file': u"ec%d.pem" % i
+            'file': u"ec%d.pem" % key
         }]
         configuration['logger'] = {
             'level': 'DEBUG'
         }
         configuration['overlays'] = [{
-            'class': 'MultiProxy',
+            'class': role,
             'key': "my peer",
             'walkers': [{
                 'strategy': "RandomWalk",
@@ -404,7 +463,31 @@ def proxy():
         }]
         IPv8(configuration)
 
+    key = 1
+    for _ in range(client_num):
+        set_nodes('MultiProxyInitiator', key)
+        key += 1
+
+    for _ in range(forwarder_num):
+        set_nodes('MultiProxyForwarder', key)
+        key += 1
+
+    for _ in range(server_num):
+        set_nodes('MultiProxyServer', key)
+        key += 1
+
 
 if __name__ == '__main__':
-    proxy()
+    parser = argparse.ArgumentParser(description="Please input the node identity and the number of nodes")
+    parser.add_argument('--client', type=int, nargs='?', const=0, dest='client_number',
+                        help="The number of the clients")
+    parser.add_argument('--forwarder', type=int, nargs='?', const=0, dest='forwarder_number',
+                        help="The number of the forwarders")
+    parser.add_argument('--server', type=int, nargs='?', const=0, dest='server_number',
+                        help="The number of the servers")
+    args = parser.parse_args()
+    nodes = [args.client_number, args.forwarder_number, args.server_number]
+    nodes = [i if i else 0 for i in nodes]
+    proxy(nodes)
     reactor.run()
+    # Usage: python multiproxy.py --client 2 --forwarder 1 --server 2

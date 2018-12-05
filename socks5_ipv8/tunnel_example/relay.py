@@ -44,6 +44,7 @@ class MyCommunity(TunnelCommunity):
     def started(self):
         def print_peers():
             print "I am:", self.my_peer, "\nI know:", [str(p) for p in self.get_peers()]
+            print "relay_session_keys", self.relay_session_keys
             for p in self.get_peers():
                 print("any node", [c.peer.address for c in self.circuits.values()], "exit node",
                   [c.address for c in self.exit_candidates.values()])

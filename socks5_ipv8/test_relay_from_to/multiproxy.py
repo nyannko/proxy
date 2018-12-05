@@ -53,7 +53,7 @@ class MultiProxy(TunnelCommunity):
         #     self.logger.debug("Server is listening on port: {}".format(self.port))
 
         if self.tunnel:
-            self.build_tunnels(2)
+            self.build_tunnels(3)
 
     def open_socks5_server(self):
         """Start socks5 twisted server"""

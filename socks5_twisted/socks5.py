@@ -27,14 +27,12 @@ class Socks5Protocol(protocol.Protocol):
         self.state = 'NEGOTIATION'
         self.buffer = None
         self.client_protocol = None
-        self.a = b"abcd"
 
     def connectionMade(self):
         address = self.transport.getPeer()
         logging.info("Receive {} connection from {}:{}".format(address.type, address.host, address.port))
 
     def dataReceived(self, data):
-
         if self.state == 'NEGOTIATION':
             self.handle_NEGOTIATION(data)
             self.state = 'REQUEST'
@@ -110,7 +108,7 @@ class Socks5Protocol(protocol.Protocol):
         self.transport.loseConnection()
 
     def get_ID(self):
-        self.socks5_factory.seq_id = '%04d' % (int(self.socks5_factory.seq_id) + 1)
+        self.socks5_factory.seq_id = '%32d' % (int(self.socks5_factory.seq_id) + 1)
         # self.socks5_factory.seq_id = os.urandom(4)
         # print "id from client", self.socks5_factory.seq_id
         # while seq_id not in self.socks5_factory.socks:

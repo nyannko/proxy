@@ -38,8 +38,9 @@ class MyCommunity(TunnelCommunity):
                     print(other.endpoint.get_address())
 
                     node.overlay.walk_to(other.endpoint.wan_address)
-# I know: ['Peer<145.94.160.220:8092, xDPZmlsmAw/fGvdp+fTH0e9Ra78=>', 'Peer<145.94.160.220:8090, 4uQM2VNhSL0gbBHiVcEzxQJLI50=>']
-        # yield self.deliver_messages()
+
+    # I know: ['Peer<145.94.160.220:8092, xDPZmlsmAw/fGvdp+fTH0e9Ra78=>', 'Peer<145.94.160.220:8090, 4uQM2VNhSL0gbBHiVcEzxQJLI50=>']
+    # yield self.deliver_messages()
 
     def started(self):
         def print_peers():
@@ -47,7 +48,7 @@ class MyCommunity(TunnelCommunity):
             print "relay_session_keys", self.relay_session_keys
             for p in self.get_peers():
                 print("any node", [c.peer.address for c in self.circuits.values()], "exit node",
-                  [c.address for c in self.exit_candidates.values()])
+                      [c.address for c in self.exit_candidates.values()])
                 if p not in self.nodes:
                     self.nodes[p] = None
 
@@ -59,7 +60,7 @@ class MyCommunity(TunnelCommunity):
 
 _COMMUNITIES['MyCommunity'] = MyCommunity
 
-for i in [4]:
+for i in [5]:
     configuration = get_default_configuration()
     configuration['keys'] = [{
         'alias': "my peer",
