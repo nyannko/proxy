@@ -1,3 +1,4 @@
+import os
 import struct
 import socket
 import logging
@@ -134,7 +135,7 @@ class MultiProxyInitiator(MultiProxyClient):
         self.logger.debug("{}:{}, {}, Initialized at {}"
                           .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
 
-        self.build_tunnels(2)
+        self.build_tunnels(3)
 
 
 class MultiProxyForwarder(MultiProxyClient):
@@ -429,21 +430,22 @@ class RemoteFactory(ClientFactory):
         return RemoteProtocol(self)
 
 
-def proxy(nodes):
+def proxy(nodes_num):
     _COMMUNITIES['MultiProxyInitiator'] = MultiProxyInitiator
     _COMMUNITIES['MultiProxyForwarder'] = MultiProxyForwarder
     _COMMUNITIES['MultiProxyServer'] = MultiProxyServer
 
-    client_num, forwarder_num, server_num = nodes
+    client_num, forwarder_num, server_num = nodes_num
     logging.debug("Initialize {} clients, {} forwarder, {} server"
                   .format(client_num, forwarder_num, server_num))
 
-    def set_nodes(role, key):
+    def set_nodes(role, id_with_key):
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
             'generation': u"curve25519",
-            'file': u"ec%d.pem" % key
+            'file': u"ec_{1}{0}.pem".format(*id_with_key)
+            # 'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key)+(os.urandom(2),)))
         }]
         configuration['logger'] = {
             'level': 'DEBUG'
@@ -465,15 +467,15 @@ def proxy(nodes):
 
     key = 1
     for _ in range(client_num):
-        set_nodes('MultiProxyInitiator', key)
+        set_nodes('MultiProxyInitiator', (key, 'c'))
         key += 1
 
     for _ in range(forwarder_num):
-        set_nodes('MultiProxyForwarder', key)
+        set_nodes('MultiProxyForwarder', (key, 'f'))
         key += 1
 
     for _ in range(server_num):
-        set_nodes('MultiProxyServer', key)
+        set_nodes('MultiProxyServer', (key, 's'))
         key += 1
 
 
@@ -488,6 +490,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     nodes = [args.client_number, args.forwarder_number, args.server_number]
     nodes = [i if i else 0 for i in nodes]
+    print(nodes)
     proxy(nodes)
     reactor.run()
     # Usage: python multiproxy.py --client 2 --forwarder 1 --server 2
+    # Usage: python multiproxy.py --client 1
