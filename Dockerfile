@@ -25,11 +25,7 @@ EXPOSE 40000
 CMD ["python","client.py"] 
 
 # for server proxy
-<<<<<<< HEAD
 # CMD ["python","server.py"]
-=======
-# CMD ["python","server.py"] 
->>>>>>> c2ae8db63c08cfe9f9552ce68ccc21887acea999
 
 # client: build and run 
 # docker build -t bearapi/scone_docker_client .

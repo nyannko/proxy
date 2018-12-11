@@ -1,7 +1,8 @@
-import base64
-import hashlib
 import struct
-from struct import Struct
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
 class Message:
@@ -12,14 +13,14 @@ class Message:
         self.msg_type = msg_type  # used for distinguish from address and data
         # self.format = Struct('!I4s4s%ds' % len(data))
 
-    def encryption(self, plain_text):
-        encrypted_message = base64.b64encode(plain_text)
-        return encrypted_message
-
-    @classmethod
-    def decryption(cls, encrypted_message):
-        plain_text = base64.b64decode(encrypted_message)
-        return plain_text
+    # def encryption(self, plain_text):
+    #     encrypted_message = base64.b64encode(plain_text)
+    #     return encrypted_message
+    #
+    # @classmethod
+    # def decryption(cls, encrypted_message):
+    #     plain_text = base64.b64decode(encrypted_message)
+    #     return plain_text
 
     def to_bytes(self):
         """
@@ -27,7 +28,7 @@ class Message:
         :return: str(bytes)
         """
         # data = self.encryption(self.data)
-        data = self.encryption(self.data)
+        data = self.data
         cir_id = struct.pack('!I', self.cir_id)
         data_len = struct.pack('!I', len(data))
         msg_type = struct.pack('!4s', self.msg_type)
@@ -60,9 +61,9 @@ class Message:
         while True:
             try:
                 length, idx, msg_type = struct.unpack('!II4s', byte[offset:offset + 12])
-                print "length", length, idx, msg_type
+                logging.debug("message length: {}, cir_id: {}, msg_type: {}".format(length, idx, msg_type))
             except struct.error as e:
-                print "unpack requires a string argument of length 12: ", e.message
+                logging.debug("unpack requires a string argument of length 12: {}".format(e.message))
                 data_remaining = byte[offset:]
                 break
 
@@ -71,9 +72,9 @@ class Message:
                 data_remaining = byte[offset:]
                 break
             data = byte[offset + prefix:expected_data_length]
-            print "before decode", data[:20]
-            data = cls.decryption(data)
-            print "decode_data", data[:20]
+            # print "before decode", data[:20]
+            # data = cls.decryption(data)
+            # print "decode_data", data[:20]
             messages.append(cls(idx, msg_type, data))  # append Message(idx, data, msg_type) to message queue
 
             offset = expected_data_length

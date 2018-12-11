@@ -1,8 +1,8 @@
+import os
 import struct
 import socket
 import logging
 import argparse
-import time
 
 from twisted.python import log
 from twisted.internet import reactor
@@ -65,7 +65,7 @@ class MultiProxy(TunnelCommunity):
 
     def check_circuit(self):
         """
-        Implemented by MultiProxyClient
+        Implemented by class MultiProxyClient
         """
         pass
 
@@ -92,8 +92,7 @@ class MultiProxyClient(MultiProxy):
                                   .format(self.addr, self.port, self.__class__.__name__, first_hops))
 
                 peer_address = circuit.peer.address
-                self.socks5_factory.circuit_peers[circuit_id] = circuit
-                # self.socks5_factory.circuit_peers[circuit_id] = peer_address
+                self.socks5_factory.circuit_peers[circuit_id] = peer_address
 
         self.logger.debug("{}:{}, {}, Update first hop {}"
                           .format(self.addr, self.port, self.__class__.__name__, self.socks5_factory.circuit_peers))
@@ -198,10 +197,8 @@ class Socks5Protocol(protocol.Protocol):
 
     def send_address(self, addr_to_send):
         # use tcp endpoint
-        remote_factory = RemoteFactory(self, 'c')
-        circuit = self.socks5_factory.circuit_peers.values()[0]
-        print "circuit.hs_session_keys", repr(circuit.hs_session_keys), circuit.hops
-        host, port = circuit.peer.address
+        remote_factory = RemoteFactory(self)
+        host, port = self.socks5_factory.circuit_peers.values()[0]
         self.cir_id = self.socks5_factory.circuit_peers.keys()[0]  # circuit_id
         self.buffer = Message(self.cir_id, 'addr', addr_to_send).to_bytes()
         reactor.connectTCP(host, port, remote_factory)
@@ -266,7 +263,6 @@ class Socks5Factory(Factory):
 class ForwardProtocol(protocol.Protocol):
 
     def __init__(self, forward_factory):
-        self.state = 'REQUEST'
         self.forward_factory = forward_factory
         self.remote_protocol = None
         self.buffer = bytes()
@@ -280,21 +276,12 @@ class ForwardProtocol(protocol.Protocol):
 
     def dataReceived(self, data):
         messages, _ = Message.parse_stream(data)
-
         for m in messages:
-            if m.msg_type == 'ping':
-                self.handle_PING()
-
-            elif m.msg_type == 'addr':
+            if m.msg_type == 'addr':
                 self.handle_REQUEST(m)
 
-            elif m.msg_type == 'data':
+            if m.msg_type == 'data':
                 self.handle_TRANSMISSION(m)
-
-    def handle_PING(self):
-        # send pong back to client
-        pong = Message(0, 'pong', '').to_bytes()
-        self.write(pong)
 
     def handle_REQUEST(self, message):
         from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
@@ -303,13 +290,12 @@ class ForwardProtocol(protocol.Protocol):
         logging.debug("{}:{}, {}, Connect to {}:{}, to_circuit id is:{}"
                       .format(self.host_address.host, self.host_address.port,
                               self.__class__.__name__, host, port, to_cir_id))
-        remote_factory = RemoteFactory(self, 'f')
+        remote_factory = RemoteFactory(self)
         reactor.connectTCP(host, port, remote_factory)
         self.buffer = Message(to_cir_id, msg_type, data).to_bytes()
 
     def handle_TRANSMISSION(self, message):
         from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
-        print "to_cir_id", from_cir_id, self.forward_factory.circuit_peers
         to_cir_id = self.forward_factory.circuit_id[from_cir_id]
         data_to_send = Message(to_cir_id, msg_type, data).to_bytes()
         if self.remote_protocol is not None:
@@ -341,6 +327,7 @@ class ServerProtocol(protocol.Protocol):
     def __init__(self, server_factory):
         self.server_factory = server_factory
         self.remote_protocol = None
+        self.state = 'ADDRESS_FROM_SOCKS5'
         self.buffer = bytes()
 
     def connectionMade(self):
@@ -351,6 +338,7 @@ class ServerProtocol(protocol.Protocol):
                               address.host, address.port))
 
     def dataReceived(self, data):
+        # parse data here
         messages, _ = Message.parse_stream(data)
         for m in messages:
             msg_type = m.msg_type
@@ -360,15 +348,12 @@ class ServerProtocol(protocol.Protocol):
             elif msg_type == 'data':
                 self.handle_REQUEST(m)
 
-            elif msg_type == 'ping':
-                self.handle_PING(m)
-
     def handle_REMOTEADDR(self, message):
         host, port, request = self.unpack_address(message.data)
         logging.debug("{}:{}, {}, Forward to target server {}:{}"
                       .format(self.host_address.host, self.host_address.port, self.__class__.__name__,
                               host, port))
-        remote_factory = RemoteFactory(self, 's')
+        remote_factory = RemoteFactory(self)
         reactor.connectTCP(host, port, remote_factory)
         self.buffer = request
 
@@ -378,10 +363,6 @@ class ServerProtocol(protocol.Protocol):
             self.remote_protocol.write(data_to_send)
         else:
             self.buffer += data_to_send
-
-    def handle_PING(self, message):
-        pong = Message(0, 'pong', '').to_bytes()
-        self.write(pong)
 
     def unpack_address(self, data):
         data_length, = struct.unpack('>B', data[0])
@@ -419,108 +400,33 @@ class ServerFactory(Factory):
 # Remote side
 # ----------------------------------------------------------------------------------------------------------------------
 # Used by socks5/forwarder/server protocol
-class RemoteProtocol(protocol.Protocol, object):
+class RemoteProtocol(protocol.Protocol):
 
     def __init__(self, remote_factory):
         self.remote_factory = remote_factory
-
-    def write(self, data):
-        self.transport.write(data)
+        self.buffer = bytes()
 
     def connectionMade(self):
         self.remote_factory.local_protocol.remote_protocol = self
         self.write(self.remote_factory.local_protocol.buffer)
         self.remote_factory.local_protocol.buffer = ''
 
-        self.send_ping()
-
-    def send_ping(self):
-        ping = Message(0, 'ping', '').to_bytes()
-        self.send_time = time.time()
-        self.write(ping)
-
-    def pre_process(self, data):
-        return self.buffer + data
-
     def dataReceived(self, data):
-        data_to_send = self.pre_process(data)
-        self.on_data(data_to_send)
+        self.remote_factory.local_protocol.write(data)
+        print "self.remote_factory.local_protocol",  self.remote_factory.local_protocol
 
-    def on_data(self, data):
-        messages, self.buffer = Message.parse_stream(data)
-        for message in messages:
-            if message.msg_type == 'pong':
-                self.handle_PONG()
-            elif message.msg_type == 'recv':
-                self.handle_RECV(message)
-
-    def handle_PONG(self):
-        recv_time = time.time()
-        RTT = recv_time - self.send_time
-        address = self.transport.getPeer()
-        logging.debug("RTT: {}, receive PONG from {}".format(RTT, address))
-
-
-class ClientRemoteProtocol(RemoteProtocol):
-
-    def __init__(self, remote_factory):
-        super(ClientRemoteProtocol, self).__init__(remote_factory)
-        self.buffer = bytes()
-
-    def handle_RECV(self, message):
-        data_to_send = message.data
-        self.remote_factory.local_protocol.write(data_to_send)
-
-
-class ForwarderRemoteProtocol(RemoteProtocol):
-
-    def __init__(self, remote_factory):
-        super(ForwarderRemoteProtocol, self).__init__(remote_factory)
-        self.buffer = bytes()
-
-    def handle_RECV(self, message):
-        data_to_send = Message(0, 'recv', message.data).to_bytes()
-        self.remote_factory.local_protocol.write(data_to_send)
-
-
-class ServerRemoteProtocol(RemoteProtocol):
-
-    def send_ping(self):
-        pass
-
-    def pre_process(self, data):
-        return data
-
-    def on_data(self, data):
-        try:
-            message, _ = Message.parse_stream(data)
-            if message.data_type == 'pong':
-                self.handle_PONG()
-        except:
-            logging.debug("receive data from target server., send remote data back to forwarder.")
-            self.handle_RECV(data)
-
-    def handle_RECV(self, data):
-        data_to_send = Message(0, 'recv', data).to_bytes()
-        self.remote_factory.local_protocol.write(data_to_send)
+    def write(self, data):
+        self.transport.write(data)
 
 
 class RemoteFactory(ClientFactory):
 
-    def __init__(self, local_protocol, role):
+    def __init__(self, local_protocol):
         """ Initialize local protocols(socks5/forwarder/server)"""
         self.local_protocol = local_protocol
-        self.role = role
 
     def buildProtocol(self, addr):
-        if self.role == 's':
-            return ServerRemoteProtocol(self)
-        elif self.role == 'c':
-            return ClientRemoteProtocol(self)
-        elif self.role == 'f':
-            return ForwarderRemoteProtocol(self)
-        else:
-            logging.error("No such remote protocol.")
+        return RemoteProtocol(self)
 
 
 def proxy(nodes_num):
