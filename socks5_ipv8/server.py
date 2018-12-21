@@ -17,9 +17,9 @@ import logging
 import time
 import random
 
-from socks5_udp.database import ProxyDatabase
-from socks5_udp.payload import IdentityRequestPayload, IdentityResponsePayload, TargetAddressPayload, Message, \
-    ACKPayload
+# from socks5_udp.database import ProxyDatabase
+# from socks5_udp.payload import IdentityRequestPayload, IdentityResponsePayload, TargetAddressPayload, Message, \
+#     ACKPayload
 
 key1 = ECCrypto().generate_key(u"medium")
 # master_peer_init = Peer(key1)

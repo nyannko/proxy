@@ -16,8 +16,12 @@ from pyipv8.ipv8_service import IPv8, _COMMUNITIES
 from pyipv8.ipv8.configuration import get_default_configuration
 from pyipv8.ipv8.messaging.anonymization.community import TunnelCommunity, TunnelSettings, CIRCUIT_STATE_READY
 
+# master_peer_init = Peer(
+#     "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
+#         .decode('HEX'))
+
 master_peer_init = Peer(
-    "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
+    "307e301006072a8648ce3d020106052b81040024036a0004017dc7230411163214d17a4a1c3b2ec63c4ce5e56509041bcebb8f8e55c1befea14101e2499d8dbd0d9d1412fade2e8079fa171000fea5c0ad4ace791b6cb1708e46ccb6709afe90a18f303ad6f50afb9fcb64bf929419b00ba87ed81ca6b2e7100b75f53937ffe4"
         .decode('HEX'))
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
@@ -37,6 +41,12 @@ class MultiProxy(TunnelCommunity):
 
         self.addr, self.port = self.endpoint.get_address()
         self.socks5_port = self.open_socks5_server()
+
+        # set logging
+        ch = logging.FileHandler("debug.txt")
+        formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+        ch.setFormatter(formatter)
+        self.logger.addHandler(ch)
 
     def open_socks5_server(self):
         """Start socks5 twisted server"""
@@ -136,7 +146,7 @@ class MultiProxyInitiator(MultiProxyClient):
         self.logger.debug("{}:{}, {}, Initialized at {}"
                           .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
 
-        self.build_tunnels(3)
+        self.build_tunnels(1)
 
 
 class MultiProxyForwarder(MultiProxyClient):

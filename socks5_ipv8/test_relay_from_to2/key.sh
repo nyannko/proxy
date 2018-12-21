@@ -1,0 +1,1 @@
+rm ec*.pem

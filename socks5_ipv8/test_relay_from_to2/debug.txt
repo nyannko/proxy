@@ -1,0 +1,1048 @@
+2018-12-16 21:50:21,439:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Initialized at 40000
+2018-12-16 21:50:21,439:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 21:50:21,439:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 21:50:21,439:MultiProxyInitiator:Could not create circuit, no available exit-nodes
+2018-12-16 21:50:21,439:MultiProxyInitiator:circuit creation of 1 circuits failed, no need to continue
+2018-12-16 21:50:21,475:MultiProxyServer:0.0.0.0:8091, MultiProxyServer initialized at 40001
+2018-12-16 21:50:21,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 21:50:21,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 21:50:21,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 21:50:21,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 21:50:21,945:MultiProxyInitiator:Bootstrapping MultiProxyInitiator, current peers 0
+2018-12-16 21:50:22,440:MultiProxyInitiator:Create ping message 1544993422.44
+2018-12-16 21:50:22,461:MultiProxyServer:Create ping message 1544993422.46
+2018-12-16 21:50:23,440:MultiProxyInitiator:Create ping message 1544993423.44
+2018-12-16 21:50:23,460:MultiProxyServer:Create ping message 1544993423.46
+2018-12-16 21:50:23,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 21:50:23,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 21:50:23,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:23,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:24,438:MultiProxyInitiator:Create ping message 1544993424.44
+2018-12-16 21:50:24,458:MultiProxyServer:Create ping message 1544993424.46
+2018-12-16 21:50:25,441:MultiProxyInitiator:Create ping message 1544993425.44
+2018-12-16 21:50:25,459:MultiProxyServer:Create ping message 1544993425.46
+2018-12-16 21:50:25,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 21:50:25,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 21:50:25,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:25,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:26,441:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 21:50:26,441:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 21:50:26,441:MultiProxyInitiator:First hop is required exit
+2018-12-16 21:50:26,442:MultiProxyInitiator:Creating circuit 1650922011 of 1 hops. First hop: 127.0.0.1:8091
+2018-12-16 21:50:26,442:MultiProxyInitiator:Create ping message 1544993426.44
+2018-12-16 21:50:26,443:MultiProxyServer:Got create (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:26,443:MultiProxyServer:TunnelCommunity: we joined circuit 1650922011 with neighbour ('127.0.0.1', 8090)
+2018-12-16 21:50:26,445:MultiProxyInitiator:Got created (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:26,457:MultiProxyServer:Create ping message 1544993426.46
+2018-12-16 21:50:26,504:MultiProxyServer:New Host Peer<127.0.0.1:8090, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=> join the network
+2018-12-16 21:50:27,442:MultiProxyInitiator:Create ping message 1544993427.44
+2018-12-16 21:50:27,443:MultiProxyServer:Got ping (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:27,443:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 21:50:27,444:MultiProxyInitiator:Got pong (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:27,444:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00203609466553
+2018-12-16 21:50:27,460:MultiProxyServer:Create ping message 1544993427.46
+2018-12-16 21:50:27,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10427b890>}
+2018-12-16 21:50:27,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 21:50:27,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>}
+2018-12-16 21:50:27,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 21:50:27,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:27,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:28,440:MultiProxyInitiator:Create ping message 1544993428.44
+2018-12-16 21:50:28,441:MultiProxyServer:Got ping (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:28,441:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 21:50:28,442:MultiProxyInitiator:Got pong (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:28,442:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00187802314758
+2018-12-16 21:50:28,457:MultiProxyServer:Create ping message 1544993428.46
+2018-12-16 21:50:29,442:MultiProxyInitiator:Create ping message 1544993429.44
+2018-12-16 21:50:29,443:MultiProxyServer:Got ping (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:29,446:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 21:50:29,447:MultiProxyInitiator:Got pong (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:29,450:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00807499885559
+2018-12-16 21:50:29,458:MultiProxyServer:Create ping message 1544993429.46
+2018-12-16 21:50:29,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10427b890>}
+2018-12-16 21:50:29,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 21:50:29,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>}
+2018-12-16 21:50:29,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 21:50:29,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:29,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:30,445:MultiProxyInitiator:Create ping message 1544993430.45
+2018-12-16 21:50:30,451:MultiProxyServer:Got ping (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:30,455:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 21:50:30,457:MultiProxyInitiator:Got pong (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:30,458:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0129101276398
+2018-12-16 21:50:30,458:MultiProxyServer:Create ping message 1544993430.46
+2018-12-16 21:50:31,439:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 21:50:31,440:MultiProxyInitiator:Create ping message 1544993431.44
+2018-12-16 21:50:31,441:MultiProxyServer:Got ping (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:31,443:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 21:50:31,444:MultiProxyInitiator:Got pong (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:31,447:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00643301010132
+2018-12-16 21:50:31,457:MultiProxyServer:Create ping message 1544993431.46
+2018-12-16 21:50:31,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10427be10>}
+2018-12-16 21:50:31,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 21:50:31,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>}
+2018-12-16 21:50:31,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 21:50:31,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:31,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:32,440:MultiProxyInitiator:Create ping message 1544993432.44
+2018-12-16 21:50:32,441:MultiProxyServer:Got ping (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:32,442:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 21:50:32,442:MultiProxyInitiator:Got pong (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:32,442:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00200796127319
+2018-12-16 21:50:32,459:MultiProxyServer:Create ping message 1544993432.46
+2018-12-16 21:50:33,437:MultiProxyInitiator:Create ping message 1544993433.44
+2018-12-16 21:50:33,438:MultiProxyServer:Got ping (1650922011) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 21:50:33,439:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 21:50:33,439:MultiProxyInitiator:Got pong (1650922011) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 21:50:33,439:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00208497047424
+2018-12-16 21:50:33,457:MultiProxyServer:Create ping message 1544993433.46
+2018-12-16 21:50:33,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10427be10>}
+2018-12-16 21:50:33,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 21:50:33,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1650922011L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10441acd0>}
+2018-12-16 21:50:33,503:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 21:50:33,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 21:50:33,504:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:05:26,501:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Initialized at 40000
+2018-12-16 22:05:26,501:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 22:05:26,501:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 22:05:26,502:MultiProxyInitiator:Could not create circuit, no available exit-nodes
+2018-12-16 22:05:26,502:MultiProxyInitiator:circuit creation of 1 circuits failed, no need to continue
+2018-12-16 22:05:26,505:MultiProxyServer:0.0.0.0:8091, MultiProxyServer initialized at 40001
+2018-12-16 22:05:26,506:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:05:26,506:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:05:26,506:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 22:05:26,506:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 22:05:27,004:MultiProxyInitiator:Create ping message 1544994327.0
+2018-12-16 22:05:27,005:MultiProxyInitiator:Bootstrapping MultiProxyInitiator, current peers 0
+2018-12-16 22:05:27,009:MultiProxyServer:Create ping message 1544994327.01
+2018-12-16 22:05:27,505:MultiProxyInitiator:Create ping message 1544994327.51
+2018-12-16 22:05:27,506:MultiProxyServer:Create ping message 1544994327.51
+2018-12-16 22:05:28,000:MultiProxyInitiator:Create ping message 1544994328.0
+2018-12-16 22:05:28,005:MultiProxyServer:Create ping message 1544994328.01
+2018-12-16 22:05:28,502:MultiProxyInitiator:Create ping message 1544994328.5
+2018-12-16 22:05:28,505:MultiProxyServer:Create ping message 1544994328.51
+2018-12-16 22:05:28,508:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:05:28,508:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:05:28,508:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:05:28,509:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:05:29,002:MultiProxyInitiator:Create ping message 1544994329.0
+2018-12-16 22:05:29,005:MultiProxyServer:Create ping message 1544994329.01
+2018-12-16 22:06:34,891:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Initialized at 40000
+2018-12-16 22:06:34,892:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 22:06:34,892:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 22:06:34,892:MultiProxyInitiator:Could not create circuit, no available exit-nodes
+2018-12-16 22:06:34,892:MultiProxyInitiator:circuit creation of 1 circuits failed, no need to continue
+2018-12-16 22:06:34,896:MultiProxyServer:0.0.0.0:8091, MultiProxyServer initialized at 40001
+2018-12-16 22:06:34,897:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:06:34,897:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:34,897:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 22:06:34,897:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 22:06:35,394:MultiProxyInitiator:Create ping message 1544994395.39
+2018-12-16 22:06:35,395:MultiProxyInitiator:Bootstrapping MultiProxyInitiator, current peers 0
+2018-12-16 22:06:35,399:MultiProxyServer:Create ping message 1544994395.4
+2018-12-16 22:06:35,893:MultiProxyInitiator:Create ping message 1544994395.89
+2018-12-16 22:06:35,896:MultiProxyServer:Create ping message 1544994395.9
+2018-12-16 22:06:36,392:MultiProxyInitiator:Create ping message 1544994396.39
+2018-12-16 22:06:36,396:MultiProxyServer:Create ping message 1544994396.4
+2018-12-16 22:06:36,891:MultiProxyInitiator:Create ping message 1544994396.89
+2018-12-16 22:06:36,896:MultiProxyServer:Create ping message 1544994396.9
+2018-12-16 22:06:36,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:06:36,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:36,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:36,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:37,391:MultiProxyInitiator:Create ping message 1544994397.39
+2018-12-16 22:06:37,396:MultiProxyServer:Create ping message 1544994397.4
+2018-12-16 22:06:37,893:MultiProxyInitiator:Create ping message 1544994397.89
+2018-12-16 22:06:37,896:MultiProxyServer:Create ping message 1544994397.9
+2018-12-16 22:06:38,396:MultiProxyInitiator:Create ping message 1544994398.4
+2018-12-16 22:06:38,396:MultiProxyServer:Create ping message 1544994398.4
+2018-12-16 22:06:38,896:MultiProxyInitiator:Create ping message 1544994398.9
+2018-12-16 22:06:38,897:MultiProxyServer:Create ping message 1544994398.9
+2018-12-16 22:06:38,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:06:38,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:38,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:38,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:39,394:MultiProxyInitiator:Create ping message 1544994399.39
+2018-12-16 22:06:39,396:MultiProxyServer:Create ping message 1544994399.4
+2018-12-16 22:06:39,896:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 22:06:39,896:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 22:06:39,896:MultiProxyInitiator:First hop is required exit
+2018-12-16 22:06:39,898:MultiProxyInitiator:Creating circuit 1621305960 of 1 hops. First hop: 127.0.0.1:8091
+2018-12-16 22:06:39,898:MultiProxyInitiator:Create ping message 1544994399.9
+2018-12-16 22:06:39,899:MultiProxyServer:Create ping message 1544994399.9
+2018-12-16 22:06:39,900:MultiProxyServer:Got create (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:39,900:MultiProxyServer:TunnelCommunity: we joined circuit 1621305960 with neighbour ('127.0.0.1', 8090)
+2018-12-16 22:06:39,903:MultiProxyServer:New Host Peer<127.0.0.1:8090, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=> join the network
+2018-12-16 22:06:39,904:MultiProxyInitiator:Got created (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:40,397:MultiProxyInitiator:Create ping message 1544994400.4
+2018-12-16 22:06:40,402:MultiProxyServer:Create ping message 1544994400.4
+2018-12-16 22:06:40,403:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:40,404:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:40,405:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:40,406:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00875020027161
+2018-12-16 22:06:40,892:MultiProxyInitiator:Create ping message 1544994400.89
+2018-12-16 22:06:40,892:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:40,893:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:40,894:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:40,894:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00293612480164
+2018-12-16 22:06:40,895:MultiProxyServer:Create ping message 1544994400.9
+2018-12-16 22:06:40,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:06:40,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:40,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:40,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:40,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:40,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:41,397:MultiProxyInitiator:Create ping message 1544994401.4
+2018-12-16 22:06:41,398:MultiProxyServer:Create ping message 1544994401.4
+2018-12-16 22:06:41,398:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:41,399:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:41,400:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:41,400:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00327610969543
+2018-12-16 22:06:41,897:MultiProxyInitiator:Create ping message 1544994401.9
+2018-12-16 22:06:41,897:MultiProxyServer:Create ping message 1544994401.9
+2018-12-16 22:06:41,898:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:41,898:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:41,899:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:41,900:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00300884246826
+2018-12-16 22:06:42,396:MultiProxyInitiator:Create ping message 1544994402.4
+2018-12-16 22:06:42,397:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:42,398:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:42,399:MultiProxyServer:Create ping message 1544994402.4
+2018-12-16 22:06:42,400:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:42,400:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00392508506775
+2018-12-16 22:06:42,895:MultiProxyInitiator:Create ping message 1544994402.9
+2018-12-16 22:06:42,896:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:42,897:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:42,897:MultiProxyServer:Create ping message 1544994402.9
+2018-12-16 22:06:42,898:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:42,898:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00340294837952
+2018-12-16 22:06:42,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:06:42,934:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:42,934:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:42,934:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:42,934:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:42,934:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:43,394:MultiProxyInitiator:Create ping message 1544994403.39
+2018-12-16 22:06:43,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:43,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:43,396:MultiProxyServer:Create ping message 1544994403.4
+2018-12-16 22:06:43,397:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:43,397:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00256705284119
+2018-12-16 22:06:43,894:MultiProxyInitiator:Create ping message 1544994403.89
+2018-12-16 22:06:43,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:43,896:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:43,896:MultiProxyServer:Create ping message 1544994403.9
+2018-12-16 22:06:43,896:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:43,897:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00316381454468
+2018-12-16 22:06:44,393:MultiProxyInitiator:Create ping message 1544994404.39
+2018-12-16 22:06:44,394:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:44,395:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:44,396:MultiProxyServer:Create ping message 1544994404.4
+2018-12-16 22:06:44,396:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:44,397:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00336813926697
+2018-12-16 22:06:44,895:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:06:44,897:MultiProxyInitiator:Create ping message 1544994404.9
+2018-12-16 22:06:44,898:MultiProxyServer:Create ping message 1544994404.9
+2018-12-16 22:06:44,899:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:44,899:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:44,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf24d90>}
+2018-12-16 22:06:44,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:44,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:44,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:44,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:44,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:44,903:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:44,903:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.006019115448
+2018-12-16 22:06:45,394:MultiProxyInitiator:Create ping message 1544994405.39
+2018-12-16 22:06:45,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:45,395:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:45,396:MultiProxyServer:Create ping message 1544994405.4
+2018-12-16 22:06:45,396:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:45,397:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0027289390564
+2018-12-16 22:06:45,895:MultiProxyInitiator:Create ping message 1544994405.9
+2018-12-16 22:06:45,895:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:45,897:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:45,897:MultiProxyServer:Create ping message 1544994405.9
+2018-12-16 22:06:45,898:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:45,898:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00371789932251
+2018-12-16 22:06:46,396:MultiProxyInitiator:Create ping message 1544994406.4
+2018-12-16 22:06:46,397:MultiProxyServer:Create ping message 1544994406.4
+2018-12-16 22:06:46,397:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:46,398:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:46,399:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:46,399:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00289082527161
+2018-12-16 22:06:46,897:MultiProxyInitiator:Create ping message 1544994406.9
+2018-12-16 22:06:46,897:MultiProxyServer:Create ping message 1544994406.9
+2018-12-16 22:06:46,898:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:46,899:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:46,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf24d90>}
+2018-12-16 22:06:46,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:46,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:46,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:46,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:46,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:46,901:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:46,901:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0046501159668
+2018-12-16 22:06:47,397:MultiProxyInitiator:Create ping message 1544994407.4
+2018-12-16 22:06:47,398:MultiProxyServer:Create ping message 1544994407.4
+2018-12-16 22:06:47,398:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:47,400:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:47,401:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:47,401:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00415396690369
+2018-12-16 22:06:47,892:MultiProxyInitiator:Create ping message 1544994407.89
+2018-12-16 22:06:47,892:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:47,893:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:47,894:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:47,894:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00248694419861
+2018-12-16 22:06:47,896:MultiProxyServer:Create ping message 1544994407.9
+2018-12-16 22:06:48,397:MultiProxyInitiator:Create ping message 1544994408.4
+2018-12-16 22:06:48,397:MultiProxyServer:Create ping message 1544994408.4
+2018-12-16 22:06:48,398:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:48,399:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:48,399:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:48,400:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00308585166931
+2018-12-16 22:06:48,893:MultiProxyInitiator:Create ping message 1544994408.89
+2018-12-16 22:06:48,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:48,895:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:48,896:MultiProxyServer:Create ping message 1544994408.9
+2018-12-16 22:06:48,896:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:48,897:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00344896316528
+2018-12-16 22:06:48,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:06:48,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:48,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:48,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:48,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:48,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:49,397:MultiProxyInitiator:Create ping message 1544994409.4
+2018-12-16 22:06:49,400:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:49,402:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:49,403:MultiProxyServer:Create ping message 1544994409.4
+2018-12-16 22:06:49,404:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:49,405:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00787496566772
+2018-12-16 22:06:49,895:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:06:49,897:MultiProxyInitiator:Create ping message 1544994409.9
+2018-12-16 22:06:49,897:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:49,898:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:49,898:MultiProxyServer:Create ping message 1544994409.9
+2018-12-16 22:06:49,900:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:49,901:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0042290687561
+2018-12-16 22:06:50,396:MultiProxyInitiator:Create ping message 1544994410.4
+2018-12-16 22:06:50,398:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:50,401:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:50,401:MultiProxyServer:Create ping message 1544994410.4
+2018-12-16 22:06:50,404:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:50,405:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00941514968872
+2018-12-16 22:06:50,895:MultiProxyInitiator:Create ping message 1544994410.9
+2018-12-16 22:06:50,896:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:50,897:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:50,897:MultiProxyServer:Create ping message 1544994410.9
+2018-12-16 22:06:50,898:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:50,898:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00293493270874
+2018-12-16 22:06:50,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:06:50,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:50,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:50,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:50,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:50,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:51,394:MultiProxyInitiator:Create ping message 1544994411.39
+2018-12-16 22:06:51,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:51,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:51,396:MultiProxyServer:Create ping message 1544994411.4
+2018-12-16 22:06:51,396:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:51,397:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00315999984741
+2018-12-16 22:06:51,893:MultiProxyInitiator:Create ping message 1544994411.89
+2018-12-16 22:06:51,893:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:51,894:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:51,895:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:51,895:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0023410320282
+2018-12-16 22:06:51,895:MultiProxyServer:Create ping message 1544994411.9
+2018-12-16 22:06:52,392:MultiProxyInitiator:Create ping message 1544994412.39
+2018-12-16 22:06:52,392:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:52,393:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:52,394:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:52,394:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0021858215332
+2018-12-16 22:06:52,396:MultiProxyServer:Create ping message 1544994412.4
+2018-12-16 22:06:52,894:MultiProxyInitiator:Create ping message 1544994412.89
+2018-12-16 22:06:52,895:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:52,896:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:52,896:MultiProxyServer:Create ping message 1544994412.9
+2018-12-16 22:06:52,896:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:52,897:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00299000740051
+2018-12-16 22:06:52,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf24d90>}
+2018-12-16 22:06:52,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:52,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:52,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:52,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:52,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:53,392:MultiProxyInitiator:Create ping message 1544994413.39
+2018-12-16 22:06:53,392:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:53,393:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:53,394:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:53,394:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00242400169373
+2018-12-16 22:06:53,396:MultiProxyServer:Create ping message 1544994413.4
+2018-12-16 22:06:53,897:MultiProxyInitiator:Create ping message 1544994413.9
+2018-12-16 22:06:53,898:MultiProxyServer:Create ping message 1544994413.9
+2018-12-16 22:06:53,898:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:53,899:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:53,901:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:53,901:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0043740272522
+2018-12-16 22:06:54,394:MultiProxyInitiator:Create ping message 1544994414.39
+2018-12-16 22:06:54,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:54,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:54,396:MultiProxyServer:Create ping message 1544994414.4
+2018-12-16 22:06:54,396:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:54,397:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00286197662354
+2018-12-16 22:06:54,891:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:06:54,892:MultiProxyInitiator:Create ping message 1544994414.89
+2018-12-16 22:06:54,893:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:54,893:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:54,894:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:54,895:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00230813026428
+2018-12-16 22:06:54,895:MultiProxyServer:Create ping message 1544994414.9
+2018-12-16 22:06:54,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:06:54,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:54,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:54,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:54,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:54,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:55,394:MultiProxyInitiator:Create ping message 1544994415.39
+2018-12-16 22:06:55,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:55,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:55,396:MultiProxyServer:Create ping message 1544994415.4
+2018-12-16 22:06:55,397:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:55,397:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0029079914093
+2018-12-16 22:06:55,892:MultiProxyInitiator:Create ping message 1544994415.89
+2018-12-16 22:06:55,893:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:55,894:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:55,894:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:55,894:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00207209587097
+2018-12-16 22:06:55,896:MultiProxyServer:Create ping message 1544994415.9
+2018-12-16 22:06:56,395:MultiProxyInitiator:Create ping message 1544994416.39
+2018-12-16 22:06:56,396:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:56,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:56,397:MultiProxyServer:Create ping message 1544994416.4
+2018-12-16 22:06:56,398:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:56,398:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00359606742859
+2018-12-16 22:06:56,893:MultiProxyInitiator:Create ping message 1544994416.89
+2018-12-16 22:06:56,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:56,895:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:56,895:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:56,896:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00272297859192
+2018-12-16 22:06:56,896:MultiProxyServer:Create ping message 1544994416.9
+2018-12-16 22:06:56,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:06:56,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:56,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:56,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:56,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:56,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:57,396:MultiProxyInitiator:Create ping message 1544994417.4
+2018-12-16 22:06:57,397:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:57,398:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:57,398:MultiProxyServer:Create ping message 1544994417.4
+2018-12-16 22:06:57,399:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:57,399:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0030689239502
+2018-12-16 22:06:57,895:MultiProxyInitiator:Create ping message 1544994417.9
+2018-12-16 22:06:57,896:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:57,896:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:57,896:MultiProxyServer:Create ping message 1544994417.9
+2018-12-16 22:06:57,898:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:57,898:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00298380851746
+2018-12-16 22:06:58,394:MultiProxyInitiator:Create ping message 1544994418.39
+2018-12-16 22:06:58,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:58,395:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:58,395:MultiProxyServer:Create ping message 1544994418.4
+2018-12-16 22:06:58,396:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:58,396:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00178909301758
+2018-12-16 22:06:58,894:MultiProxyInitiator:Create ping message 1544994418.89
+2018-12-16 22:06:58,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:58,895:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:58,895:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:58,895:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00179100036621
+2018-12-16 22:06:58,896:MultiProxyServer:Create ping message 1544994418.9
+2018-12-16 22:06:58,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:06:58,919:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:06:58,920:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:06:58,920:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:06:58,920:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:58,920:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:06:59,394:MultiProxyInitiator:Create ping message 1544994419.39
+2018-12-16 22:06:59,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:59,395:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:59,396:MultiProxyServer:Create ping message 1544994419.4
+2018-12-16 22:06:59,396:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:59,396:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00202202796936
+2018-12-16 22:06:59,891:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:06:59,892:MultiProxyInitiator:Create ping message 1544994419.89
+2018-12-16 22:06:59,893:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:06:59,893:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:06:59,894:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:06:59,894:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00184202194214
+2018-12-16 22:06:59,895:MultiProxyServer:Create ping message 1544994419.9
+2018-12-16 22:07:00,391:MultiProxyInitiator:Create ping message 1544994420.39
+2018-12-16 22:07:00,392:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:00,392:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:00,393:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:00,393:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00191903114319
+2018-12-16 22:07:00,396:MultiProxyServer:Create ping message 1544994420.4
+2018-12-16 22:07:00,892:MultiProxyInitiator:Create ping message 1544994420.89
+2018-12-16 22:07:00,892:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:00,893:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:00,893:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:00,893:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00179195404053
+2018-12-16 22:07:00,896:MultiProxyServer:Create ping message 1544994420.9
+2018-12-16 22:07:00,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:07:00,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:00,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:00,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:00,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:00,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:01,394:MultiProxyInitiator:Create ping message 1544994421.39
+2018-12-16 22:07:01,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:01,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:01,397:MultiProxyServer:Create ping message 1544994421.4
+2018-12-16 22:07:01,398:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:01,398:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00377583503723
+2018-12-16 22:07:01,894:MultiProxyInitiator:Create ping message 1544994421.89
+2018-12-16 22:07:01,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:01,896:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:01,896:MultiProxyServer:Create ping message 1544994421.9
+2018-12-16 22:07:01,896:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:01,897:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00317978858948
+2018-12-16 22:07:02,396:MultiProxyInitiator:Create ping message 1544994422.4
+2018-12-16 22:07:02,397:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:02,398:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:02,398:MultiProxyServer:Create ping message 1544994422.4
+2018-12-16 22:07:02,399:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:02,400:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.003830909729
+2018-12-16 22:07:02,893:MultiProxyInitiator:Create ping message 1544994422.89
+2018-12-16 22:07:02,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:02,895:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:02,896:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:02,896:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00269103050232
+2018-12-16 22:07:02,896:MultiProxyServer:Create ping message 1544994422.9
+2018-12-16 22:07:02,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf31350>}
+2018-12-16 22:07:02,930:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:02,930:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:02,930:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:02,930:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:02,930:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:03,395:MultiProxyInitiator:Create ping message 1544994423.4
+2018-12-16 22:07:03,396:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:03,397:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:03,398:MultiProxyServer:Create ping message 1544994423.4
+2018-12-16 22:07:03,398:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:03,399:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.003986120224
+2018-12-16 22:07:03,895:MultiProxyInitiator:Create ping message 1544994423.89
+2018-12-16 22:07:03,896:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:03,899:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:03,899:MultiProxyServer:Create ping message 1544994423.9
+2018-12-16 22:07:03,900:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:03,900:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00601696968079
+2018-12-16 22:07:04,394:MultiProxyInitiator:Create ping message 1544994424.39
+2018-12-16 22:07:04,395:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:04,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:04,396:MultiProxyServer:Create ping message 1544994424.4
+2018-12-16 22:07:04,397:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:04,398:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00362610816956
+2018-12-16 22:07:04,895:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:07:04,897:MultiProxyInitiator:Create ping message 1544994424.9
+2018-12-16 22:07:04,898:MultiProxyServer:Create ping message 1544994424.9
+2018-12-16 22:07:04,899:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:04,900:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:04,902:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf24d90>}
+2018-12-16 22:07:04,902:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:04,902:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:04,902:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:04,902:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:04,902:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:04,904:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:04,905:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00743508338928
+2018-12-16 22:07:05,396:MultiProxyInitiator:Create ping message 1544994425.4
+2018-12-16 22:07:05,396:MultiProxyInitiator:Bootstrapping MultiProxyInitiator, current peers 0
+2018-12-16 22:07:05,399:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:05,400:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:05,401:MultiProxyServer:Create ping message 1544994425.4
+2018-12-16 22:07:05,402:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:05,402:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00643515586853
+2018-12-16 22:07:05,895:MultiProxyInitiator:Create ping message 1544994425.9
+2018-12-16 22:07:05,896:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:05,897:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:05,898:MultiProxyServer:Create ping message 1544994425.9
+2018-12-16 22:07:05,899:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:05,899:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0037739276886
+2018-12-16 22:07:06,395:MultiProxyInitiator:Create ping message 1544994426.4
+2018-12-16 22:07:06,397:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:06,398:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:06,398:MultiProxyServer:Create ping message 1544994426.4
+2018-12-16 22:07:06,399:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:06,400:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00420308113098
+2018-12-16 22:07:06,894:MultiProxyInitiator:Create ping message 1544994426.89
+2018-12-16 22:07:06,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:06,896:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:06,896:MultiProxyServer:Create ping message 1544994426.9
+2018-12-16 22:07:06,897:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:06,897:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00350403785706
+2018-12-16 22:07:06,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf24d90>}
+2018-12-16 22:07:06,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:06,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:06,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:06,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:06,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:07,393:MultiProxyInitiator:Create ping message 1544994427.39
+2018-12-16 22:07:07,394:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:07,395:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:07,396:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:07,396:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00307416915894
+2018-12-16 22:07:07,396:MultiProxyServer:Create ping message 1544994427.4
+2018-12-16 22:07:07,892:MultiProxyInitiator:Create ping message 1544994427.89
+2018-12-16 22:07:07,893:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:07,895:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:07,895:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:07,896:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00362205505371
+2018-12-16 22:07:07,896:MultiProxyServer:Create ping message 1544994427.9
+2018-12-16 22:07:08,394:MultiProxyInitiator:Create ping message 1544994428.39
+2018-12-16 22:07:08,394:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:08,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:08,397:MultiProxyServer:Create ping message 1544994428.4
+2018-12-16 22:07:08,397:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:08,398:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00413489341736
+2018-12-16 22:07:08,896:MultiProxyInitiator:Create ping message 1544994428.9
+2018-12-16 22:07:08,896:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:08,897:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:08,898:MultiProxyServer:Create ping message 1544994428.9
+2018-12-16 22:07:08,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10bf24d90>}
+2018-12-16 22:07:08,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:08,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:08,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:08,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:08,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:08,900:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:08,901:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00496101379395
+2018-12-16 22:07:09,393:MultiProxyInitiator:Create ping message 1544994429.39
+2018-12-16 22:07:09,394:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:09,394:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:09,395:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:09,396:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00276398658752
+2018-12-16 22:07:09,396:MultiProxyServer:Create ping message 1544994429.4
+2018-12-16 22:07:09,894:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:07:09,896:MultiProxyInitiator:Create ping message 1544994429.9
+2018-12-16 22:07:09,897:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:09,898:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:09,898:MultiProxyServer:Create ping message 1544994429.9
+2018-12-16 22:07:09,899:MultiProxyInitiator:Got pong (1621305960) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:09,900:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00409889221191
+2018-12-16 22:07:10,392:MultiProxyInitiator:Create ping message 1544994430.39
+2018-12-16 22:07:10,397:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:10,398:MultiProxyServer:Create ping message 1544994430.4
+2018-12-16 22:07:10,892:MultiProxyInitiator:Create ping message 1544994430.89
+2018-12-16 22:07:10,892:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:10,896:MultiProxyServer:Create ping message 1544994430.9
+2018-12-16 22:07:10,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10c0dba50>}
+2018-12-16 22:07:10,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:10,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:10,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:10,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:10,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:11,391:MultiProxyInitiator:Create ping message 1544994431.39
+2018-12-16 22:07:11,392:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:11,396:MultiProxyServer:Create ping message 1544994431.4
+2018-12-16 22:07:11,897:MultiProxyInitiator:Create ping message 1544994431.9
+2018-12-16 22:07:11,898:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:11,899:MultiProxyServer:Create ping message 1544994431.9
+2018-12-16 22:07:12,397:MultiProxyInitiator:Create ping message 1544994432.4
+2018-12-16 22:07:12,398:MultiProxyServer:Create ping message 1544994432.4
+2018-12-16 22:07:12,399:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:12,897:MultiProxyInitiator:Create ping message 1544994432.9
+2018-12-16 22:07:12,897:MultiProxyServer:Create ping message 1544994432.9
+2018-12-16 22:07:12,898:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:12,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10c0db550>}
+2018-12-16 22:07:12,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:12,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:12,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:12,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:12,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:13,395:MultiProxyInitiator:Create ping message 1544994433.4
+2018-12-16 22:07:13,397:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:13,397:MultiProxyServer:Create ping message 1544994433.4
+2018-12-16 22:07:13,895:MultiProxyInitiator:Create ping message 1544994433.9
+2018-12-16 22:07:13,896:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:13,897:MultiProxyServer:Create ping message 1544994433.9
+2018-12-16 22:07:14,394:MultiProxyInitiator:Create ping message 1544994434.39
+2018-12-16 22:07:14,396:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:14,396:MultiProxyServer:Create ping message 1544994434.4
+2018-12-16 22:07:14,892:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:07:14,893:MultiProxyInitiator:Create ping message 1544994434.89
+2018-12-16 22:07:14,894:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:14,896:MultiProxyServer:Create ping message 1544994434.9
+2018-12-16 22:07:14,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10c0dbc90>}
+2018-12-16 22:07:14,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:14,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:14,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:14,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:14,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:15,392:MultiProxyInitiator:Create ping message 1544994435.39
+2018-12-16 22:07:15,393:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:15,395:MultiProxyServer:Create ping message 1544994435.4
+2018-12-16 22:07:15,892:MultiProxyInitiator:Create ping message 1544994435.89
+2018-12-16 22:07:15,893:MultiProxyServer:Got ping (1621305960) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:15,894:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:15,896:MultiProxyServer:Create ping message 1544994435.9
+2018-12-16 22:07:16,396:MultiProxyInitiator:Create ping message 1544994436.4
+2018-12-16 22:07:16,397:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:16,397:MultiProxyServer:Create ping message 1544994436.4
+2018-12-16 22:07:16,891:MultiProxyInitiator:Create ping message 1544994436.89
+2018-12-16 22:07:16,892:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:16,896:MultiProxyServer:Create ping message 1544994436.9
+2018-12-16 22:07:16,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:16,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:16,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:16,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:17,392:MultiProxyInitiator:Create ping message 1544994437.39
+2018-12-16 22:07:17,396:MultiProxyServer:Create ping message 1544994437.4
+2018-12-16 22:07:17,397:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:17,895:MultiProxyInitiator:Create ping message 1544994437.9
+2018-12-16 22:07:17,896:MultiProxyServer:Create ping message 1544994437.9
+2018-12-16 22:07:17,897:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:18,391:MultiProxyInitiator:Create ping message 1544994438.39
+2018-12-16 22:07:18,396:MultiProxyServer:Create ping message 1544994438.4
+2018-12-16 22:07:18,397:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:18,891:MultiProxyInitiator:Create ping message 1544994438.89
+2018-12-16 22:07:18,895:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:18,896:MultiProxyServer:Create ping message 1544994438.9
+2018-12-16 22:07:18,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:18,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:18,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:18,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:19,396:MultiProxyInitiator:Create ping message 1544994439.4
+2018-12-16 22:07:19,397:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:19,397:MultiProxyServer:Create ping message 1544994439.4
+2018-12-16 22:07:19,891:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:07:19,892:MultiProxyInitiator:Create ping message 1544994439.89
+2018-12-16 22:07:19,894:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:19,896:MultiProxyServer:Create ping message 1544994439.9
+2018-12-16 22:07:20,395:MultiProxyInitiator:Create ping message 1544994440.4
+2018-12-16 22:07:20,396:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:20,397:MultiProxyServer:Create ping message 1544994440.4
+2018-12-16 22:07:20,895:MultiProxyInitiator:Create ping message 1544994440.9
+2018-12-16 22:07:20,896:MultiProxyInitiator:Removing circuit 1621305960 ping timeout
+2018-12-16 22:07:20,897:MultiProxyInitiator:Removed circuit 1621305960 ping timeout
+2018-12-16 22:07:20,897:MultiProxyServer:Create ping message 1544994440.9
+2018-12-16 22:07:20,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:20,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:20,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:20,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:21,394:MultiProxyInitiator:Create ping message 1544994441.39
+2018-12-16 22:07:21,395:MultiProxyInitiator:Cannot remove unknown circuit 1621305960
+2018-12-16 22:07:21,395:MultiProxyServer:Create ping message 1544994441.4
+2018-12-16 22:07:21,894:MultiProxyInitiator:Create ping message 1544994441.89
+2018-12-16 22:07:21,895:MultiProxyServer:Create ping message 1544994441.9
+2018-12-16 22:07:22,392:MultiProxyInitiator:Create ping message 1544994442.39
+2018-12-16 22:07:22,396:MultiProxyServer:Create ping message 1544994442.4
+2018-12-16 22:07:22,892:MultiProxyInitiator:Create ping message 1544994442.89
+2018-12-16 22:07:22,896:MultiProxyServer:Create ping message 1544994442.9
+2018-12-16 22:07:22,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:22,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:22,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:22,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:23,391:MultiProxyInitiator:Create ping message 1544994443.39
+2018-12-16 22:07:23,396:MultiProxyServer:Create ping message 1544994443.4
+2018-12-16 22:07:23,894:MultiProxyInitiator:Create ping message 1544994443.89
+2018-12-16 22:07:23,896:MultiProxyServer:Create ping message 1544994443.9
+2018-12-16 22:07:24,391:MultiProxyInitiator:Create ping message 1544994444.39
+2018-12-16 22:07:24,396:MultiProxyServer:Create ping message 1544994444.4
+2018-12-16 22:07:24,892:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 22:07:24,892:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 22:07:24,892:MultiProxyInitiator:First hop is required exit
+2018-12-16 22:07:24,893:MultiProxyInitiator:Creating circuit 2899686120 of 1 hops. First hop: 127.0.0.1:8091
+2018-12-16 22:07:24,894:MultiProxyInitiator:Create ping message 1544994444.89
+2018-12-16 22:07:24,894:MultiProxyServer:Got create (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:24,896:MultiProxyServer:TunnelCommunity: we joined circuit 2899686120 with neighbour ('127.0.0.1', 8090)
+2018-12-16 22:07:24,898:MultiProxyServer:Create ping message 1544994444.9
+2018-12-16 22:07:24,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>}
+2018-12-16 22:07:24,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:24,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:24,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:24,901:MultiProxyInitiator:Got created (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:25,395:MultiProxyInitiator:Create ping message 1544994445.4
+2018-12-16 22:07:25,396:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:25,397:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:25,398:MultiProxyServer:Create ping message 1544994445.4
+2018-12-16 22:07:25,398:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:25,399:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00368905067444
+2018-12-16 22:07:25,898:MultiProxyInitiator:Create ping message 1544994445.9
+2018-12-16 22:07:25,898:MultiProxyServer:Create ping message 1544994445.9
+2018-12-16 22:07:25,899:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:25,900:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:25,901:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:25,902:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00426506996155
+2018-12-16 22:07:26,392:MultiProxyInitiator:Create ping message 1544994446.39
+2018-12-16 22:07:26,393:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:26,394:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:26,394:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:26,395:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00298190116882
+2018-12-16 22:07:26,396:MultiProxyServer:Create ping message 1544994446.4
+2018-12-16 22:07:26,893:MultiProxyInitiator:Create ping message 1544994446.89
+2018-12-16 22:07:26,894:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:26,894:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:26,895:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:26,896:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00231504440308
+2018-12-16 22:07:26,896:MultiProxyServer:Create ping message 1544994446.9
+2018-12-16 22:07:26,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10c0db910>}
+2018-12-16 22:07:26,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:26,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>, 2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>}
+2018-12-16 22:07:26,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:26,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:26,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:27,394:MultiProxyInitiator:Create ping message 1544994447.39
+2018-12-16 22:07:27,396:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:27,397:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:27,397:MultiProxyServer:Create ping message 1544994447.4
+2018-12-16 22:07:27,398:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:27,399:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00406908988953
+2018-12-16 22:07:27,897:MultiProxyInitiator:Create ping message 1544994447.9
+2018-12-16 22:07:27,897:MultiProxyServer:Create ping message 1544994447.9
+2018-12-16 22:07:27,898:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:27,899:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:27,900:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:27,901:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00413012504578
+2018-12-16 22:07:28,396:MultiProxyInitiator:Create ping message 1544994448.4
+2018-12-16 22:07:28,398:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:28,399:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:28,399:MultiProxyServer:Create ping message 1544994448.4
+2018-12-16 22:07:28,400:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:28,400:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00399208068848
+2018-12-16 22:07:28,895:MultiProxyInitiator:Create ping message 1544994448.9
+2018-12-16 22:07:28,896:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:28,897:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:28,897:MultiProxyServer:Create ping message 1544994448.9
+2018-12-16 22:07:28,898:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:28,899:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00389909744263
+2018-12-16 22:07:28,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10c0db910>}
+2018-12-16 22:07:28,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:28,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>, 2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>}
+2018-12-16 22:07:28,900:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:28,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:28,901:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:29,395:MultiProxyInitiator:Create ping message 1544994449.39
+2018-12-16 22:07:29,396:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:29,397:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:29,397:MultiProxyServer:Create ping message 1544994449.4
+2018-12-16 22:07:29,398:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:29,398:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00370192527771
+2018-12-16 22:07:29,893:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:07:29,894:MultiProxyInitiator:Create ping message 1544994449.89
+2018-12-16 22:07:29,896:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:29,897:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:29,897:MultiProxyServer:Create ping message 1544994449.9
+2018-12-16 22:07:29,898:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:29,898:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00427412986755
+2018-12-16 22:07:30,396:MultiProxyInitiator:Create ping message 1544994450.4
+2018-12-16 22:07:30,397:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:30,399:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:30,399:MultiProxyServer:Create ping message 1544994450.4
+2018-12-16 22:07:30,400:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:30,400:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00372695922852
+2018-12-16 22:07:30,892:MultiProxyInitiator:Create ping message 1544994450.89
+2018-12-16 22:07:30,893:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:30,895:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:30,895:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:30,896:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00359511375427
+2018-12-16 22:07:30,896:MultiProxyServer:Create ping message 1544994450.9
+2018-12-16 22:07:30,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10c0db910>}
+2018-12-16 22:07:30,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:30,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>, 2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>}
+2018-12-16 22:07:30,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:30,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:30,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:31,395:MultiProxyInitiator:Create ping message 1544994451.4
+2018-12-16 22:07:31,395:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:31,396:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:31,396:MultiProxyServer:Create ping message 1544994451.4
+2018-12-16 22:07:31,397:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:31,397:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00244212150574
+2018-12-16 22:07:31,896:MultiProxyInitiator:Create ping message 1544994451.9
+2018-12-16 22:07:31,897:MultiProxyServer:Create ping message 1544994451.9
+2018-12-16 22:07:31,897:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:31,898:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:31,899:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:31,900:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00322699546814
+2018-12-16 22:07:32,398:MultiProxyInitiator:Create ping message 1544994452.4
+2018-12-16 22:07:32,400:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:32,401:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:32,402:MultiProxyServer:Create ping message 1544994452.4
+2018-12-16 22:07:32,408:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:32,409:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0110061168671
+2018-12-16 22:07:32,893:MultiProxyInitiator:Create ping message 1544994452.89
+2018-12-16 22:07:32,894:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:32,895:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:32,896:MultiProxyServer:Create ping message 1544994452.9
+2018-12-16 22:07:32,896:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:32,897:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00423693656921
+2018-12-16 22:07:32,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>};{};{'LibNaCLPK:&SS\xd2\xb4\x9ab\xddb\x9c\xfc\x1e\xe2^\xb3\xbf\xa1\xa169]\x857S\x11\x19\x08\xe7\xb8MJ\x0bkB\x17%\x14N\x84`v[w\xcb\x84\x90\xa5\xa7\x08/\x90\x04\x8c\xd1_\x89\xe2n\x03\xa4\xb4\xc6\x11\xbe': <pyipv8.ipv8.peer.Peer object at 0x10c0f94d0>}
+2018-12-16 22:07:32,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:07:32,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1621305960L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db190>, 2899686120L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10c0db890>}
+2018-12-16 22:07:32,898:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:07:32,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:32,899:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:07:33,395:MultiProxyInitiator:Create ping message 1544994453.4
+2018-12-16 22:07:33,396:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:33,397:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:33,397:MultiProxyServer:Create ping message 1544994453.4
+2018-12-16 22:07:33,398:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:33,399:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00398302078247
+2018-12-16 22:07:33,894:MultiProxyInitiator:Create ping message 1544994453.89
+2018-12-16 22:07:33,895:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:33,896:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:33,896:MultiProxyServer:Create ping message 1544994453.9
+2018-12-16 22:07:33,897:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:33,897:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00321888923645
+2018-12-16 22:07:34,397:MultiProxyInitiator:Create ping message 1544994454.4
+2018-12-16 22:07:34,398:MultiProxyServer:Create ping message 1544994454.4
+2018-12-16 22:07:34,398:MultiProxyServer:Got ping (2899686120) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, NntkQ7UH/0yLZUERmvIOB2BROpg=>
+2018-12-16 22:07:34,399:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:07:34,400:MultiProxyInitiator:Got pong (2899686120) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, Y/Gvk6exXBlWUyJ0AoHCn3l2zt0=>
+2018-12-16 22:07:34,401:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.0039529800415
+2018-12-16 22:33:03,367:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Initialized at 40000
+2018-12-16 22:33:03,367:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 22:33:03,367:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 22:33:03,367:MultiProxyInitiator:Could not create circuit, no available exit-nodes
+2018-12-16 22:33:03,367:MultiProxyInitiator:circuit creation of 1 circuits failed, no need to continue
+2018-12-16 22:33:03,371:MultiProxyServer:0.0.0.0:8091, MultiProxyServer initialized at 40001
+2018-12-16 22:33:03,372:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:33:03,372:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:33:03,372:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 22:33:03,372:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes None
+2018-12-16 22:33:03,869:MultiProxyInitiator:Create ping message 1544995983.87
+2018-12-16 22:33:03,870:MultiProxyInitiator:Bootstrapping MultiProxyInitiator, current peers 0
+2018-12-16 22:33:03,876:MultiProxyServer:Create ping message 1544995983.88
+2018-12-16 22:33:04,368:MultiProxyInitiator:Create ping message 1544995984.37
+2018-12-16 22:33:04,371:MultiProxyServer:Create ping message 1544995984.37
+2018-12-16 22:33:04,870:MultiProxyInitiator:Create ping message 1544995984.87
+2018-12-16 22:33:04,871:MultiProxyServer:Create ping message 1544995984.87
+2018-12-16 22:33:05,368:MultiProxyInitiator:Create ping message 1544995985.37
+2018-12-16 22:33:05,371:MultiProxyServer:Create ping message 1544995985.37
+2018-12-16 22:33:05,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:33:05,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:33:05,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:05,374:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:05,869:MultiProxyInitiator:Create ping message 1544995985.87
+2018-12-16 22:33:05,872:MultiProxyServer:Create ping message 1544995985.87
+2018-12-16 22:33:06,370:MultiProxyInitiator:Create ping message 1544995986.37
+2018-12-16 22:33:06,371:MultiProxyServer:Create ping message 1544995986.37
+2018-12-16 22:33:06,868:MultiProxyInitiator:Create ping message 1544995986.87
+2018-12-16 22:33:06,871:MultiProxyServer:Create ping message 1544995986.87
+2018-12-16 22:33:07,368:MultiProxyInitiator:Create ping message 1544995987.37
+2018-12-16 22:33:07,371:MultiProxyServer:Create ping message 1544995987.37
+2018-12-16 22:33:07,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {}
+2018-12-16 22:33:07,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:33:07,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:07,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:07,870:MultiProxyInitiator:Create ping message 1544995987.87
+2018-12-16 22:33:07,871:MultiProxyServer:Create ping message 1544995987.87
+2018-12-16 22:33:08,368:MultiProxyInitiator:Want 1 data circuits of length 1
+2018-12-16 22:33:08,368:MultiProxyInitiator:Creating a new circuit of length 1 (type: DATA)
+2018-12-16 22:33:08,368:MultiProxyInitiator:First hop is required exit
+2018-12-16 22:33:08,369:MultiProxyInitiator:Creating circuit 1043364048 of 1 hops. First hop: 127.0.0.1:8091
+2018-12-16 22:33:08,370:MultiProxyInitiator:Create ping message 1544995988.37
+2018-12-16 22:33:08,371:MultiProxyServer:Got create (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:08,372:MultiProxyServer:TunnelCommunity: we joined circuit 1043364048 with neighbour ('127.0.0.1', 8090)
+2018-12-16 22:33:08,374:MultiProxyServer:Create ping message 1544995988.37
+2018-12-16 22:33:08,375:MultiProxyServer:New Host Peer<127.0.0.1:8090, f+mA5ABuNXNQu6CKSGgrFNGaY1s=> join the network
+2018-12-16 22:33:08,376:MultiProxyInitiator:Got created (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:08,870:MultiProxyInitiator:Create ping message 1544995988.87
+2018-12-16 22:33:08,871:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:08,872:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:08,872:MultiProxyServer:Create ping message 1544995988.87
+2018-12-16 22:33:08,873:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:08,873:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00319194793701
+2018-12-16 22:33:09,369:MultiProxyInitiator:Create ping message 1544995989.37
+2018-12-16 22:33:09,370:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:09,371:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:09,372:MultiProxyServer:Create ping message 1544995989.37
+2018-12-16 22:33:09,372:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:09,372:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00314402580261
+2018-12-16 22:33:09,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1043364048L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10ba1bc90>};{};{'LibNaCLPK:\xe9\n\x99\x9d\xa4\xd5\xc1\xbe\xb9i3"RC\xf8=\xcd\xacSJ\xf9\xeapj\xc2\x98t\xd6\xb9\x91\xd3vEt\x8b\x06\xf1A\xe4\xfa\xd1\x7f\x150Wn\n\xbcx\xcf\xa9\x19\xa9nA\x87\x18SKe\xbe(\xfc\x95': <pyipv8.ipv8.peer.Peer object at 0x10ba1bd90>}
+2018-12-16 22:33:09,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:33:09,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1043364048L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10ba1bc90>}
+2018-12-16 22:33:09,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:33:09,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:09,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:09,871:MultiProxyInitiator:Create ping message 1544995989.87
+2018-12-16 22:33:09,872:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:09,872:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:09,873:MultiProxyServer:Create ping message 1544995989.87
+2018-12-16 22:33:09,874:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:09,874:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00295305252075
+2018-12-16 22:33:10,370:MultiProxyInitiator:Create ping message 1544995990.37
+2018-12-16 22:33:10,371:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:10,372:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:10,372:MultiProxyServer:Create ping message 1544995990.37
+2018-12-16 22:33:10,373:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:10,373:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00318789482117
+2018-12-16 22:33:10,869:MultiProxyInitiator:Create ping message 1544995990.87
+2018-12-16 22:33:10,870:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:10,871:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:10,871:MultiProxyServer:Create ping message 1544995990.87
+2018-12-16 22:33:10,872:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:10,872:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00287699699402
+2018-12-16 22:33:11,369:MultiProxyInitiator:Create ping message 1544995991.37
+2018-12-16 22:33:11,370:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:11,371:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:11,371:MultiProxyServer:Create ping message 1544995991.37
+2018-12-16 22:33:11,371:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:11,372:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00270891189575
+2018-12-16 22:33:11,372:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1043364048L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10ba1bc90>};{};{'LibNaCLPK:\xe9\n\x99\x9d\xa4\xd5\xc1\xbe\xb9i3"RC\xf8=\xcd\xacSJ\xf9\xeapj\xc2\x98t\xd6\xb9\x91\xd3vEt\x8b\x06\xf1A\xe4\xfa\xd1\x7f\x150Wn\n\xbcx\xcf\xa9\x19\xa9nA\x87\x18SKe\xbe(\xfc\x95': <pyipv8.ipv8.peer.Peer object at 0x10ba1bfd0>}
+2018-12-16 22:33:11,372:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:33:11,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1043364048L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10ba1bc90>}
+2018-12-16 22:33:11,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:33:11,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:11,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:11,871:MultiProxyInitiator:Create ping message 1544995991.87
+2018-12-16 22:33:11,872:MultiProxyServer:Create ping message 1544995991.87
+2018-12-16 22:33:11,873:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:11,873:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:11,874:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:11,874:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00296592712402
+2018-12-16 22:33:12,369:MultiProxyInitiator:Create ping message 1544995992.37
+2018-12-16 22:33:12,371:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:12,374:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:12,375:MultiProxyServer:Create ping message 1544995992.38
+2018-12-16 22:33:12,378:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:12,379:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00960493087769
+2018-12-16 22:33:12,873:MultiProxyInitiator:Create ping message 1544995992.87
+2018-12-16 22:33:12,874:MultiProxyServer:Create ping message 1544995992.87
+2018-12-16 22:33:12,875:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:12,875:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:12,876:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:12,877:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00405192375183
+2018-12-16 22:33:13,369:MultiProxyInitiator:Want 0 data circuits of length 1
+2018-12-16 22:33:13,371:MultiProxyInitiator:Create ping message 1544995993.37
+2018-12-16 22:33:13,372:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:13,372:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:13,372:MultiProxyServer:Create ping message 1544995993.37
+2018-12-16 22:33:13,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Get new circuit {1043364048L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10ba1bc90>};{};{'LibNaCLPK:\xe9\n\x99\x9d\xa4\xd5\xc1\xbe\xb9i3"RC\xf8=\xcd\xacSJ\xf9\xeapj\xc2\x98t\xd6\xb9\x91\xd3vEt\x8b\x06\xf1A\xe4\xfa\xd1\x7f\x150Wn\n\xbcx\xcf\xa9\x19\xa9nA\x87\x18SKe\xbe(\xfc\x95': <pyipv8.ipv8.peer.Peer object at 0x10ba1bfd0>}
+2018-12-16 22:33:13,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, First hop address is [('127.0.0.1', 8091)]
+2018-12-16 22:33:13,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update first hop {1043364048L: <pyipv8.ipv8.messaging.anonymization.tunnel.Circuit object at 0x10ba1bc90>}
+2018-12-16 22:33:13,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update forward address {}
+2018-12-16 22:33:13,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:13,373:MultiProxyInitiator:0.0.0.0:8090, MultiProxyInitiator, Update exit nodes ('127.0.0.1', 8091)
+2018-12-16 22:33:13,374:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:13,374:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00366997718811
+2018-12-16 22:33:13,872:MultiProxyInitiator:Create ping message 1544995993.87
+2018-12-16 22:33:13,875:MultiProxyServer:Create ping message 1544995993.88
+2018-12-16 22:33:13,877:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:13,877:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:13,879:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:13,879:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00696706771851
+2018-12-16 22:33:14,371:MultiProxyInitiator:Create ping message 1544995994.37
+2018-12-16 22:33:14,372:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:14,373:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:14,373:MultiProxyServer:Create ping message 1544995994.37
+2018-12-16 22:33:14,374:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:14,374:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00374603271484
+2018-12-16 22:33:14,871:MultiProxyInitiator:Create ping message 1544995994.87
+2018-12-16 22:33:14,872:MultiProxyServer:Got ping (1043364048) from ('127.0.0.1', 8090), I am Peer<0.0.0.0:0, ZNQisZ4V9v0a4n+ECB5a+3LXjbM=>
+2018-12-16 22:33:14,874:MultiProxyServer:Got ping from ('127.0.0.1', 8090)
+2018-12-16 22:33:14,875:MultiProxyServer:Create ping message 1544995994.87
+2018-12-16 22:33:14,876:MultiProxyInitiator:Got pong (1043364048) from ('127.0.0.1', 8091), I am Peer<0.0.0.0:0, f+mA5ABuNXNQu6CKSGgrFNGaY1s=>
+2018-12-16 22:33:14,877:MultiProxyInitiator:Got pong from ('127.0.0.1', 8091), RTT is 0.00608921051025
