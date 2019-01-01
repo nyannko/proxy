@@ -48,7 +48,7 @@ class Socks5Protocol(protocol.Protocol):
         client_factory = ClientsFactory(self)
         logger.debug("4.connect to remote proxy localhost:50000")
 
-        reactor.connectTCP('35.196.96.100', 50000, client_factory)
+        reactor.connectTCP('127.0.0.1', 50000, client_factory)
 
         self.buffer = addr_to_send
 

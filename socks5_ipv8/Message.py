@@ -1,8 +1,8 @@
 import struct
 import logging
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
+# logging.basicConfig(level=logging.WARNING, format='%(asctime)s %(levelname)-8s %(message)s',
+#                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
 class Message:
@@ -61,9 +61,9 @@ class Message:
         while True:
             try:
                 length, idx, msg_type = struct.unpack('!II4s', byte[offset:offset + 12])
-                logging.debug("message length: {}, cir_id: {}, msg_type: {}".format(length, idx, msg_type))
+                # logging.debug("message length: {}, cir_id: {}, msg_type: {}".format(length, idx, msg_type))
             except struct.error as e:
-                logging.debug("unpack requires a string argument of length 12: {}".format(e.message))
+                # logging.debug("unpack requires a string argument of length 12: {}".format(e.message))
                 data_remaining = byte[offset:]
                 break
 

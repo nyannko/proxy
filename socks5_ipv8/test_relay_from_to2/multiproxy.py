@@ -203,6 +203,7 @@ class Socks5Protocol(protocol.Protocol):
         self.transport.write('\x05\x00')
 
     def handle_REQUEST_tcp(self, data):
+        print "addressss", repr(data)
         addr_to_send = self.unpack_request_data_tcp(data)
         self.send_address(addr_to_send)
 
@@ -220,6 +221,7 @@ class Socks5Protocol(protocol.Protocol):
 
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
+        print "send data", repr(data)
         data_send = Message(self.cir_id, 'data', data).to_bytes()
         if self.remote_protocol is not None:
             self.remote_protocol.write(data_send)

@@ -51,14 +51,14 @@ class Socks5Protocol(protocol.Protocol):
         addr_to_send = self.unpack_request_data(data)
         client_factory = ClientsFactory(self)
         self.idx = self.get_ID()
-        data_to_send = Message(self.idx, addr_to_send).to_bytes()
+        data_to_send = Message(self.idx, addr_to_send, 'data').to_bytes()
         self.buffer = data_to_send
         reactor.connectTCP('localhost', 50000, client_factory)
 
     # trying to implement buffer here.
     # https://stackoverflow.com/questions/33949409/twisted-protocol-to-handle-concantenated-tcp-stream-with-custom-frame-structure
     def handle_TRANSMISSION(self, data):
-        data_send = Message(self.idx, data).to_bytes()
+        data_send = Message(self.idx, data, 'data').to_bytes()
         if self.client_protocol is not None:
             self.client_protocol.write(data_send)
         else:

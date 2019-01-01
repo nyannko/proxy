@@ -4274,3 +4274,109 @@ gfycat.com»
 ]
 2018-11-21 15:32:45,227:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
 ]
+2018-12-30 18:29:41,460:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:41,468:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,471:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:41,473:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,690:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:41,690:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,691:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:41,691:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,769:socks5:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:29:41,770:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,771:socks5:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:29:41,772:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,781:socks5:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:29:41,783:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,786:socks5:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:29:41,787:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,788:socks5:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:29:41,789:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,797:socks5:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:29:41,799:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:41,803:socks5:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:29:41,804:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:42,200:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:42,201:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:42,201:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:42,202:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:42,377:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:42,378:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:42,380:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:42,380:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:42,387:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:42,388:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:29:42,388:socks5:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:29:42,389:socks5:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:30:44,539:__main__:socks5_twisted server is listening at port 40000
+2018-12-30 18:30:49,178:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:30:49,181:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:30:49,182:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:30:49,183:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:33:39,606:__main__:socks5_twisted server is listening at port 40000
+2018-12-30 18:33:52,355:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:33:52,362:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:33:52,363:__main__:version:5, cmd:1, addr_type:3, port:443
+2018-12-30 18:33:52,363:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:33:52,491:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:33:52,492:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:33:52,493:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:33:52,493:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:12,138:__main__:socks5_twisted server is listening at port 40000
+2018-12-30 18:35:14,616:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,629:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,630:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,632:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,633:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,635:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,639:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,641:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,642:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,644:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,645:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,647:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,648:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,649:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,650:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,651:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,652:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,656:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:14,657:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:14,659:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <type 'exceptions.TypeError'>: __init__() takes exactly 4 arguments (3 given)
+]
+2018-12-30 18:35:23,620:__main__:socks5_twisted server is listening at port 40000
+2018-12-30 18:35:26,220:__main__:version:5, cmd:1, addr_type:3, port:80
+2018-12-30 18:35:50,444:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionLost'>: Connection to the other side was lost in a non-clean fashion: Connection lost.
+]

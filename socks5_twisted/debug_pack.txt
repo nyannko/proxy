@@ -2534,3 +2534,27 @@
 ]
 2018-11-21 15:32:45,366:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'twisted.internet.error.ConnectionDone'>: Connection was closed cleanly.
 ]
+2018-12-30 18:30:47,265:__main__:remote server is listening at port 50000
+2018-12-30 18:33:42,479:__main__:remote server is listening at port 50000
+2018-12-30 18:35:14,632:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,634:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,640:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,642:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,645:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,648:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,650:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,652:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,658:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:14,661:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
+2018-12-30 18:35:26,228:__main__:connection lost:[Failure instance: Traceback (failure with no frames): <class 'struct.error'>: unpack requires a string argument of length 1
+]
