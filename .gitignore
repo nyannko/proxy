@@ -44,4 +44,6 @@ tmtagsHistory
 .bundle
 
 **.pem
+**.txt
 venv
+sync.sh
