@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>😒 · GitBook</title>
+        <title>😣 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -92,7 +92,7 @@
                 <a href="./">
             
                     
-                    😒
+                    😣
             
                 </a>
             
@@ -188,7 +188,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >😒</a>
+        <a href="." >😣</a>
     </h1>
 </div>
 
@@ -203,13 +203,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="debug">Debug</h3>
+                                <h3 id="setup">Setup</h3>
 <p>Creating a clean gh-pages branch</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># https://gist.github.com/ramnathv/2227408</span>
 <span class="hljs-built_in">cd</span> /path/to/repo-name
 git symbolic-ref HEAD refs/heads/gh-pages
 rm .git/index
 git clean -fdx
+</code></pre>
+<p>Build gitbook script</p>
+<pre><code class="lang-bash">cat &gt; gbsync.sh &lt;&lt;EOF
+gitbook build
+<span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>/github/proxy/
+git co gh-pages 
+cp -r <span class="hljs-variable">$HOME</span>/github/gitbooks/proxy/_book/* <span class="hljs-variable">$HOME</span>/github/proxy/
+git add .
+dt=`date <span class="hljs-string">&apos;+%d/%m/%Y,%H:%M&apos;</span>`
+git commit -m <span class="hljs-variable">$dt</span>
+git push -u origin gh-pages
+git co master
+EOF
 </code></pre>
 
                                 
@@ -250,7 +263,7 @@ git clean -fdx
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"😒","level":"1.1","depth":1,"next":{"title":"Evaluation","level":"1.2","depth":1,"path":"evaluation/README.md","ref":"evaluation/README.md","articles":[{"title":"System setup","level":"1.2.1","depth":2,"path":"evaluation/1_system_setup.md","ref":"evaluation/1_system_setup.md","articles":[]},{"title":"Experiment","level":"1.2.2","depth":2,"path":"evaluation/2_experiment.md","ref":"evaluation/2_experiment.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-01-10T13:16:08.208Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-10T13:17:17.595Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"😣","level":"1.1","depth":1,"next":{"title":"Evaluation","level":"1.2","depth":1,"path":"evaluation/README.md","ref":"evaluation/README.md","articles":[{"title":"System setup","level":"1.2.1","depth":2,"path":"evaluation/1_system_setup.md","ref":"evaluation/1_system_setup.md","articles":[]},{"title":"Experiment","level":"1.2.2","depth":2,"path":"evaluation/2_experiment.md","ref":"evaluation/2_experiment.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-01-10T13:32:13.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-10T13:34:40.543Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
