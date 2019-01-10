@@ -45,5 +45,6 @@ tmtagsHistory
 
 **.pem
 **.txt
-venv
+venv/
 sync.sh
+result/

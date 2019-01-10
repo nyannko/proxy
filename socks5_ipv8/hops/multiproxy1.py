@@ -37,7 +37,7 @@ master_peer_init = Peer(
 # )
 
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
+logging.basicConfig(level=logging.ERROR, format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
@@ -566,7 +566,7 @@ def proxy(nodes_num):
             'alias': "my peer",
             'generation': u"curve25519",
             # 'file': u"ec_{1}{0}.pem".format(*id_with_key)
-            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key)+(os.urandom(2),)))
+            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key) + (os.urandom(2),)))
         }]
         configuration['logger'] = {
             'level': 'ERROR'
