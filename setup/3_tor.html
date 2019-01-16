@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Design · GitBook</title>
+        <title>Tor with Meek · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../other/" />
+    <link rel="next" href="4_openconnect.html" />
     
     
-    <link rel="prev" href="../evaluation/2_experiment.html" />
+    <link rel="prev" href="2_v2.html" />
     
 
     </head>
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../setup/">
+        <li class="chapter " data-level="1.2" data-path="./">
             
-                <a href="../setup/">
+                <a href="./">
             
                     
                     System setup
@@ -116,9 +116,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../setup/1_ss.html">
+        <li class="chapter " data-level="1.2.1" data-path="1_ss.html">
             
-                <a href="../setup/1_ss.html">
+                <a href="1_ss.html">
             
                     
                     SS
@@ -129,9 +129,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../setup/2_v2.html">
+        <li class="chapter " data-level="1.2.2" data-path="2_v2.html">
             
-                <a href="../setup/2_v2.html">
+                <a href="2_v2.html">
             
                     
                     v@ray
@@ -142,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../setup/3_tor.html">
+        <li class="chapter active" data-level="1.2.3" data-path="3_tor.html">
             
-                <a href="../setup/3_tor.html">
+                <a href="3_tor.html">
             
                     
                     Tor with Meek
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="../setup/4_openconnect.html">
+        <li class="chapter " data-level="1.2.4" data-path="4_openconnect.html">
             
-                <a href="../setup/4_openconnect.html">
+                <a href="4_openconnect.html">
             
                     
                     OpenConnect
@@ -168,9 +168,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="../setup/5_openvpn.html">
+        <li class="chapter " data-level="1.2.5" data-path="5_openvpn.html">
             
-                <a href="../setup/5_openvpn.html">
+                <a href="5_openvpn.html">
             
                     
                     OpenVPN
@@ -218,9 +218,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../design/">
             
-                <a href="./">
+                <a href="../design/">
             
                     
                     Design
@@ -364,7 +364,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Design</a>
+        <a href=".." >Tor with Meek</a>
     </h1>
 </div>
 
@@ -379,7 +379,75 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h3 id="set-up-tor-with-meek">Set up tor with meek</h3>
+<p><strong>dependencies: tor, meek, go</strong></p>
+<p>1.Download meek, use proxy in censored regions</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://git.torproject.org/pluggable-transports/meek.git
+</code></pre>
+<p>2.Install go</p>
+<pre><code class="lang-bash">sudo yum install go
+</code></pre>
+<p>3.Download meek dependency, use proxy in censored regions</p>
+<pre><code class="lang-bash">git config --global http.proxy socks5h://127.0.0.1:1080
+http_proxy=socks5h://127.0.0.1:1080 go get git.torproject.org/pluggable-transports/goptlib.git
+git config --global --unset http.proxy
+</code></pre>
+<p>4.Build meek client</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ~/meek/meek-cilent
+go build
+sudo cp meek-client /etc/tor/
+</code></pre>
+<p>5.Configure torrc</p>
+<pre><code class="lang-bash">sudo vim /etc/tor/torrc
+</code></pre>
+<p>minimum <code>torrc</code> configurations:</p>
+<pre><code class="lang-bash">UseBridges 1
+Bridge meek 0.0.2.0:3
+ClientTransportPlugin meek <span class="hljs-built_in">exec</span> ./meek-client --url=https://meek.azureedge.net/ --front=ajax.aspnetcdn.com --log meek-client.log
+</code></pre>
+<p>6.Start tor under the dir that has compiled meek-client</p>
+<pre><code class="lang-bash">tor
+</code></pre>
+<p>example status information:</p>
+<pre><code class="lang-bash">tor 0.2.9.13 (git-fbe15d1d7a28e480) running on Linux with Libevent 2.0.21-stable, OpenSSL 1.0.2k-fips and Zlib 1.2.7.
+Tor can<span class="hljs-string">&apos;t help you if you use it wrong! Learn how to be safe at https://www.torproject.org/download/download#warning
+Read configuration file &quot;/etc/tor/torrc&quot;.
+Opening Socks listener on 127.0.0.1:9050
+Parsing GEOIP IPv4 file /usr/share/tor/geoip.
+Parsing GEOIP IPv6 file /usr/share/tor/geoip6.
+Bootstrapped 0%: Starting
+Delaying directory fetches: No running bridges
+Bootstrapped 5%: Connecting to directory server
+Bootstrapped 10%: Finishing handshake with directory server
+Learned fingerprint 97700DFE9F483596DDA6264C4D7DF7641E1E39CE for bridge 0.0.2.0:3 (with transport &apos;</span>meek<span class="hljs-string">&apos;).
+Bootstrapped 15%: Establishing an encrypted directory connection
+Bootstrapped 20%: Asking for networkstatus consensus
+new bridge descriptor &apos;</span>cymrubridge02<span class="hljs-string">&apos; (fresh): $97700DFE9F483596DDA6264C4D7DF7641E1E39CE~cymrubridge02 at 0.0.2.0
+I learned some more directory information, but not enough to build a circuit: We have no usable consensus.
+Bootstrapped 25%: Loading networkstatus consensus
+I learned some more directory information, but not enough to build a circuit: We have no usable consensus.
+Bootstrapped 40%: Loading authority key certs
+Bootstrapped 45%: Asking for relay descriptors
+I learned some more directory information, but not enough to build a circuit: We need more microdescriptors: we have 0/6683, and can only build 0% of likely paths. (We have 0% of guards bw, 0% of midpoint bw, and 0% of exit bw = 0% of path bw.)
+Bootstrapped 50%: Loading relay descriptors
+Bootstrapped 55%: Loading relay descriptors
+Bootstrapped 61%: Loading relay descriptors
+Bootstrapped 71%: Loading relay descriptors
+Bootstrapped 80%: Connecting to the Tor network
+Bootstrapped 90%: Establishing a Tor circuit
+Tor has successfully opened a circuit. Looks like client functionality is working.
+Bootstrapped 100%: Done
+We tried for 15 seconds to connect to &apos;</span>[scrubbed]<span class="hljs-string">&apos; using exit $C8AB1B2AF0CBAAE3611A814B4C7D38DCE0CBFEB4~freki at 185.100.87.207. Retrying on a new circuit.
+We tried for 15 seconds to connect to &apos;</span>[scrubbed]<span class="hljs-string">&apos; using exit $68215F28A3167879691478AE647A0F89E4F394A5~FilePit at 85.202.163.127. Retrying on a new circuit.
+We tried for 15 seconds to connect to &apos;</span>[scrubbed]<span class="hljs-string">&apos; using exit $12B80ABF019354A9D25EE8BE85EB3C0AD8F7DFC1~PhantomTrain5 at 65.19.167.132. Retrying on a new circuit.
+</span></code></pre>
+<p>7.Test client</p>
+<pre><code class="lang-bash">curl <span class="hljs-_">-s</span> -o /dev/null  --proxy socks5h://127.0.0.1:9050 -w <span class="hljs-string">&quot;%{time_namelookup} %{time_connect} %{time_appconnect} %{time_pretransfer} %{time_redirect} %{time_starttransfer} %{time_total}\n&quot;</span> https://www.youtube.com
+0.000 0.972 6.270 6.270 0.000 9.441 15.939
+</code></pre>
+<h3 id="&#x4E00;&#x4E9B;&#x95EE;&#x9898;">&#x4E00;&#x4E9B;&#x95EE;&#x9898;</h3>
+<p>&#x7528;<code>systemctl</code>&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x8BBE;&#x7F6E;<code>/usr/lib/systemd/system/tor.service</code>&#x7684;&#x4FE1;&#x606F;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;&#x627E;&#x4E0D;&#x5230;meek-client&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x3002;&#x6240;&#x4EE5;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x76F4;&#x63A5;&#x7528;<code>tor</code>&#x547D;&#x4EE4;&#x542F;&#x52A8;&#x3002;</p>
+
                                 
                                 </section>
                             
@@ -406,12 +474,12 @@
 
             
                 
-                <a href="../evaluation/2_experiment.html" class="navigation navigation-prev " aria-label="Previous page: Experiment">
+                <a href="2_v2.html" class="navigation navigation-prev " aria-label="Previous page: v@ray">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../other/" class="navigation navigation-next " aria-label="Next page: Others">
+                <a href="4_openconnect.html" class="navigation navigation-next " aria-label="Next page: OpenConnect">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -422,7 +490,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Design","level":"1.4","depth":1,"next":{"title":"Others","level":"1.5","depth":1,"path":"other/README.md","ref":"other/README.md","articles":[{"title":"CMD","level":"1.5.1","depth":2,"path":"other/cmd/README.md","ref":"other/cmd/README.md","articles":[{"title":"network","level":"1.5.1.1","depth":3,"path":"other/cmd/1_network.md","ref":"other/cmd/1_network.md","articles":[]},{"title":"transport","level":"1.5.1.2","depth":3,"path":"other/cmd/2_transport.md","ref":"other/cmd/2_transport.md","articles":[]},{"title":"application","level":"1.5.1.3","depth":3,"path":"other/cmd/3_application.md","ref":"other/cmd/3_application.md","articles":[]},{"title":"sniffer","level":"1.5.1.4","depth":3,"path":"other/cmd/4_sniffer.md","ref":"other/cmd/4_sniffer.md","articles":[]},{"title":"status","level":"1.5.1.5","depth":3,"path":"other/cmd/5_port.md","ref":"other/cmd/5_port.md","articles":[]}]}]},"previous":{"title":"Experiment","level":"1.3.1","depth":2,"path":"evaluation/2_experiment.md","ref":"evaluation/2_experiment.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"design/README.md","mtime":"2019-01-10T13:09:12.885Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-16T23:00:18.674Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Tor with Meek","level":"1.2.3","depth":2,"next":{"title":"OpenConnect","level":"1.2.4","depth":2,"path":"setup/4_openconnect.md","ref":"setup/4_openconnect.md","articles":[]},"previous":{"title":"v@ray","level":"1.2.2","depth":2,"path":"setup/2_v2.md","ref":"setup/2_v2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"setup/3_tor.md","mtime":"2019-01-16T16:40:22.470Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-16T23:00:18.674Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

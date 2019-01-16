@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="evaluation/" />
+    <link rel="next" href="setup/" />
     
     
 
@@ -100,7 +100,91 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="evaluation/">
+        <li class="chapter " data-level="1.2" data-path="setup/">
+            
+                <a href="setup/">
+            
+                    
+                    System setup
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="setup/1_ss.html">
+            
+                <a href="setup/1_ss.html">
+            
+                    
+                    SS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="setup/2_v2.html">
+            
+                <a href="setup/2_v2.html">
+            
+                    
+                    v@ray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="setup/3_tor.html">
+            
+                <a href="setup/3_tor.html">
+            
+                    
+                    Tor with Meek
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="setup/4_openconnect.html">
+            
+                <a href="setup/4_openconnect.html">
+            
+                    
+                    OpenConnect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="setup/5_openvpn.html">
+            
+                <a href="setup/5_openvpn.html">
+            
+                    
+                    OpenVPN
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="evaluation/">
             
                 <a href="evaluation/">
             
@@ -114,20 +198,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="evaluation/1_system_setup.html">
-            
-                <a href="evaluation/1_system_setup.html">
-            
-                    
-                    System setup
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" data-path="evaluation/2_experiment.html">
+        <li class="chapter " data-level="1.3.1" data-path="evaluation/2_experiment.html">
             
                 <a href="evaluation/2_experiment.html">
             
@@ -145,7 +216,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="design/">
+        <li class="chapter " data-level="1.4" data-path="design/">
             
                 <a href="design/">
             
@@ -158,7 +229,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="other/">
+        <li class="chapter " data-level="1.5" data-path="other/">
             
                 <a href="other/">
             
@@ -172,7 +243,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="other/cmd/">
+        <li class="chapter " data-level="1.5.1" data-path="other/cmd/">
             
                 <a href="other/cmd/">
             
@@ -186,7 +257,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1" data-path="other/cmd/1_network.html">
+        <li class="chapter " data-level="1.5.1.1" data-path="other/cmd/1_network.html">
             
                 <a href="other/cmd/1_network.html">
             
@@ -199,7 +270,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="other/cmd/2_transport.html">
+        <li class="chapter " data-level="1.5.1.2" data-path="other/cmd/2_transport.html">
             
                 <a href="other/cmd/2_transport.html">
             
@@ -212,7 +283,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.3" data-path="other/cmd/3_application.html">
+        <li class="chapter " data-level="1.5.1.3" data-path="other/cmd/3_application.html">
             
                 <a href="other/cmd/3_application.html">
             
@@ -225,7 +296,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.4" data-path="other/cmd/4_sniffer.html">
+        <li class="chapter " data-level="1.5.1.4" data-path="other/cmd/4_sniffer.html">
             
                 <a href="other/cmd/4_sniffer.html">
             
@@ -238,7 +309,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.5" data-path="other/cmd/5_port.html">
+        <li class="chapter " data-level="1.5.1.5" data-path="other/cmd/5_port.html">
             
                 <a href="other/cmd/5_port.html">
             
@@ -307,27 +378,25 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="setup">Setup</h3>
-<ol>
-<li>Creating a clean gh-pages branch</li>
-</ol>
+<p>1.Creating a clean gh-pages branch</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># https://gist.github.com/ramnathv/2227408</span>
 <span class="hljs-built_in">cd</span> /path/to/repo-name
 git symbolic-ref HEAD refs/heads/gh-pages
 rm .git/index
 git clean -fdx
 </code></pre>
-<ol>
-<li>Gitbook auto commit script</li>
-</ol>
-<pre><code class="lang-bash"><span class="hljs-comment"># Run this command under the gitbook folder</span>
-cat &gt; gbsync.sh &lt;&lt;<span class="hljs-string">&apos;EOF&apos;</span>
+<p>2.Gitbook auto commit script</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Run this script under the gitbook folder</span>
+gitbook_dir=<span class="hljs-variable">$1</span>
+github_repo=<span class="hljs-variable">$2</span>
+cat &gt;gbsync.sh &lt;&lt;EOF
 gitbook build
-<span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>/github/proxy/
+<span class="hljs-built_in">cd</span> \<span class="hljs-variable">$HOME</span>/github/<span class="hljs-variable">${github_repo}</span>/
 git co gh-pages 
-cp -r <span class="hljs-variable">$HOME</span>/github/gitbooks/proxy/_book/* <span class="hljs-variable">$HOME</span>/github/proxy/
+cp -r \<span class="hljs-variable">$HOME</span>/github/gitbooks/<span class="hljs-variable">${gitbook_dir}</span>/_book/* \<span class="hljs-variable">$HOME</span>/github/<span class="hljs-variable">${github_repo}</span>/
 git add .
-dt=`date <span class="hljs-string">&apos;+%d/%m/%Y,%H:%M&apos;</span>`
-git commit -m <span class="hljs-variable">$dt</span>
+dt=\$(date <span class="hljs-string">&apos;+%d/%m/%Y,%H:%M&apos;</span>)
+git commit -m \<span class="hljs-variable">$dt</span>
 git push -u origin gh-pages
 git co master
 EOF
@@ -362,7 +431,7 @@ EOF
             
                 
                 
-                <a href="evaluation/" class="navigation navigation-next navigation-unique" aria-label="Next page: Evaluation">
+                <a href="setup/" class="navigation navigation-next navigation-unique" aria-label="Next page: System setup">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -373,7 +442,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"😣","level":"1.1","depth":1,"next":{"title":"Evaluation","level":"1.2","depth":1,"path":"evaluation/README.md","ref":"evaluation/README.md","articles":[{"title":"System setup","level":"1.2.1","depth":2,"path":"evaluation/1_system_setup.md","ref":"evaluation/1_system_setup.md","articles":[]},{"title":"Experiment","level":"1.2.2","depth":2,"path":"evaluation/2_experiment.md","ref":"evaluation/2_experiment.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-01-10T13:51:10.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-11T22:55:59.903Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"😣","level":"1.1","depth":1,"next":{"title":"System setup","level":"1.2","depth":1,"path":"setup/README.md","ref":"setup/README.md","articles":[{"title":"SS","level":"1.2.1","depth":2,"path":"setup/1_ss.md","ref":"setup/1_ss.md","articles":[]},{"title":"v@ray","level":"1.2.2","depth":2,"path":"setup/2_v2.md","ref":"setup/2_v2.md","articles":[]},{"title":"Tor with Meek","level":"1.2.3","depth":2,"path":"setup/3_tor.md","ref":"setup/3_tor.md","articles":[]},{"title":"OpenConnect","level":"1.2.4","depth":2,"path":"setup/4_openconnect.md","ref":"setup/4_openconnect.md","articles":[]},{"title":"OpenVPN","level":"1.2.5","depth":2,"path":"setup/5_openvpn.md","ref":"setup/5_openvpn.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-01-15T23:21:37.073Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-16T23:00:18.674Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
