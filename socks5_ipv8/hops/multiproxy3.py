@@ -21,11 +21,11 @@ from pyipv8.ipv8.messaging.anonymization.community import TunnelCommunity, Tunne
 # master_peer_init = Peer(
 #     "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
 #         .decode('HEX'))
-
+#
 # master_peer_init = Peer(
 #     "307e301006072a8648ce3d020106052b81040024036a0004017dc7230411163214d17a4a1c3b2ec63c4ce5e56509041bcebb8f8e55c1befea14101e2499d8dbd0d9d1412fade2e8079fa171000fea5c0ad4ace791b6cb1708e46ccb6709afe90a18f303ad6f50afb9fcb64bf929419b00ba87ed81ca6b2e7100b75f53937ffe4"
 #         .decode('HEX'))
-#
+
 # master_peer_init = Peer(
 #     "307e301006072a8648ce3d020106052b81040024036a000401487c28074a4594a1089cb2efa6788678c1053cc42d07284a70dd06d8210ef8d433c98728a24f8ccca1634e62c0d986b2af97620167d013d284574b7095ae3029fd5b679d59f1283815d575c66c95f996ccef2173fd652893b13a23c8209c8eb39a0a10985b8f4d"
 #         .decode('Hex')
@@ -36,7 +36,8 @@ master_peer_init = Peer(
         .decode('Hex')
 )
 
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s %(levelname)-8s %(message)s',
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
@@ -298,7 +299,7 @@ class ForwardProtocol(protocol.Protocol):
     def connectionMade(self):
         address = self.transport.getPeer()
         self.host_address = self.transport.getHost()
-        logging.debug("{}:{}, {}, Receive connection from {}:{}"
+        logging.debug("forwarder!!!!!{}:{}, {}, Receive connection from {}:{}"
                       .format(self.host_address.host, self.host_address.port, self.__class__.__name__,
                               address.host, address.port))
 
@@ -307,6 +308,7 @@ class ForwardProtocol(protocol.Protocol):
         messages, self.message_buffer = Message.parse_stream(data_to_parse)
 
         for m in messages:
+            logging.debug("forwarder messages!!!!!{} : {}".format(m.msg_type, repr(m.data)))
             if m.msg_type == 'ping':
                 self.handle_PING()
 
@@ -325,7 +327,7 @@ class ForwardProtocol(protocol.Protocol):
         from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
         to_cir_id = self.forward_factory.circuit_id[from_cir_id]
         host, port = self.forward_factory.circuit_peers[from_cir_id]
-        logging.debug("{}:{}, {}, Connect to {}:{}, to_circuit id is:{}"
+        logging.debug("forwarder address {}:{}, {}, Connect to {}:{}, to_circuit id is:{}"
                       .format(self.host_address.host, self.host_address.port,
                               self.__class__.__name__, host, port, to_cir_id))
         remote_factory = RemoteFactory(self, 'f')
@@ -338,6 +340,7 @@ class ForwardProtocol(protocol.Protocol):
         to_cir_id = self.forward_factory.circuit_id[from_cir_id]
         data_to_send = Message(to_cir_id, msg_type, data).to_bytes()
         if self.remote_protocol is not None:
+            logging.debug("sent in forwarder protocol: {}, {} : {}".format(self.host_address, repr(msg_type), repr(data)))
             self.remote_protocol.write(data_to_send)
         else:
             self.buffer += data_to_send
@@ -459,7 +462,7 @@ class RemoteProtocol(protocol.Protocol, object):
         self.write(self.remote_factory.local_protocol.buffer)
         self.remote_factory.local_protocol.buffer = ''
 
-        self.send_ping()
+        # self.send_ping()
 
     def send_ping(self):
         ping = Message(0, 'ping', '').to_bytes()
@@ -565,7 +568,7 @@ def proxy(nodes_num):
             'alias': "my peer",
             'generation': u"curve25519",
             # 'file': u"ec_{1}{0}.pem".format(*id_with_key)
-            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key)+(os.urandom(2),)))
+            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key) + (os.urandom(2),)))
         }]
         configuration['logger'] = {
             'level': 'ERROR'

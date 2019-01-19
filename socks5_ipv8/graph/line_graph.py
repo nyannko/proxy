@@ -26,5 +26,8 @@ l2, = plt.plot(keys, das2, linestyle="--", marker='s', label='DAS5 differnet clu
 l3, = plt.plot(keys, globals, linestyle="-.", marker='x', label='Global cloud instances', color='#dc322f')
 plt.legend(handler_map={l1: HandlerLine2D(numpoints=4)})
 
+e = [0.11, 0.16, 0.19, 0.10]
+plt.errorbar(keys, das1, yerr=e, fmt='o')
+
 plt.show()
-fig.savefig('fig/{}.pdf'.format('line'))
+# fig.savefig('fig/{}.pdf'.format('line'))

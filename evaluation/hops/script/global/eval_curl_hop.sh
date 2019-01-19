@@ -16,7 +16,7 @@ hop1="hop1.txt"
 hop2="hop2.txt"
 hop3="hop3.txt"
 
-max_time=30s
+max_time=3m
 
 import() {
     source curl_hop.sh
@@ -38,10 +38,13 @@ eval_normal_curl_time() {
 eval_hop_curl_time() {
     import
     input=$1 # hop1-3
+    port=$2 # different socks5 port
     echo $input
     for w in ${ws[@]}; do
         echo ${!w}
-        timeout $max_time bash -c "test_hop ${!w} test/$w ${!input}"
+        echo "port: ${port}"
+        # test_hop website; dir; filename(hop0-3.txt)
+        timeout $max_time bash -c "test_hop  ${!w} ${port} test/$w ${!input}"
 #        gtimeout $max_time bash -c "test_hop ${!w} test/$w ${!input}"
     done
 }
@@ -72,11 +75,11 @@ test_function() {
 if [[ $1 = "normal" ]]; then
     eval_normal_curl_time normal
 elif [[ $1 = "hop1" ]]; then
-    eval_hop_curl_time hop1
+    eval_hop_curl_time hop1 40000
 elif [[ $1 = "hop2" ]]; then
-    eval_hop_curl_time hop2
+    eval_hop_curl_time hop2 40001
 elif [[ $1 = "hop3" ]]; then
-    eval_hop_curl_time hop3
+    eval_hop_curl_time hop3 40002
 else
     echo "unknown"
 fi

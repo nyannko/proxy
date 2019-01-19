@@ -63,4 +63,4 @@ for x, y in zip(yvars_axis, yvars):
 
     save_dir = './fig'
     plt.show()
-    fig.savefig('{}/{}.pdf'.format(save_dir, y))
+    # fig.savefig('{}/{}.pdf'.format(save_dir, y))

@@ -51,4 +51,5 @@ result/
 .idea/
 gbsync.sh
 gitbook_script.sh
+comparison_result/
 

@@ -37,7 +37,7 @@ master_peer_init = Peer(
 # )
 
 
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s %(levelname)-8s %(message)s',
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
@@ -460,7 +460,7 @@ class RemoteProtocol(protocol.Protocol, object):
         self.write(self.remote_factory.local_protocol.buffer)
         self.remote_factory.local_protocol.buffer = ''
 
-        self.send_ping()
+        # self.send_ping()
 
     def send_ping(self):
         ping = Message(0, 'ping', '').to_bytes()
