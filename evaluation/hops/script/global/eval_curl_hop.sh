@@ -42,7 +42,6 @@ eval_hop_curl_time() {
     echo $input
     for w in ${ws[@]}; do
         echo ${!w}
-        echo "port: ${port}"
         # test_hop website; dir; filename(hop0-3.txt)
         timeout $max_time bash -c "test_hop  ${!w} ${port} test/$w ${!input}"
 #        gtimeout $max_time bash -c "test_hop ${!w} test/$w ${!input}"
