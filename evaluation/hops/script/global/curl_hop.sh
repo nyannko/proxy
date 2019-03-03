@@ -31,10 +31,10 @@ test_normal() {
 
 test_hop() {
     create_file $3 $4
-#    port=$2
-    port=40000 # for debug
+    port=$2
+#    port=40000 # for debug
     while true; do
-#        echo "socks5h://127.0.0.1:${port}" # for debug
+        echo "socks5h://127.0.0.1:${port}" # for debug
         result=`curl --proxy socks5h://127.0.0.1:${port} -s -o /dev/null  -w "%{time_namelookup} %{time_connect} %{time_appconnect} %{time_pretransfer} %{time_redirect} %{time_starttransfer} %{time_total}\n" $1`;
         error_code=$?
         if [ $error_code -ne 0 ]; then

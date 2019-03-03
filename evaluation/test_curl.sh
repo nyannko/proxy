@@ -110,7 +110,6 @@ loop_ov () {
             ovpn ${!w} $w
         done
     done
-
 }
 
 ovpn() {
@@ -125,8 +124,8 @@ ovpn() {
     res=`curl  -s -o /dev/null  -w "$FORMAT" $WEBSITE`
     echo $res
     echo $res >> "result/${DIRNAME}/${FILENAME}"
-
 }
+
 _main() {
 #   1
 #    loop 10

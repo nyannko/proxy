@@ -4,6 +4,7 @@ import struct
 import socket
 import logging
 import argparse
+import uuid
 
 from twisted.python import log
 from twisted.internet import reactor
@@ -11,7 +12,6 @@ from twisted.internet import protocol
 from twisted.internet.task import LoopingCall
 from twisted.internet.protocol import Factory, ClientFactory
 
-from pyipv8.ipv8.deprecated.community import Community
 from pyipv8.ipv8.peer import Peer
 from socks5_ipv8.Message import Message
 from pyipv8.ipv8_service import IPv8, _COMMUNITIES
@@ -37,7 +37,7 @@ master_peer_init = Peer(
 #         .decode('Hex')
 # )
 
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s %(levelname)-8s %(message)s',
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
 
 
@@ -98,6 +98,8 @@ class MultiProxyClient(MultiProxy):
     def __init__(self, my_peer, endpoint, network):
         super(MultiProxyClient, self).__init__(my_peer, endpoint, network)
         self.settings = TunnelSettings()
+        self.remove_tunnel_delay = 1000
+        self.max_joined_circuits = 1000
         self.settings.become_exitnode = False
         self.forward_factory = ForwardFactory(self)
         reactor.listenTCP(self.port, self.forward_factory)
@@ -175,6 +177,8 @@ class MultiProxyServer(MultiProxy):
     def __init__(self, my_peer, endpoint, network):
         super(MultiProxyServer, self).__init__(my_peer, endpoint, network)
         self.settings = TunnelSettings()
+        self.remove_tunnel_delay = 1000
+        self.max_joined_circuits = 1000
         self.settings.become_exitnode = True
         self.server_factory = ServerFactory(self)
         reactor.listenTCP(self.port, self.server_factory)
@@ -566,7 +570,7 @@ def proxy(nodes_num):
             'alias': "my peer",
             'generation': u"curve25519",
             # 'file': u"ec_{1}{0}.pem".format(*id_with_key)
-            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key) + (os.urandom(2),)))
+            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key) + (str(uuid.uuid4()),)))
         }]
         configuration['logger'] = {
             'level': 'ERROR'

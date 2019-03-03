@@ -1,11 +1,9 @@
 import os
-import random
 import time
 import struct
 import socket
 import logging
 import argparse
-import uuid
 
 from twisted.python import log
 from twisted.internet import reactor
@@ -20,24 +18,25 @@ from pyipv8.ipv8_service import IPv8, _COMMUNITIES
 from pyipv8.ipv8.configuration import get_default_configuration
 from pyipv8.ipv8.messaging.anonymization.community import TunnelCommunity, TunnelSettings, CIRCUIT_STATE_READY
 
-# master_peer_init = Peer(
+# master_peers = {}
+
+# master_peers[0] = Peer(
 #     "307e301006072a8648ce3d020106052b81040024036a00040112bc352a3f40dd5b6b34f28c82636b3614855179338a1c2f9ac87af17f5af3084955c4f58d9a48d35f6216aac27d68e04cb6c200025046155983a3ae1378320d93e3d865c6ab63b3f11a6c74fc510fa67b2b5f448de756b4114f765c80069e9faa51476604d9d4"
 #         .decode('HEX'))
 #
-# master_peer_init = Peer(
+# master_peers[1] = Peer(
 #     "307e301006072a8648ce3d020106052b81040024036a0004017dc7230411163214d17a4a1c3b2ec63c4ce5e56509041bcebb8f8e55c1befea14101e2499d8dbd0d9d1412fade2e8079fa171000fea5c0ad4ace791b6cb1708e46ccb6709afe90a18f303ad6f50afb9fcb64bf929419b00ba87ed81ca6b2e7100b75f53937ffe4"
 #         .decode('HEX'))
-
-master_peer_init = Peer(
-    "307e301006072a8648ce3d020106052b81040024036a000401487c28074a4594a1089cb2efa6788678c1053cc42d07284a70dd06d8210ef8d433c98728a24f8ccca1634e62c0d986b2af97620167d013d284574b7095ae3029fd5b679d59f1283815d575c66c95f996ccef2173fd652893b13a23c8209c8eb39a0a10985b8f4d"
-        .decode('Hex')
-)
-
-# master_peer_init = Peer(
+#
+# master_peers[2] = Peer(
+#     "307e301006072a8648ce3d020106052b81040024036a000401487c28074a4594a1089cb2efa6788678c1053cc42d07284a70dd06d8210ef8d433c98728a24f8ccca1634e62c0d986b2af97620167d013d284574b7095ae3029fd5b679d59f1283815d575c66c95f996ccef2173fd652893b13a23c8209c8eb39a0a10985b8f4d"
+#         .decode('Hex')
+# )
+#
+# master_peers[3] = Peer(
 #     "307e301006072a8648ce3d020106052b81040024036a000400e0ba96c684c264342852cf25a75868524589dfbf81454074ea6ea379d1c3a6f9b85e3007d970916e18aeca17d6e99ce52c4a24013bf8ee92ee291d92cdc34ce0f59f1b98027e979f0f6157a8f5579356791fa7a88bd6a697d8ba3bce81d6547e46e4f76e135922"
 #         .decode('Hex')
 # )
-
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S', filemode='a+')
@@ -47,7 +46,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(m
 # ----------------------------------------------------------------------------------------------------------------------
 # For peer discovery ...
 class MultiProxy(TunnelCommunity):
-    master_peer = master_peer_init
+    # master_peer = master_peers[0]
 
     def __init__(self, my_peer, endpoint, network):
         super(MultiProxy, self).__init__(my_peer, endpoint, network)
@@ -132,13 +131,12 @@ class MultiProxyClient(MultiProxy):
 
         # Update exit nodes
         self.update_exit_node(self.socks5_factory)
-        exit_node = random.choice(self.socks5_factory.exit_node.values()) if self.socks5_factory.exit_node else 'None'
-        # print "lengthhhhh....", len(self.socks5_factory.exit_node)
+        exit_node = self.socks5_factory.exit_node.values()[0] if self.socks5_factory.exit_node else 'None'
         self.logger.debug("{}:{}, {}, Update exit nodes {}"
                           .format(self.addr, self.port, self.__class__.__name__, exit_node))
 
         self.update_exit_node(self.forward_factory)
-        exit_node = random.choice(self.forward_factory.exit_node.values()) if self.socks5_factory.exit_node else 'None'
+        exit_node = self.forward_factory.exit_node.values()[0] if self.socks5_factory.exit_node else 'None'
         self.logger.debug("{}:{}, {}, Update exit nodes {}"
                           .format(self.addr, self.port, self.__class__.__name__, exit_node))
 
@@ -162,8 +160,6 @@ class MultiProxyInitiator(MultiProxyClient):
         self.logger.debug("{}:{}, {}, Initialized at {}"
                           .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
 
-        self.build_tunnels(1)
-
 
 class MultiProxyForwarder(MultiProxyClient):
 
@@ -183,7 +179,7 @@ class MultiProxyServer(MultiProxy):
         reactor.listenTCP(self.port, self.server_factory)
         self.logger.debug("{}:{}, {} initialized at {}"
                           .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
-
+        self.socks5_factory = Socks5Factory(self)
 
 # Client local side
 # ----------------------------------------------------------------------------------------------------------------------
@@ -225,19 +221,10 @@ class Socks5Protocol(protocol.Protocol):
     def send_address(self, addr_to_send):
         # use tcp endpoint
         remote_factory = RemoteFactory(self, 'c')
-        # circuit = self.socks5_factory.circuit_peers.values()[0]
-        # # print "circuit.hs_session_keys", repr(circuit.hs_session_keys), circuit.hops
-        # host, port = circuit.peer.address
-        # self.cir_id = self.socks5_factory.circuit_peers.keys()[0]  # circuit_id
-        if not self.socks5_factory.circuit_peers:
-            return
-        # random choose forwarder's addresses
-        circuit_item = random.choice(self.socks5_factory.circuit_peers.items())
-        circuit = circuit_item[1]
+        circuit = self.socks5_factory.circuit_peers.values()[0]
+        # print "circuit.hs_session_keys", repr(circuit.hs_session_keys), circuit.hops
         host, port = circuit.peer.address
-        # print "circuit_item", circuit_item, host, port
-        self.cir_id = circuit_item[0]  # circuit_id
-
+        self.cir_id = self.socks5_factory.circuit_peers.keys()[0]  # circuit_id
         self.buffer = Message(self.cir_id, 'addr', addr_to_send).to_bytes()
         reactor.connectTCP(host, port, remote_factory)
         logging.info("{}:{}, {}, Connected to {}:{}"
@@ -338,7 +325,6 @@ class ForwardProtocol(protocol.Protocol):
         from_cir_id, msg_type, data = message.cir_id, message.msg_type, message.data
         to_cir_id = self.forward_factory.circuit_id[from_cir_id]
         host, port = self.forward_factory.circuit_peers[from_cir_id]
-        # print "next_hop", host, port
         logging.debug("{}:{}, {}, Connect to {}:{}, to_circuit id is:{}"
                       .format(self.host_address.host, self.host_address.port,
                               self.__class__.__name__, host, port, to_cir_id))
@@ -564,7 +550,7 @@ class RemoteFactory(ClientFactory):
             logging.error("No such remote protocol.")
 
 
-def proxy(nodes_num):
+def proxy(nodes_num, hop):
     _COMMUNITIES['MultiProxyInitiator'] = MultiProxyInitiator
     _COMMUNITIES['MultiProxyForwarder'] = MultiProxyForwarder
     _COMMUNITIES['MultiProxyServer'] = MultiProxyServer
@@ -573,13 +559,17 @@ def proxy(nodes_num):
     logging.debug("Initialize {} clients, {} forwarder, {} server"
                   .format(client_num, forwarder_num, server_num))
 
-    def set_nodes(role, id_with_key):
+    def set_nodes(role, id_with_key, hop, build_tunnels=False):
+        on_start = [('started',)]
+        if build_tunnels:
+            on_start.append(('build_tunnels', hop))
+
         configuration = get_default_configuration()
         configuration['keys'] = [{
             'alias': "my peer",
             'generation': u"curve25519",
             # 'file': u"ec_{1}{0}.pem".format(*id_with_key)
-            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key) + (str(uuid.uuid4()),)))
+            'file': u"ec{}_{}_{!r}.pem".format(*((id_with_key) + (os.urandom(2),)))
         }]
         configuration['logger'] = {
             'level': 'ERROR'
@@ -594,33 +584,24 @@ def proxy(nodes_num):
                     'timeout': 3.0
                 }
             }],
+            'hops': hop,
             'initialize': {},
-            'on_start': [('started',)]
+            'on_start': on_start
         }]
         IPv8(configuration)
 
     key = 1
-
     for _ in range(client_num):
-        set_nodes('MultiProxyInitiator', (key, 'c'))
+        set_nodes('MultiProxyInitiator', (key, 'c'), hop, build_tunnels=True)
         key += 1
 
     for _ in range(forwarder_num):
-        set_nodes('MultiProxyForwarder', (key, 'f'))
+        set_nodes('MultiProxyForwarder', (key, 'f'), hop)
         key += 1
 
     for _ in range(server_num):
-        set_nodes('MultiProxyServer', (key, 's'))
+        set_nodes('MultiProxyServer', (key, 's'), hop)
         key += 1
-
-    # i, j, k = 0, 0, 0
-    # while i < client_num and j < forwarder_num and k < server_num:
-    #     set_nodes('MultiProxyInitiator', (i, 'c'))
-    #     set_nodes('MultiProxyForwarder', (j, 'f'))
-    #     set_nodes('MultiProxyServer', (k, 's'))
-    #     i += 1
-    #     j += 1
-    #     k += 1
 
 
 if __name__ == '__main__':
@@ -631,11 +612,15 @@ if __name__ == '__main__':
                         help="The number of the forwarders")
     parser.add_argument('--server', type=int, nargs='?', const=0, dest='server_number',
                         help="The number of the servers")
+    parser.add_argument('--hop', type=int, nargs='?', const=0, dest='hop_number',
+                        help="Build the number of hops")
     args = parser.parse_args()
+
     nodes = [args.client_number, args.forwarder_number, args.server_number]
     nodes = [i if i else 0 for i in nodes]
     print(nodes)
-    proxy(nodes)
+    hop = args.hop_number  # distinguish from different master_peer pub key
+    proxy(nodes, hop)
     reactor.run()
     # Usage: python multiproxy.py --client 2 --forwarder 1 --server 2
     # Usage: python multiproxy.py --client 1

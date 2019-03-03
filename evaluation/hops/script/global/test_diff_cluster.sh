@@ -84,7 +84,7 @@ test_hop1d() {
     send_screen $server_node run1 $server_run_command
     echo "server run cmd sent"
 
-    send_screen $client_node eval1 $client_eval_command
+#    send_screen $client_node eval1 $client_eval_command
     echo "client eval cmd sent"
 }
 
@@ -115,7 +115,7 @@ test_hop2d() {
     send_screen $server_node run2 $server_run_command
     echo "server run cmd sent"
 
-    send_screen $client_node eval2 $client_eval_command
+#    send_screen $client_node eval2 $client_eval_command
     echo "client eval cmd sent"
 }
 
@@ -148,7 +148,7 @@ test_hop3d() {
     send_screen $server_node run3 $server_run_command
     echo "server run cmd sent"
 
-    send_screen $client_node eval3 $client_eval_command
+#    send_screen $client_node eval3 $client_eval_command
     echo "client eval cmd sent"
 }
 
@@ -167,7 +167,7 @@ kill_all_screen() {
 }
 
 kill_all_screen
-test_hop1d
+#test_hop1d
 #test_hop2d
 #test_hop3d
 # cannot run these three tests in the same time
