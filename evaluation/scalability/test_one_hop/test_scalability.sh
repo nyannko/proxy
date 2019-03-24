@@ -32,7 +32,7 @@ check_input() {
 reserve_hop() {
     nhosts=${1}
 	reserved_nodes=()
-	preserve -t 06:00:00 -# ${nhosts}
+	preserve -t 00:15:00 -# ${nhosts}
 	sleep 3
 	nodes=($(preserve -long-list | grep gshi |awk 'END{for(i=9;i<=NF;++i)print $i}' ))
 	test_id=$(preserve -long-list | grep gshi | awk 'END{{print $1}}')
@@ -51,7 +51,7 @@ test_hop1() {
         client_nodes[index]=${reserved_nodes[index]}
     done
     # debug: verify client nodes
-    echo "${client_nodes[@]}"
+    echo "client node: ${client_nodes[@]}"
 
     # choose server from the reserved nodes, the number is the same as clients
     p_index=${client_num}

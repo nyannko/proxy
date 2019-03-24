@@ -1,4 +1,5 @@
 import os
+import random
 import time
 import struct
 import socket
@@ -11,6 +12,7 @@ from twisted.internet import protocol
 from twisted.internet.task import LoopingCall
 from twisted.internet.protocol import Factory, ClientFactory
 
+from pyipv8.ipv8.attestation.trustchain.community import TrustChainCommunity
 from pyipv8.ipv8.peer import Peer
 from socks5_ipv8.Message import Message
 from pyipv8.ipv8_service import IPv8, _COMMUNITIES
@@ -41,9 +43,9 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)-8s %(m
 
 
 # IPv8 node
-# ----------------------------------------------------------------------------------------------------------------------
+# ---------------------------n-------------------------------------------------------------------------------------------
 # For peer discovery ...
-class MultiProxy(TunnelCommunity):
+class MultiProxy(TunnelCommunity, TrustChainCommunity):
     master_peer = master_peer_init
 
     def __init__(self, my_peer, endpoint, network):
@@ -76,14 +78,16 @@ class MultiProxy(TunnelCommunity):
     def started(self):
         def start_communication():
             # print "I am:", self.my_peer, "\nI know:", [str(p) for p in self.get_peers()]
+            print "peers", self.peers_dict
             for p in self.get_peers():
                 if p not in self.peers_dict:
                     self.logger.info("New Host {} join the network".format(p))
+
                 self.peers_dict[p] = None
 
-        self.register_task("start_communication", LoopingCall(start_communication)).start(5.0, True).addErrback(log.err)
-        self.register_task("check_circuit", LoopingCall(self.check_circuit)).start(2.0, True).addErrback(log.err)
-        # self.register_task("tunnels_ready", LoopingCall(self.tunnels_ready).start(5.0, True).addErrback(log.err))
+        self.register_task("start_communication", LoopingCall(start_communication)).start(1.0, True).addErrback(log.err)
+        self.register_task("check_circuit", LoopingCall(self.check_circuit)).start(10.0, True).addErrback(log.err)
+        self.register_task("send_sign", LoopingCall(self.send_sign, "bytes").start(1.0, True).addErrback(log.err))
 
     def check_circuit(self):
         """
@@ -91,14 +95,19 @@ class MultiProxy(TunnelCommunity):
         """
         pass
 
+    def send_sign(self, mining_model):
+        pass
+
 
 class MultiProxyClient(MultiProxy):
+    DB_NAME = 'trustchain_client'
 
     def __init__(self, my_peer, endpoint, network):
         super(MultiProxyClient, self).__init__(my_peer, endpoint, network)
         self.settings = TunnelSettings()
         self.settings.become_exitnode = False
         self.forward_factory = ForwardFactory(self)
+        self._balance = 0
         reactor.listenTCP(self.port, self.forward_factory)
 
     def check_circuit(self):
@@ -160,6 +169,42 @@ class MultiProxyInitiator(MultiProxyClient):
 
         self.build_tunnels(1)
 
+    # mining model based on throughput(bytes/s)
+    # count bytes number from remote factory
+    def count_bytes(self):
+        timestamp = int(round(time.time() * 1000))
+        bytes = 0
+        remote_dict = self.socks5_factory.remote_factories
+        for k, v in remote_dict.iteritems():
+            bytes += v.byte_count
+            remote_dict[k].byte_count = 0
+        bill = {'time': timestamp, 'identity': 'client->', 'bytes': bytes, 'balance': self._balance}
+        return bill if bytes else None
+
+    # mining model based on time
+    def count_time(self):
+        timestamp = int(round(time.time() * 1000))
+        debit = 0
+        credit = 1
+        self._balance += debit - credit
+        bill = {'time': timestamp, 'identity': 'client->', 'debit': debit, 'credit': credit, 'balance': self._balance}
+        return bill
+
+    # choose a random peer to sign the tx
+    def send_sign(self, method):
+        if not self.peers_dict: return
+        mining_model = None
+        random_peer = random.choice(self.peers_dict.keys())
+        random_peer_pubkey = random_peer.public_key.key_to_bin()
+        if method == "time":
+            mining_model = self.count_time
+        elif method == "bytes":
+            mining_model = self.count_bytes
+        transaction = mining_model()
+        if transaction:
+            print "random_peer_client", random_peer, transaction
+            self.sign_block(random_peer, public_key=random_peer_pubkey, block_type='test', transaction=transaction)
+
 
 class MultiProxyForwarder(MultiProxyClient):
 
@@ -170,15 +215,54 @@ class MultiProxyForwarder(MultiProxyClient):
 
 
 class MultiProxyServer(MultiProxy):
+    DB_NAME = 'trustchain_server'
 
     def __init__(self, my_peer, endpoint, network):
         super(MultiProxyServer, self).__init__(my_peer, endpoint, network)
         self.settings = TunnelSettings()
         self.settings.become_exitnode = True
         self.server_factory = ServerFactory(self)
+        self._balance = 0
         reactor.listenTCP(self.port, self.server_factory)
         self.logger.debug("{}:{}, {} initialized at {}"
                           .format(self.addr, self.port, self.__class__.__name__, self.socks5_port))
+
+    # mining model based on throughput(bytes/s)
+    # count bytes number from remote factory
+    def count_bytes(self):
+        timestamp = int(round(time.time() * 1000))
+        bytes = 0
+        remote_dict = self.server_factory.remote_factories
+        for k, v in remote_dict.iteritems():
+            bytes += v.byte_count
+            remote_dict[k].byte_count = 0
+            print "test_byte", bytes
+        bill = {'time': timestamp, 'identity': 'server->', 'bytes': bytes, 'balance': self._balance}
+        return bill if bytes else None
+
+    # mining model based on time
+    def count_time(self):
+        timestamp = int(round(time.time() * 1000))
+        debit = 1
+        credit = 0
+        self._balance += debit - credit
+        bill = {'time': timestamp, 'identity': 'server->', "debit": debit, "credit": credit, "balance": self._balance}
+        return bill
+
+    # choose a random peer to sign the tx
+    def send_sign(self, method):
+        if not self.peers_dict: return
+        mining_model = None
+        random_peer = random.choice(self.peers_dict.keys())
+        random_peer_pubkey = random_peer.public_key.key_to_bin()
+        if method == "time":
+            mining_model = self.count_time
+        elif method == "bytes":
+            mining_model = self.count_bytes
+        transaction = mining_model()
+        if transaction:
+            print "random_peer_server", random_peer, transaction
+            self.sign_block(random_peer, public_key=random_peer_pubkey, block_type='test', transaction=transaction)
 
 
 # Client local side
@@ -220,15 +304,16 @@ class Socks5Protocol(protocol.Protocol):
 
     def send_address(self, addr_to_send):
         # use tcp endpoint
-        remote_factory = RemoteFactory(self, 'c')
+        self.remote_factory = RemoteFactory(self, 'c')
         circuit = self.socks5_factory.circuit_peers.values()[0]
         # print "circuit.hs_session_keys", repr(circuit.hs_session_keys), circuit.hops
         host, port = circuit.peer.address
         self.cir_id = self.socks5_factory.circuit_peers.keys()[0]  # circuit_id
         self.buffer = Message(self.cir_id, 'addr', addr_to_send).to_bytes()
-        reactor.connectTCP(host, port, remote_factory)
+        reactor.connectTCP(host, port, self.remote_factory)
         logging.info("{}:{}, {}, Connected to {}:{}"
                      .format(self.host_address.host, self.host_address.port, self.__class__.__name__, host, port))
+        self.socks5_factory.remote_factories[self] = self.remote_factory
 
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
@@ -278,6 +363,7 @@ class Socks5Factory(Factory):
         self.proxy = proxy
         self.circuit_peers = {}
         self.exit_node = {}
+        self.remote_factories = {}
 
     def buildProtocol(self, addr):
         return Socks5Protocol(self)
@@ -398,6 +484,7 @@ class ServerProtocol(protocol.Protocol):
         remote_factory = RemoteFactory(self, 's')
         reactor.connectTCP(host, port, remote_factory)
         self.buffer = request
+        self.server_factory.remote_factories[self] = remote_factory
 
     def handle_REQUEST(self, message):
         data_to_send = message.data
@@ -437,7 +524,7 @@ class ServerProtocol(protocol.Protocol):
 class ServerFactory(Factory):
     def __init__(self, proxy):
         self.proxy = proxy
-        self.factories = {}
+        self.remote_factories = {}
 
     def buildProtocol(self, addr):
         return ServerProtocol(self)
@@ -470,6 +557,7 @@ class RemoteProtocol(protocol.Protocol, object):
         return self.buffer + data
 
     def dataReceived(self, data):
+        self.remote_factory.byte_count += len(data)
         data_to_send = self.pre_process(data)
         self.on_data(data_to_send)
 
@@ -538,6 +626,7 @@ class RemoteFactory(ClientFactory):
         """ Initialize local protocols(socks5/forwarder/server)"""
         self.local_protocol = local_protocol
         self.role = role
+        self.byte_count = 0
 
     def buildProtocol(self, addr):
         if self.role == 's':

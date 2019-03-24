@@ -7,7 +7,7 @@ from pyipv8.ipv8.attestation.trustchain.community import TrustChainCommunity
 from pyipv8.ipv8.configuration import get_default_configuration
 from pyipv8.ipv8.peer import Peer
 from pyipv8.ipv8_service import _COMMUNITIES, IPv8
-from socks5_udp.trustchain_example.trustserver import TestBlockListener
+# from socks5_udp.trustchain_example.trustserver import TestBlockListener
 
 
 class TrustClient(TrustChainCommunity):

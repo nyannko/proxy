@@ -1,6 +1,6 @@
 import logging
 
-from requests import RequestException
+# from requests import RequestException
 from twisted.internet import reactor, protocol
 from twisted.internet.protocol import Factory, ClientFactory
 from twisted.internet.task import LoopingCall
@@ -81,17 +81,17 @@ class Client(Community):
         if not censored:
             self.server_dict[peer] = None
 
-    def check_ip_region(self, ip):
-        import requests
-        ip = "http://ip-api.com/csv/" + ip
-        try:
-            country = requests.get(ip).text[1]
-            if country and country == "China":
-                return True
-        except RequestException:
-            self.logger.exception("Something goes wrong in requests.")
-        finally:
-            return False
+    # def check_ip_region(self, ip):
+    #     import requests
+    #     ip = "http://ip-api.com/csv/" + ip
+    #     try:
+    #         country = requests.get(ip).text[1]
+    #         if country and country == "China":
+    #             return True
+    #     except RequestException:
+    #         self.logger.exception("Something goes wrong in requests.")
+    #     finally:
+    #         return False
 
     def report_abuse(self, peer):
         self.blacklist_dict[peer] = None
