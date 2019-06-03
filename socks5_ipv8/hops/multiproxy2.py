@@ -225,10 +225,6 @@ class Socks5Protocol(protocol.Protocol):
     def send_address(self, addr_to_send):
         # use tcp endpoint
         remote_factory = RemoteFactory(self, 'c')
-        # circuit = self.socks5_factory.circuit_peers.values()[0]
-        # # print "circuit.hs_session_keys", repr(circuit.hs_session_keys), circuit.hops
-        # host, port = circuit.peer.address
-        # self.cir_id = self.socks5_factory.circuit_peers.keys()[0]  # circuit_id
         if not self.socks5_factory.circuit_peers:
             return
         # random choose forwarder's addresses

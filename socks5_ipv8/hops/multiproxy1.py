@@ -303,26 +303,42 @@ class Socks5Protocol(protocol.Protocol):
         self.send_address(addr_to_send)
 
     def send_address(self, addr_to_send):
-        # use tcp endpoint
+        if not self.socks5_factory.circuit_peers:
+            return
         self.remote_factory = RemoteFactory(self, 'c')
-        circuit = self.socks5_factory.circuit_peers.values()[0]
+        circuit_item = random.choice(self.socks5_factory.circuit_peers.items())
+        circuit = circuit_item[1]
         # print "circuit.hs_session_keys", repr(circuit.hs_session_keys), circuit.hops
         host, port = circuit.peer.address
-        self.cir_id = self.socks5_factory.circuit_peers.keys()[0]  # circuit_id
+        key = circuit.hops
+        print "keyyy", [i.session_keys for i in key]
+        self.cir_id = circuit_item[0]
         self.buffer = Message(self.cir_id, 'addr', addr_to_send).to_bytes()
+        self.encrypt(self.cir_id, self.buffer)
         reactor.connectTCP(host, port, self.remote_factory)
         logging.info("{}:{}, {}, Connected to {}:{}"
                      .format(self.host_address.host, self.host_address.port, self.__class__.__name__, host, port))
         self.socks5_factory.remote_factories[self] = self.remote_factory
 
+    def encrypt(self, id, msg):
+        proxy = self.socks5_factory.proxy
+        print msg
+        e = repr(proxy.crypto_out(id, msg))
+        print "try encryption:", e
+        d = repr(proxy.crypto_in(id, e))
+        print "try decryption:", d
+        print msg == d
+
     def handle_TRANSMISSION(self, data):
         """ Send packed data to server """
         # print "send data", repr(data)
         data_send = Message(self.cir_id, 'data', data).to_bytes()
+        # data_send = self.encrypt(self.cir_id, Message(self.cir_id, 'data', data).to_bytes())
         if self.remote_protocol is not None:
             self.remote_protocol.write(data_send)
         else:
             self.buffer += data_send
+        # self.buffer = self.encrypt(self.cir_id, self.buffer)
 
     def get_packed_address(self, address):
         packed_ip = socket.inet_aton(address.host)
