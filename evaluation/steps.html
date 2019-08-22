@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Others · GitBook</title>
+        <title>Steps · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cmd/" />
+    <link rel="next" href="2_experiment.html" />
     
     
-    <link rel="prev" href="../design/" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -212,9 +212,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../evaluation/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../evaluation/">
+                <a href="./">
             
                     
                     Evaluation
@@ -226,9 +226,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../evaluation/steps.html">
+        <li class="chapter active" data-level="1.4.1" data-path="steps.html">
             
-                <a href="../evaluation/steps.html">
+                <a href="steps.html">
             
                     
                     Steps
@@ -239,9 +239,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../evaluation/2_experiment.html">
+        <li class="chapter " data-level="1.4.2" data-path="2_experiment.html">
             
-                <a href="../evaluation/2_experiment.html">
+                <a href="2_experiment.html">
             
                     
                     Experiment
@@ -270,9 +270,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="./">
+        <li class="chapter " data-level="1.6" data-path="../other/">
             
-                <a href="./">
+                <a href="../other/">
             
                     
                     Others
@@ -284,9 +284,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="cmd/">
+        <li class="chapter " data-level="1.6.1" data-path="../other/cmd/">
             
-                <a href="cmd/">
+                <a href="../other/cmd/">
             
                     
                     CMD
@@ -298,9 +298,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1.1" data-path="cmd/1_network.html">
+        <li class="chapter " data-level="1.6.1.1" data-path="../other/cmd/1_network.html">
             
-                <a href="cmd/1_network.html">
+                <a href="../other/cmd/1_network.html">
             
                     
                     network
@@ -311,9 +311,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.1.2" data-path="cmd/2_transport.html">
+        <li class="chapter " data-level="1.6.1.2" data-path="../other/cmd/2_transport.html">
             
-                <a href="cmd/2_transport.html">
+                <a href="../other/cmd/2_transport.html">
             
                     
                     transport
@@ -324,9 +324,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.1.3" data-path="cmd/3_application.html">
+        <li class="chapter " data-level="1.6.1.3" data-path="../other/cmd/3_application.html">
             
-                <a href="cmd/3_application.html">
+                <a href="../other/cmd/3_application.html">
             
                     
                     application
@@ -337,9 +337,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.1.4" data-path="cmd/4_sniffer.html">
+        <li class="chapter " data-level="1.6.1.4" data-path="../other/cmd/4_sniffer.html">
             
-                <a href="cmd/4_sniffer.html">
+                <a href="../other/cmd/4_sniffer.html">
             
                     
                     sniffer
@@ -350,9 +350,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.1.5" data-path="cmd/5_port.html">
+        <li class="chapter " data-level="1.6.1.5" data-path="../other/cmd/5_port.html">
             
-                <a href="cmd/5_port.html">
+                <a href="../other/cmd/5_port.html">
             
                     
                     status
@@ -368,9 +368,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="bash/bash.html">
+        <li class="chapter " data-level="1.6.2" data-path="../other/bash/bash.html">
             
-                <a href="bash/bash.html">
+                <a href="../other/bash/bash.html">
             
                     
                     Bash
@@ -416,7 +416,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Others</a>
+        <a href=".." >Steps</a>
     </h1>
 </div>
 
@@ -431,7 +431,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h3 id="steps">Steps</h3>
+<h4 id="1local-speed-testdas5--no-sudo">1.local speed test(das5&lt;--no sudo...)</h4>
+<p>1.Generate 1GB random file</p>
+<pre><code class="lang-bash">dd <span class="hljs-keyword">if</span>=/dev/urandom of=sample.txt bs=1G count=1 iflag=fullblock
+</code></pre>
+<p><strong>Questions</strong></p>
+<ul>
+<li>Is it possible to read 50GB file to mem in once? (check mem) No. Limited quota for each user.</li>
+</ul>
+<p>2.Setup client and server on the same VPS</p>
+<pre><code class="lang-bash">
+
+</code></pre>
+
                                 
                                 </section>
                             
@@ -458,12 +471,12 @@
 
             
                 
-                <a href="../design/" class="navigation navigation-prev " aria-label="Previous page: Design">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Evaluation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cmd/" class="navigation navigation-next " aria-label="Next page: CMD">
+                <a href="2_experiment.html" class="navigation navigation-next " aria-label="Next page: Experiment">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -474,7 +487,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Others","level":"1.6","depth":1,"next":{"title":"CMD","level":"1.6.1","depth":2,"path":"other/cmd/README.md","ref":"other/cmd/README.md","articles":[{"title":"network","level":"1.6.1.1","depth":3,"path":"other/cmd/1_network.md","ref":"other/cmd/1_network.md","articles":[]},{"title":"transport","level":"1.6.1.2","depth":3,"path":"other/cmd/2_transport.md","ref":"other/cmd/2_transport.md","articles":[]},{"title":"application","level":"1.6.1.3","depth":3,"path":"other/cmd/3_application.md","ref":"other/cmd/3_application.md","articles":[]},{"title":"sniffer","level":"1.6.1.4","depth":3,"path":"other/cmd/4_sniffer.md","ref":"other/cmd/4_sniffer.md","articles":[]},{"title":"status","level":"1.6.1.5","depth":3,"path":"other/cmd/5_port.md","ref":"other/cmd/5_port.md","articles":[]}]},"previous":{"title":"Design","level":"1.5","depth":1,"path":"design/README.md","ref":"design/README.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"other/README.md","mtime":"2019-01-11T21:42:23.552Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T21:45:23.075Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Steps","level":"1.4.1","depth":2,"next":{"title":"Experiment","level":"1.4.2","depth":2,"path":"evaluation/2_experiment.md","ref":"evaluation/2_experiment.md","articles":[]},"previous":{"title":"Evaluation","level":"1.4","depth":1,"path":"evaluation/README.md","ref":"evaluation/README.md","articles":[{"title":"Steps","level":"1.4.1","depth":2,"path":"evaluation/steps.md","ref":"evaluation/steps.md","articles":[]},{"title":"Experiment","level":"1.4.2","depth":2,"path":"evaluation/2_experiment.md","ref":"evaluation/2_experiment.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"evaluation/steps.md","mtime":"2019-07-29T08:54:10.778Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T21:45:23.075Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

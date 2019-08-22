@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>OpenConnect · GitBook</title>
+        <title>Lantern · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="5_openvpn.html" />
+    <link rel="next" href="../evaluation/" />
     
     
-    <link rel="prev" href="3_tor.html" />
+    <link rel="prev" href="5_openvpn.html" />
     
 
     </head>
@@ -168,7 +168,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.4" data-path="4_openconnect.html">
+        <li class="chapter " data-level="1.3.4" data-path="4_openconnect.html">
             
                 <a href="4_openconnect.html">
             
@@ -194,7 +194,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="6_lantern.html">
+        <li class="chapter active" data-level="1.3.6" data-path="6_lantern.html">
             
                 <a href="6_lantern.html">
             
@@ -416,7 +416,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >OpenConnect</a>
+        <a href=".." >Lantern</a>
     </h1>
 </div>
 
@@ -431,87 +431,86 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="set-up-ocserv-docker">Set up ocserv docker</h3>
-<p><strong>dependencies: docker, openconnect</strong></p>
-<p>1.Download docker</p>
-<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/TommyLau/docker-ocserv.git
-</code></pre>
-<p>2.Change Dockerfile</p>
-<pre><code class="lang-bash">...
-<span class="hljs-comment"># change key server</span>
-&amp;&amp; gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-key 7F343FA7 \
-&amp;&amp; gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-key 96865171 \
-...
-<span class="hljs-comment"># change expose port</span>
-&amp;&amp; sed -i <span class="hljs-string">&apos;s/tcp-port = 443/tcp-port = 4433/&apos;</span> /etc/ocserv/ocserv.conf \
-&amp;&amp; sed -i <span class="hljs-string">&apos;s/udp-port = 443/udp-port = 4433/&apos;</span> /etc/ocserv/ocserv.conf \
-...
-</code></pre>
-<p>3.Build</p>
-<pre><code class="lang-bash">docker build -t newocserv .
-</code></pre>
-<p>4.Run server</p>
-<pre><code class="lang-bash">docker run --name newocserv --privileged -p 4433:4433 -p 4433:4433/udp <span class="hljs-_">-d</span> newocserv
-</code></pre>
-<p>5.Test client</p>
-<pre><code class="lang-bash">sudo yum install openconnect
-sudo openconnect --protocol=anyconnect https://xxx.xxx.xxx.xxx:port
-</code></pre>
-<h3 id="&#x4E00;&#x4E9B;&#x95EE;&#x9898;">&#x4E00;&#x4E9B;&#x95EE;&#x9898;</h3>
-<ul>
-<li>RUN&#x547D;&#x4EE4;&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#x5361;&#x4F4F;&#x4E86;&#xFF0C;&#x91CD;&#x542F;docker&#x91CD;&#x65B0;build&#x5C31;&#x597D;&#x4E86;&#x3002;</li>
-</ul>
-<ul>
-<li>&#x4ECE;vps&#x4E0A;&#x6D4B;&#x8BD5;&#x8FDE;&#x63A5;vpn&#x9700;&#x8981;&#x5728;vps&#x4E0A;&#x4FEE;&#x6539;&#x8DEF;&#x7531;&#x8868;&#xFF0C;&#x4FEE;&#x6539;&#x524D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6240;&#x6709;&#x7684;&#x76EE;&#x6807;&#x5730;&#x5740;&#x90FD;&#x662F;&#x4ECE;<code>192.168.1.253</code>&#x8FD9;&#x4E2A;&#x7F51;&#x5173;&#x5730;&#x5740;&#x51FA;&#x53BB;</li>
-</ul>
-<p><img src="../images/ssh_vpn.png" width="600"></p>
-<pre><code class="lang-bash">$ route -n
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-0.0.0.0         192.168.1.253   0.0.0.0         UG    0      0        0 eth0
-10.8.0.0        10.8.0.2        255.255.255.0   UG    0      0        0 tun0
-10.8.0.2        0.0.0.0         255.255.255.255 UH    0      0        0 tun0
-169.254.0.0     0.0.0.0         255.255.0.0     U     1002   0        0 eth0
-192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
-</code></pre>
-<p>&#x65B0;&#x589E;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#xFF0C;&#x8868;&#x793A;&#x56DE;&#x672C;&#x673A;&#x7684;&#x6D41;&#x91CF;&#x7ECF;&#x8FC7;vps&#x7684;eth0&#x7F51;&#x5173;&#xFF0C;&#x8FD9;&#x6837;&#x5F53;vps&#x8FDE;&#x63A5;&#x4E0A;vpn&#x7684;&#x65F6;&#x5019;ssh&#x6D41;&#x91CF;&#x5C31;&#x4E0D;&#x4F1A;&#x8F6C;&#x53D1;&#x5230;vpn&#x4E0A;&#x9762;&#x53BB;&#x4E86;&#x3002;</p>
-<pre><code class="lang-bash">route add -host 145.94.204.56 gw 192.168.1.253
-</code></pre>
-<p>&#x524D;&#x9762;&#x6CA1;&#x6709;<code>#</code>&#x7684;&#x4EE3;&#x8868;vpn&#x65B0;&#x589E;&#x52A0;&#x7684;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#xFF0C;&#x7B2C;&#x4E00;&#x884C;&#x7B2C;&#x4E00;&#x5217;<code>0.0.0.0</code>&#x7684;&#x610F;&#x601D;&#x662F;&#x8BF4;&#x9664;&#x4E86;&#x8DEF;&#x7531;&#x8868;&#x4E4B;&#x5916;&#x7684;&#x6240;&#x6709;&#x7F51;&#x7EDC;&#x76EE;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x7B2C;&#x4E8C;&#x5217;&#x7684;&#x610F;&#x601D;&#x5E94;&#x8BE5;&#x662F;VPN&#x670D;&#x52A1;&#x5668;&#x5206;&#x914D;&#x672C;&#x673A;&#x7684;&#x5730;&#x5740;&#x5982;<code>192.168.99.138</code></p>
-<pre><code class="lang-bash">$ netstat -nr
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-0.0.0.0         0.0.0.0         0.0.0.0         U         0 0          0 tun1
-<span class="hljs-comment">#10.8.0.0        10.8.0.2        255.255.255.0   UG        0 0          0 tun0</span>
-<span class="hljs-comment">#10.8.0.2        0.0.0.0         255.255.255.255 UH        0 0          0 tun0</span>
-35.196.96.100   192.168.1.253   255.255.255.255 UGH       0 0          0 eth0
-145.94.204.56   192.168.1.253   255.255.255.255 UGH       0 0          0 eth0
-<span class="hljs-comment">#169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 eth0</span>
-<span class="hljs-comment">#192.168.1.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0</span>
-192.168.99.0    0.0.0.0         255.255.255.0   U         0 0          0 tun1
+                                <h3 id="lantern">Lantern</h3>
+<h4 id="1&#x4F9D;&#x8D56;-go-npm">1.&#x4F9D;&#x8D56;: go, npm</h4>
+<pre><code>sudo yum install nodejs
+node -v 
+npm -v
+</code></pre><p>global directory &#x51FA;&#x9519;&#xFF0C;&#x61D2;&#x5F97;&#x88C5;nvm, &#x624B;&#x52A8;&#x4FEE;&#x6539;&#x76EE;&#x5F55;</p>
+<p><a href="https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally" target="_blank">https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally</a></p>
+<p>&#x5B89;&#x88C5;&#x7F3A;&#x5931;&#x7684;&#x4F9D;&#x8D56;: <code>sudo yum install -y gtk3-devel libappindicator-devel libappindicator-gtk3-devel</code></p>
+<h4 id="2&#x7F16;&#x8BD1;lantern&#x51FA;&#x9519;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;&#x5B98;&#x65B9;&#x7684;go&#xFF0C;&#x8981;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;lantern&#x81EA;&#x5E26;&#x7684;go">2.&#x7F16;&#x8BD1;lantern&#x51FA;&#x9519;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;&#x5B98;&#x65B9;&#x7684;go&#xFF0C;&#x8981;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;lantern&#x81EA;&#x5E26;&#x7684;go</h4>
+<pre><code>Building development lantern
+** VERSION was not set, using default version. This is OK while in development.
+Build tags:
+Extra ldflags:
+# github.com/getlantern/flashlight/client
+src/github.com/getlantern/flashlight/client/reverseproxy.go:20:3: unknown field &apos;MaxIdleTime&apos; in struct literal of type http.Transport
+src/github.com/getlantern/flashlight/client/reverseproxy.go:22:11: transport.EnforceMaxIdleTime undefined (type *http.Transport has no field or method EnforceMaxIdleTime)
+# github.com/getlantern/flashlight/proxied
+src/github.com/getlantern/flashlight/proxied/proxied.go:391:5: tr.MaxIdleTime undefined (type *http.Transport has no field or method MaxIdleTime)
+src/github.com/getlantern/flashlight/proxied/proxied.go:392:5: tr.EnforceMaxIdleTime undefined (type *http.Transport has no field or method EnforceMaxIdleTime)
+</code></pre><p>&#x89E3;&#x51B3;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>1.&#x4E0B;&#x8F7D;go <a href="https://golang.org/dl/" target="_blank">https://golang.org/dl/</a></p>
+<pre><code>wget https://dl.google.com/go/go1.12.9.linux-amd64.tar.gz
+</code></pre><p>2.&#x4E0B;&#x8F7D;lantern&#x91CC;&#x9762;&#x7684;&#x7684;go</p>
+<pre><code>mkdir github
+cd github
+git clone --depth=1 https://github.com/getlantern/go.git -b lantern
+</code></pre><p>3.&#x7F16;&#x8BD1;lantern-go</p>
+<pre><code>cd lantern/src
+GOROOT_BOOTSTRAP=$HOME/go ./all.bash
+</code></pre><p>4.&#x4FEE;&#x6539;.bashrc</p>
+<pre><code>export GOROOT=$HOME/github/go
+export PATH=$PATH:$GOROOT/bin
+</code></pre><p>&#x5982;&#x679C;&#x4E4B;&#x524D;&#x5B89;&#x88C5;&#x8FC7;&#x5B98;&#x65B9;go&#x7684;&#x8BDD;path&#x53EF;&#x4EE5;&#x52A0;&#x5728;&#x524D;&#x9762;</p>
+<pre><code>export PATH=$PATH:$GOROOT/bin
+``
 
-<span class="hljs-comment"># same</span>
-$ route -n
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-0.0.0.0         0.0.0.0         0.0.0.0         U     0      0        0 tun1
-10.8.0.0        10.8.0.2        255.255.255.0   UG    0      0        0 tun0
-10.8.0.2        0.0.0.0         255.255.255.255 UH    0      0        0 tun0
-35.196.96.100   192.168.1.253   255.255.255.255 UGH   0      0        0 eth0
-145.94.204.56   192.168.1.253   255.255.255.255 UGH   0      0        0 eth0
-169.254.0.0     0.0.0.0         255.255.0.0     U     1002   0        0 eth0
-192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
-192.168.99.0    0.0.0.0         255.255.255.0   U     0      0        0 tun1
-</code></pre>
-<h3 id="&#x5404;&#x79CD;&#x610F;&#x5916;">&#x5404;&#x79CD;&#x610F;&#x5916;</h3>
-<p>&#x9000;&#x51FA;&#x7684;&#x65F6;&#x5019;tun&#x89C4;&#x5219;&#x6CA1;&#x6709;&#x88AB;&#x5220;&#x9664;&#x4F1A;&#x9020;&#x6210;&#x4E0B;&#x6B21;&#x7684;&#x542F;&#x52A8;&#x95EE;&#x9898;&#xFF0C;&#x5220;&#x9664;route&#x4E2D;&#x7684;&#x89C4;&#x5219;&#x3002;</p>
-<pre><code>sudo ip addr flush tun
-</code></pre><h3 id="ref">Ref</h3>
-<p><a href="https://github.com/TommyLau/docker-ocserv" target="_blank">https://github.com/TommyLau/docker-ocserv</a></p>
-<p><a href="https://tommy.net.cn/2015/02/12/deploy-openconnect-server-with-docker/" target="_blank">https://tommy.net.cn/2015/02/12/deploy-openconnect-server-with-docker/</a></p>
-<p><a href="https://serverfault.com/questions/649792/prevent-ssh-connection-lost-after-logging-into-vpn-on-server-machine" target="_blank">https://serverfault.com/questions/649792/prevent-ssh-connection-lost-after-logging-into-vpn-on-server-machine</a></p>
-<p><a href="https://stackoverflow.com/questions/26220957/how-can-i-inspect-the-file-system-of-a-failed-docker-build" target="_blank">&#x5173;&#x4E8E;Dockerfile&#x7684;debug</a></p>
-<p><a href="https://wizardforcel.gitbooks.io/vbird-linux-server-3e/content/50.html" target="_blank">&#x9E1F;&#x54E5;</a></p>
+
+5.&#x7F16;&#x8BD1;lantern
+</code></pre><p>cd lantern
+make lantern</p>
+<pre><code>
+#### 3.&#x7F16;&#x8BD1;go&#x65F6;&#x51FA;&#x9519;
+</code></pre><p>--- FAIL: TestParseInLocation (0.07s)
+    format_test.go:263: ParseInLocation(Feb 01 2013 AST, Baghdad) = 2013-02-01 00:00:00 +0000 AST, want 2013-02-01 00:00:00 +0300 +03
+--- FAIL: TestLoadFixed (0.06s)
+    time_test.go:943: Now().In(loc).Zone() = &quot;-01&quot;, -3600, want &quot;GMT+1&quot;, -3600</p>
+<pre><code>
+&#x89E3;&#x51B3;&#xFF1A;&#x66FF;&#x6362;lantern-go&#x4E2D;&#x4E24;&#x4E2A;&#x5931;&#x8D25;&#x7684;testcase&#x6E90;&#x7801;
+
+[https://go-review.googlesource.com/c/go/+/37964/4/src/time/format_test.go#254](https://go-review.googlesource.com/c/go/+/37964/4/src/time/format_test.go#254)
+
+[https://github.com/golang/go/commit/c5434f2973a87acff76bac359236e690d632ce95](https://github.com/golang/go/commit/c5434f2973a87acff76bac359236e690d632ce95)
+
+
+#### 4.&#x7F16;&#x8BD1;go&#x65F6;&#x51FA;&#x9519;&#xFF0C;&#x4F46;&#x4E0D;&#x5F71;&#x54CD;
+</code></pre><p>/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+No support for static linking found (lacks libc.a?), skip cgo static linking test.</p>
+<pre><code>
+#### 5.&#x8FD0;&#x884C;lantern&#x65F6;&#x51FA;&#x9519;
+</code></pre><p>(lantern:11874): Gtk-WARNING **: 14:31:09.662: cannot open display:</p>
+<pre><code>
+&#x89E3;&#x51B3;
+</code></pre><p>sudo yum install Xvfb
+Xvfb :99 &amp;
+export DISPLAY=:99</p>
+<pre><code>
+#### 6.&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x7CFB;&#x7EDF;&#x5F00;&#x542F;local port&#xFF0C;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;
+</code></pre><h1 id="http">http</h1>
+<p>Aug 19 14:39:07.604 - 0m1s DEBUG flashlight.client: client.go:133 About to start HTTP client proxy at 127.0.0.1:8787</p>
+<h1 id="socks5&#x597D;&#x50CF;&#x4E0D;&#x597D;&#x7528;">socks5&#x597D;&#x50CF;&#x4E0D;&#x597D;&#x7528;</h1>
+<p>Aug 22 20:06:36.553 - 0m0s DEBUG flashlight: flashlight.go:116 Starting client SOCKS5 proxy
+Aug 22 20:06:36.553 - 0m0s DEBUG flashlight.client: client.go:162 About to start SOCKS5 client proxy at 127.0.0.1:8788</p>
+<h1 id="error-detour-detourgo148-caused-by-no-trusted-dialers">ERROR detour: detour.go:148 Caused by: No trusted dialers</h1>
+<pre><code>
+
+</code></pre><p>curl --proxy <a href="http://127.0.0.1:8787" target="_blank">http://127.0.0.1:8787</a> google.com
+```</p>
+<p>&#x65E5;&#x5FD7;&#x8FDE;&#x63A5;: <a href="https://pastebin.com/UwR256sp" target="_blank">https://pastebin.com/UwR256sp</a></p>
+<p>ref: <a href="https://blog.huzhifeng.com/2017/04/10/Lantern/" target="_blank">https://blog.huzhifeng.com/2017/04/10/Lantern/</a></p>
 
                                 
                                 </section>
@@ -539,12 +538,12 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 
             
                 
-                <a href="3_tor.html" class="navigation navigation-prev " aria-label="Previous page: Tor with Meek">
+                <a href="5_openvpn.html" class="navigation navigation-prev " aria-label="Previous page: OpenVPN">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="5_openvpn.html" class="navigation navigation-next " aria-label="Next page: OpenVPN">
+                <a href="../evaluation/" class="navigation navigation-next " aria-label="Next page: Evaluation">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -555,7 +554,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"OpenConnect","level":"1.3.4","depth":2,"next":{"title":"OpenVPN","level":"1.3.5","depth":2,"path":"setup/5_openvpn.md","ref":"setup/5_openvpn.md","articles":[]},"previous":{"title":"Tor with Meek","level":"1.3.3","depth":2,"path":"setup/3_tor.md","ref":"setup/3_tor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"setup/4_openconnect.md","mtime":"2019-01-30T22:14:06.783Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T21:45:23.075Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lantern","level":"1.3.6","depth":2,"next":{"title":"Evaluation","level":"1.4","depth":1,"path":"evaluation/README.md","ref":"evaluation/README.md","articles":[{"title":"Steps","level":"1.4.1","depth":2,"path":"evaluation/steps.md","ref":"evaluation/steps.md","articles":[]},{"title":"Experiment","level":"1.4.2","depth":2,"path":"evaluation/2_experiment.md","ref":"evaluation/2_experiment.md","articles":[]}]},"previous":{"title":"OpenVPN","level":"1.3.5","depth":2,"path":"setup/5_openvpn.md","ref":"setup/5_openvpn.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"setup/6_lantern.md","mtime":"2019-08-22T20:27:24.879Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T21:45:23.075Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

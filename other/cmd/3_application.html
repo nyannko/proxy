@@ -194,6 +194,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.6" data-path="../../setup/6_lantern.html">
+            
+                <a href="../../setup/6_lantern.html">
+            
+                    
+                    Lantern
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -213,7 +226,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../evaluation/2_experiment.html">
+        <li class="chapter " data-level="1.4.1" data-path="../../evaluation/steps.html">
+            
+                <a href="../../evaluation/steps.html">
+            
+                    
+                    Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../evaluation/2_experiment.html">
             
                 <a href="../../evaluation/2_experiment.html">
             
@@ -413,6 +439,9 @@
 <p>2.&#x6D4B;&#x8BD5;&#x8FDE;&#x63A5;&#xFF0C;&#x5199;&#x811A;&#x672C;&#x52A0;<code>-m</code>&#x9650;&#x5236;&#x65F6;&#x95F4;&#xFF0C; &#x68C0;&#x67E5;&#x8FD4;&#x56DE;&#x503C;</p>
 <p>&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;&#xFF0C;&#x52A0;<code>-w</code></p>
 <pre><code class="lang-bash">curl -w %{http_code} -m 3 <span class="hljs-_">-s</span> -o /dev/null www.google.com
+
+<span class="hljs-comment"># -s: don&apos;t show progress meter or error messages</span>
+<span class="hljs-comment"># -o /dev/null: write output to /dev/null</span>
 </code></pre>
 <pre><code class="lang-bash">curl --proxy socks5h://127.0.0.1:40000 <span class="hljs-_">-s</span> -o /dev/null  -w <span class="hljs-string">&quot;%{time_namelookup} %{time_connect} %{time_appconnect} %{time_pretransfer} %{time_redirect} %{time_starttransfer} %{time_total}\n&quot;</span> www.google.com
 </code></pre>
@@ -474,7 +503,7 @@ curl asdf &gt; /dev/null 2&gt;/dev/null
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"application","level":"1.6.1.3","depth":3,"next":{"title":"sniffer","level":"1.6.1.4","depth":3,"path":"other/cmd/4_sniffer.md","ref":"other/cmd/4_sniffer.md","articles":[]},"previous":{"title":"transport","level":"1.6.1.2","depth":3,"path":"other/cmd/2_transport.md","ref":"other/cmd/2_transport.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"other/cmd/3_application.md","mtime":"2019-01-14T23:04:05.016Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-22T14:01:19.096Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"application","level":"1.6.1.3","depth":3,"next":{"title":"sniffer","level":"1.6.1.4","depth":3,"path":"other/cmd/4_sniffer.md","ref":"other/cmd/4_sniffer.md","articles":[]},"previous":{"title":"transport","level":"1.6.1.2","depth":3,"path":"other/cmd/2_transport.md","ref":"other/cmd/2_transport.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"other/cmd/3_application.md","mtime":"2019-08-21T09:29:17.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-22T21:45:23.075Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
